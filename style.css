@@ -1,3 +1,8 @@
+:root {
+    --bgcolor: hsl(0, 0%, 98%);
+    --pagecolor: hsl(0, 0%, 95%);
+}
+
 html:not(.showgap), html:not(.showgap) body {
     margin: 0;
 }
@@ -11,7 +16,7 @@ html:not(.removefont) * {
 }
 
 html:not(.nobackground) body {
-    background: #29436e;
+    background: var(--bgcolor);
 }
 
 html:not(.noalignfirstcell) table td:nth-child(1) {
@@ -25,13 +30,15 @@ html:not(.nomaintableborder) table, html:not(.nomaintableborder) table *:not(.re
 }
 
 html:not(.nopage) .page {
-    min-height: 100vh;
+    min-height: 99vh;
+    margin-bottom: 1vh;
     min-width: 400px;
     max-width: 60%;
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: auto;
-    background: #ebebeb;
-    box-shadow: 0px 0px 30px 50px #ebebeb;
+    background: var(--pagecolor);
+    box-shadow: 2px 2px 3px 1px black;
 }
 
 html:not(.notitle) .title {
@@ -41,8 +48,6 @@ html:not(.notitle) .title {
 
 html:not(.noemphasis) .emphasis {
     font-style: italic;
-    font-family: garamond;
-    font-size: 120%;
     color: #1d2edb;
 }
 
