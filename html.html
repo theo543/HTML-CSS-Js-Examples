@@ -76,7 +76,7 @@
         <p>
             This web site uses the following tags:
         </p>
-        <table class="compressfirst togglegoeshere">
+        <table class="compressfirst" id="toggletable">
             <tr>
                 <th>
                     Tag(s)
@@ -92,7 +92,7 @@
                 <td>
                     html
                 </td>
-                <td class="nochkbox">
+                <td>
                     Page root. All other elements are contained in the html tag.
                 </td>
                 <td class="notoggle">
@@ -103,7 +103,7 @@
                 <td>
                     body
                 </td>
-                <td class="nochkbox">
+                <td>
                     Contains normal tags.
                 </td>
                 <td class="notoggle">
@@ -183,7 +183,7 @@
             </tr>
             <tr>
                 <td>
-                    h1, h2, h3, h4, h5, h6
+                    h1<br>h2<br>h3<br>h4<br>h5<br>h6
                 </td>
                 <td>
                     The tags h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
@@ -211,7 +211,7 @@
             </tr>
             <tr>
                 <td>
-                    table, tr, th, td
+                    table<br>tr<br>th<br>td
                 </td>
                 <td>
                     The table tag is the root element of a HTML table.
@@ -228,10 +228,6 @@
                     &emsp;&lt;tr&gt;<br>
                     &emsp;&emsp;&lt;td&gt;Cell 1 Row 1&lt;/td&gt;<br>
                     &emsp;&emsp;&lt;td&gt;Cell 2 Row 1&lt;/td&gt;<br>
-                    &emsp;&lt;/tr&gt;<br>
-                    &emsp;&lt;tr&gt;<br>
-                    &emsp;&emsp;&lt;td&gt;Cell 1 Row 2&lt;/td&gt;<br>
-                    &emsp;&emsp;&lt;td&gt;Cell 2 Row 2&lt;/td&gt;<br>
                     &emsp;&lt;/tr&gt;<br>
                     &lt;/table&gt;
                 </td>
@@ -295,7 +291,7 @@
             </tr>
             <tr>
                 <td>
-                    ul, ol, li
+                    ul<br>ol<br>li
                 </td>
                 <td>
                     Used to define lists. li is a block-level list item. ol and ul correspond to ordered (with numbers)
@@ -314,7 +310,7 @@
             </tr>
             <tr>
                 <td>
-                    input, form
+                    input<br>form<br>label
                 </td>
                 <td>
                     Defines ways to input information such as checkboxes, text inputs, submit buttons, etc. The form
@@ -322,9 +318,12 @@
                     the input elements inside it to a server when submitted without JavaScript.
                 </td>
                 <td class="codecell">
-                    &lt;form action=&quot;processing_script.php&quot;&gt;<br>
-                    &emsp;&lt;input type=&quot;checkbox&quot; name=&quot;purchase&quot;&gt;<br>
-                    &emsp;&lt;span&gt;Confirm purchase.&lt;/span&gt;<br>
+                    &lt;form action=&quot;purchase_processing.php&quot;&gt;<br>
+                    &emsp;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;purchase&quot;&gt;
+                    <br>
+                    &emsp;Agree to purchase?
+                    <br>
+                    &emsp;&lt;/label&gt;<br>
                     &emsp;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>
                     &lt;/form&gt;
                 </td>

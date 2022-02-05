@@ -23,7 +23,7 @@ html:not(.noalignfirstcell) table td:nth-child(1) {
     text-align: center;
 }
 
-html:not(.nomaintableborder) table, html:not(.nomaintableborder) table *:not(.removeborder) {
+html:not(.nomaintableborder) table, html:not(.nomaintableborder) table td {
     border: 2px solid black;
     border-collapse: collapse;
     margin: 0;
