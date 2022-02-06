@@ -6,8 +6,7 @@ resetelem.addEventListener("click", (function(){
 }));
 
 var altered = 0;
-var cells = document.querySelectorAll("#toggletable tr td:nth-child(2)");
-var tracker = 0;
+var cells = document.querySelectorAll("#toggletable tr td:nth-child(2):not(.ignore)");
 function updateClasses(event){
     form = event.currentTarget
     for(var tag of document.querySelectorAll(form.selector)){
@@ -40,5 +39,4 @@ for (var cell of cells) {
     form.selector = cell.previousElementSibling.innerText.toLowerCase().trim().replaceAll(/\n| /g, ",");
     form.addEventListener("change", updateClasses);
     form.none.click()
-    tracker++;
 }

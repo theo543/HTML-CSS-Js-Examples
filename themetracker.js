@@ -12,10 +12,10 @@ function themeChange(value){
 }
 
 themeQuery.addEventListener("change", e => themeChange(e.matches));
-let b = document.createElement("form");
-b.id = "themeForm";
-document.body.appendChild(b);
-b.innerHTML = `<label><input type ="checkbox" id="themeCheckbox" name="checkbox">Dark Theme</label>`
-checkbox = b.getElementsByTagName("input")[0];
-b.addEventListener("change", e => themeChange(e.target.checked));
+var form = document.createElement("form");
+form.id = "themeForm";
+document.body.appendChild(form);
+form.innerHTML = `<label><input type ="checkbox" id="themeCheckbox" name="checkbox">Dark Theme</label>`
+checkbox = form.getElementsByTagName("input")[0];
+form.addEventListener("change", e => themeChange(e.target.checked));
 themeChange(themeState); //init

@@ -75,7 +75,7 @@ html:not(.nocode) .code {
     word-wrap: break-word;
     color: #33ff00;
     background: black;
-    background: radial-gradient(#002902 30%, #3a5c04 70%, #797707 100%);
+    background: radial-gradient(#00071a 30%, #01302c);
     border-radius: 10px;
     padding: 0 5px;
     font-size: 95%;
@@ -87,7 +87,6 @@ td.codecell {
     background: radial-gradient(#00071a 30%, #01302c);
     white-space: nowrap;
     font-size: 80%;
-    height: 40px;
 }
 
 html:not(.nonotoggle) .notoggle {
@@ -135,9 +134,10 @@ table.compressfirst tr td:nth-child(1) {
 }
 
 .highlighted {
-    background: rgb(0, 225, 255) !important;
-    color: #ff0000 !important;
-    border: 3px solid #0000ff7a !important;
+    background: darkred !important;
+    color: rgb(185, 185, 185) !important;
+    border: 3px solid darkgreen !important;
+    transition: all 1s ease-in-out !important;
 }
 
 .hide {
