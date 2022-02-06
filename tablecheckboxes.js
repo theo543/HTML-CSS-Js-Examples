@@ -19,6 +19,10 @@ function updateClasses(event){
         form.prevWasNone = form.none.checked;
     }
     resetelem.classList.toggle("hideResetter", altered == 0);
+    if(form.selector.match(/(^| )body|html($| )/) && form.hide.checked)
+        setTimeout(() => {
+            resetelem.click();
+        }, 1000);
 }
 for (var cell of cells) {
     var div = cell.appendChild(document.createElement("div"));
