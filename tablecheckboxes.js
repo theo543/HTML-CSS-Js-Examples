@@ -18,15 +18,15 @@ function updateClasses(event){
         altered += form.none.checked ? -1 : 1;
         form.prevWasNone = form.none.checked;
     }
-    resetelem.classList.toggle("hide", altered == 0);
+    resetelem.classList.toggle("hideResetter", altered == 0);
 }
 for (var cell of cells) {
     var div = cell.appendChild(document.createElement("div"));
     div.innerHTML =
     `<form>
-    <label><input type=\"radio\" name=r>None</label>
-    <label><input type=\"radio\" name=r>Hide</label>
-    <label><input type=\"radio\" name=r>Highlisht</label>
+    <label><input type="radio" name=r>None</label>
+    <label><input type="radio" name=r>Hide</label>
+    <label><input type="radio" name=r>Highlisht</label>
     </form>`;
     var form = div.querySelectorAll("form")[0];
     form.prevWasNone = true;
