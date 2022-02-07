@@ -44,7 +44,7 @@ table, table td {
     margin-bottom: 1vh;
     padding-left: 10px;
     padding-right: 10px;
-    margin: auto;
+    margin: 0;
     background: var(--pagecolor);
     box-shadow: 2px 2px 3px 1px black;
 }
@@ -169,5 +169,6 @@ a#current {
 @media (min-width: 1000px){
     .page{
         max-width: 60%;
+        margin: auto;
     }
 }
