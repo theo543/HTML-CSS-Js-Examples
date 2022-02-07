@@ -77,7 +77,7 @@ html:not(.nocode) .code {
     background: black;
     background: radial-gradient(#00071a 30%, #01302c);
     border-radius: 10px;
-    padding: 0 5px;
+    padding: 1px 5px;
     font-size: 95%;
 }
 
@@ -134,14 +134,19 @@ table.compressfirst tr td:nth-child(1) {
 }
 
 .highlighted {
-    background: darkred !important;
-    color: rgb(185, 185, 185) !important;
-    border: 3px solid darkgreen !important;
-    transition: all 1s ease-in-out !important;
+    background: blue !important;
+    border: 3px solid darkblue !important;
+    transition-property: border color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
 }
 
 .hide {
     display: none !important;
+}
+
+#resetter.hide{
+    display: initial !important;
 }
 
 #resetter {
