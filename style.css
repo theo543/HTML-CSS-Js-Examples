@@ -61,8 +61,14 @@ table, table td {
 
 .code {
     display: inline-block;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    color: #33ff00;
+    background: black;
+    background: radial-gradient(#00071a 30%, #01302c);
+    border-radius: 10px;
+    padding: 1px 5px;
+    font-size: 95%;
 }
 
 td.codecell {
