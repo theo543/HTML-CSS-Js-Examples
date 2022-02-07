@@ -175,8 +175,8 @@ table.compressfirst tr td:nth-child(1) {
     height: 30px;
 }
 
-.darktheme #themeForm{
-    filter: invert();
+.darktheme #themeForm label{
+    content: url("dark-mode-6682-invert.svg");
 }
 
 #themeCheckbox{
