@@ -34,7 +34,7 @@
             JavaScript interacts with the user by altering the Document Object Model.
             JavaScript receives input by attaching <span class="emphasis">event listeners</span> (functions) to elements e.g.
             listening to click events on a button.
-            <br></p>
+        </p>
         <p>
             The following script removes a button when it is clicked:
         </p>
@@ -46,7 +46,7 @@
             button.addEventListener(&quot;click&quot;, eventlistener);
         </p>
         <br>
-        <button id="mybutton">Hide</button>
+        <button id="mybutton" style="display:block;">Hide</button>
         <p>
             The HTML and CSS pages on this web site use JavaScript to toggle CSS properties.
         </p>
@@ -67,18 +67,8 @@
                 Updates when the OS theme is changed.
             </li>
             <li>
-                <span class="code">csstoggleselective.js</span> - adds event listeners to all cells with the "toggle"
-                class that add/remove CSS classes to the
-                page root element. Each toggleable CSS rule only selects elements if the page root does not have an
-                unique "disabler" class. This class is specified
-                as an attribute in each toggle cell.
-            </li>
-            <li>
-                <span class="code">csstoggleall.js</span> - adds an event listener to a specific button to toggle all
-                CSS on the page on/off. Works by
-                removing/inserting the HTML tag that inserts CSS into the page. If <span
-                    class="code">csstogglesselective.js</span> is also loaded all disabler classes are
-                removed when the tag is reinserted.
+                <span class="code">CSSToggle.js</span> - Removes the CSS tag from the page or adds it back when a function is called.
+                The CSS toggle button calls the function using the onclick property.
             </li>
         </ul>
     </div>
