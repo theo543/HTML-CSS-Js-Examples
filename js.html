@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
@@ -31,12 +32,10 @@
             into the HTML file or loaded from a file or remote server.
         </p>
         <p>
-            JavaScript interacts with the user by altering the Document Object Model by inserting, removing, altering or
-            moving <span class="emphasis">HTML tags</span>.
-            JavaScript receives input by attaching <span class="emphasis">event listeners</span> (functions) to <span
-                class="emphasis">events</span> e.g.
-            click events on a button.
-            <br></p>
+            JavaScript interacts with the user by altering the Document Object Model.
+            JavaScript receives input by attaching <span class="emphasis">event listeners</span> (functions) to elements e.g.
+            listening to click events on a button.
+        </p>
         <p>
             The following script removes a button when it is clicked:
         </p>
@@ -48,7 +47,7 @@
             button.addEventListener(&quot;click&quot;, eventlistener);
         </p>
         <br>
-        <button id="mybutton">Hide</button>
+        <button id="mybutton" style="display:block;">Hide</button>
         <p>
             The HTML and CSS pages on this web site use JavaScript to toggle CSS properties.
         </p>
@@ -57,25 +56,20 @@
         </p>
         <ul>
             <li>
-                <span class="code">tablecheckboxes.js</span> - inserts checkboxes into the second cell of each row of
-                the table that add/remove CSS classes to
-                elements that match the list of tags in the first cell of each row. Hide checkboxes are not inserted
-                into cells with a specific class. When at least
-                one checkbox is active a "resetter" tag is displayed that resets all checkboxes on click.
+                <span class="code">htmlToggle.js</span> - Inserts radio buttons into the second cell of each row of the table with the ID "toggletable", unless
+                the cell has the "ignore" class.
+                Applies "hide" and "highlighted" CSS classes to the elements specified in the first cell on click.
+                Displays the "resetter" element when at least one element is modified.
+                If &lt;body&gt; or &lt;html&gt; are hidden the script will reset after one second.
             </li>
             <li>
-                <span class="code">csstoggleselective.js</span> - adds event listeners to all cells with the "toggle"
-                class that add/remove CSS classes to the
-                page root element. Each toggleable CSS rule only selects elements if the page root does not have an
-                unique "disabler" class. This class is specified
-                as an attribute in each toggle cell.
+                <span class="code">themeToggle.js</span> - Inserts a checkbox that toggles the dark theme class on &lt;body&gt;. Styled by CSS.
+                Stores the current theme in localStorage. The initial value is decided by the OS theme if it is not set in localStorage.
+                Updates when the OS theme is changed.
             </li>
             <li>
-                <span class="code">csstoggleall.js</span> - adds an event listener to a specific button to toggle all
-                CSS on the page on/off. Works by
-                removing/inserting the HTML tag that inserts CSS into the page. If <span
-                    class="code">csstogglesselective.js</span> is also loaded all disabler classes are
-                removed when the tag is reinserted.
+                <span class="code">CSSToggle.js</span> - Removes the CSS tag from the page or adds it back when a function is called.
+                The CSS toggle button calls the function using the onclick property.
             </li>
         </ul>
     </div>

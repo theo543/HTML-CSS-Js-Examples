@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
@@ -29,20 +30,7 @@
             HTML (HyperText Markup Language) is a web language used to make web pages.
         </p>
         <p>
-            HTML is based on <span class="emphasis">tags</span>. A tag is a structure that represents an element in the
-            web page.
-            Tags can be (and are) <span class="emphasis">nested</span>, meaning that a tag is put inside another.<br>
-        </p>
-        <p>
-            Most tags represent content on the page. For example, the "h1" tag represents a page heading. The title of
-            this page is defined by a h1 tag.</p>
-        <p>
-            Some tags do not represent content. The "html" tag contains all other tags, the "head" tag contains
-            metadata, the "body" tag contains the elements
-            that represent visible content, the "script" tag introduces JavaScript into the page, the "table" tag must
-            be used with other row and cell tags, etc.
-        </p>
-        <p>
+            HTML elements (i.e. tags) define the content of a web page.
             The tree of nested tags that make up a web page is called the <span class="emphasis">Document Object Model</span>.
         </p>
         <p>
@@ -53,14 +41,10 @@
                     <span class="emphasis">None</span> - Does not display at all.
                 </li>
                 <li>
-                    <span class="emphasis">Block-level</span> - The element will try to take up a line on the page on
-                    it's own and expand horizontally as much
-                    as possible. The white page used on this website is a block-level element with a set width.
+                    <span class="emphasis">Block-level</span> - Will create a new line. Will expand as much as possible by default.
                 </li>
                 <li>
-                    <span class="emphasis">Inline</span> - The element will be as small as possible and will allow other
-                    tags on the same line as itself.
-                    The links at the top of this page are inline. They are all on the same line.
+                    <span class="emphasis">Inline</span> - Does not create a new line. Only takes as much space as needed.
                 </li>
                 <li>
                     <span class="emphasis">Flex</span> - Makes the element a block-level flexible box (flexbox)
@@ -70,15 +54,13 @@
                     container that aligns them horizontally with equal space between them.
                 </li>
                 <li>
-                    Display modes such as table, table-cell, table-column, table-row, etc. make the element behave as if
-                    it was another element
-                    (table, td, col, tr, etc.).
+                    <span class='emphasis'>Table, table-cell, table-column, table-row, etc.</span> make the elements display as if they were in a table.
                 </li>
             </ol>
         <p>
             This web site uses the following tags:
         </p>
-        <table class="compressfirst" id="toggletable">
+        <table id="toggletable">
             <tr>
                 <th>
                     Tag(s)
@@ -97,7 +79,7 @@
                 <td>
                     Page root. All other elements are contained in the html tag.
                 </td>
-                <td class="notoggle">
+                <td class="nabox">
                     N/A
                 </td>
             </tr>
@@ -106,9 +88,9 @@
                     body
                 </td>
                 <td>
-                    Contains normal tags.
+                    Contains visible tags.
                 </td>
-                <td class="notoggle">
+                <td class="nabox">
                     N/A
                 </td>
             </tr>
@@ -119,7 +101,7 @@
                 <td class="ignore">
                     Contains metadata tags.
                 </td>
-                <td class="notoggle">
+                <td class="nabox">
                     N/A
                 </td>
             </tr>
@@ -162,8 +144,7 @@
                     div
                 </td>
                 <td>
-                    Bundles elements placed inside into a single block-level element. The white page
-                    with shadow borders used on this site is a div styled with CSS.
+                    Bundles elements placed inside into a single block-level element. Very common.
                 </td>
                 <td class="codecell">
                     &lt;div&gt;<br>
@@ -177,7 +158,7 @@
                     a
                 </td>
                 <td>
-                    The text inside links to the address specified by the tag's "href" attribute. Inline.
+                    Links to the address specified by the tag's "href" attribute.
                 </td>
                 <td class="codecell">
                     &lt;a href=&quot;index.html&quot;&gt;Home Page&lt;/a&gt;
@@ -189,7 +170,6 @@
                 </td>
                 <td>
                     The tags h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
-                    Block-level.
                 </td>
                 <td class="codecell">
                     &lt;h1&gt;Urgent!&lt;/h1&gt;<br>
@@ -218,8 +198,7 @@
                 <td>
                     The table tag is the root element of a HTML table.
                     Rows are defined using tr ("table row") and th ("table header").
-                    Cells are defined by the td ("table data") tag. Cells can contain other tags.
-                    Tables are block-level, however they do NOT expand to fill the page.
+                    Cells are defined by the td ("table data") tag.
                 </td>
                 <td class="codecell">
                     &lt;table&gt;<br>
@@ -267,7 +246,7 @@
                     button
                 </td>
                 <td class="ignore">
-                    Makes a button.<br>Inline.
+                    Makes a button.
                 </td>
                 <td class="codecell">
                     &lt;button onclick=&quot;start();&quot;&gt;<br>

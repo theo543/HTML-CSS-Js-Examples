@@ -1,7 +1,7 @@
 'use strict';
 
 var themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-var themeState = (localStorage.getItem("darkTheme") === "true") ?? themeQuery.matches;
+var themeState = localStorage.getItem("darkTheme") ? (localStorage.getItem("darkTheme") === "true") : themeQuery.matches;
 var checkbox;
 function themeChange(value){
     themeState = value;
@@ -13,9 +13,9 @@ function themeChange(value){
 
 themeQuery.addEventListener("change", e => themeChange(e.matches));
 var form = document.createElement("form");
-form.id = "themeForm";
+form.id = "themeSwitch";
 document.body.appendChild(form);
-form.innerHTML = `<label><input type ="checkbox" id="themeCheckbox" name="checkbox">Dark Theme</label>`
-checkbox = form.getElementsByTagName("input")[0];
+form.innerHTML = `<label><input type ="checkbox" name="checkbox">Dark Theme</label>`
+checkbox = form.checkbox;
 form.addEventListener("change", e => themeChange(e.target.checked));
 themeChange(themeState); //init
