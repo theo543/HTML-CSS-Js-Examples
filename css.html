@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="favicon.ico">
-    <link id="csstag" rel="stylesheet" href="style.css">
+    <link id="cssTag" rel="stylesheet" href="style.css">
     <title>CSS - Web Languages</title>
     <script src="themeToggle.js" defer></script>
+    <script src="CSSToggle.js" defer></script>
 </head>
 
 <body>
@@ -45,9 +46,8 @@
         </p>
         <p>
             <span class="code">style.css</span> contains the following CSS rules:
-            <br>
         </p>
-        <button onclick="ToggleAllCSS();">Click here to toggle all CSS on this page on/off!</button>
+        <button onclick="toggleAll();">Click here to toggle all CSS on this page on/off!</button>
         <br>
         <br>
         <table>
@@ -58,9 +58,6 @@
                 <th>
                     Description
                 </th>
-                <th>
-                    Toggle
-                </th>
             </tr>
             <tr>
                 <td>
@@ -68,9 +65,6 @@
                 </td>
                 <td>
                     Some browsers add a tiny gap at the start of the page. This rule removes it.
-                </td>
-                <td class="toggle" data-disabler="showgap">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -80,9 +74,6 @@
                 <td>
                     Sets the font to Arial.
                 </td>
-                <td class="toggle" data-disabler="removefont">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -90,9 +81,6 @@
                 </td>
                 <td>
                     Sets the page's blue background.
-                </td>
-                <td class="toggle" data-disabler="nobackground">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -102,9 +90,6 @@
                 <td>
                     Adds a border to this table. Touching borders are set to merge.
                 </td>
-                <td class="toggle" data-disabler="nomaintableborder">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -112,9 +97,6 @@
                 </td>
                 <td>
                     Centers text.
-                </td>
-                <td class="toggle" data-disabler="noalignfirstcell">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -127,9 +109,6 @@
                     fill the page,
                     adds a shadow, centers it, sets a maximum width and adds padding.
                 </td>
-                <td class="toggle" data-disabler="nopage">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -140,9 +119,6 @@
                     the
                     element) to 0.
                 </td>
-                <td class="toggle" data-disabler="notitle">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -151,9 +127,6 @@
                 <td>
                     Defines an "emphasis" class. This class makes all text with the class italic, blue, bigger and
                     changes it's font.
-                </td>
-                <td class="toggle" data-disabler="noemphasis">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -166,9 +139,6 @@
                     padding, makes text green, makes the element always display as a rectangle and slightly
                     shrinks the text so gradients in adjactent lines can't touch.
                 </td>
-                <td class="toggle" data-disabler="nocode">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -176,9 +146,6 @@
                 </td>
                 <td>
                     This class sets a gray background and centers text.
-                </td>
-                <td class="toggle" data-disabler="nonotoggle">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -190,9 +157,6 @@
                     element
                     to pointer.
                 </td>
-                <td class="toggle" data-disabler="notoggleable">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -201,9 +165,6 @@
                 <td>
                     Changes background to red.
                 </td>
-                <td class="toggle" data-disabler="notoggleableonclick">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -211,9 +172,6 @@
                 </td>
                 <td>
                     Hides the element. The only purpose of the element is testing the CSS toggle scripts.
-                </td>
-                <td class="toggle" data-disabler="donottest">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -224,9 +182,6 @@
                     This class, in conjunction with the following rule, horizontally aligns the elements inside the
                     container element. Also adds a bottom border.
                 </td>
-                <td class="toggle" data-disabler="disableflexbox">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -235,9 +190,6 @@
                 <td>
                     Horizontally aligns the elements in conjunction with the previous rule.
                 </td>
-                <td class="toggle" data-disabler="disableflexboxalign">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -245,9 +197,6 @@
                 </td>
                 <td>
                     Disables the link and makes it bold.
-                </td>
-                <td class="toggle" data-disabler="nocurrent">
-                    Toggle Rule
                 </td>
             </tr>
             <tr>
@@ -258,9 +207,6 @@
                     Makes the vertical scrollbar always show even if not needed so there is no alignment change between
                     short pages and long pages.
                 </td>
-                <td class="toggle" data-disabler="noforcescroll">
-                    Toggle Rule
-                </td>
             </tr>
             <tr>
                 <td>
@@ -268,9 +214,6 @@
                 </td>
                 <td>
                     Makes text green, adds gradient similar to code class and shrinks text.
-                </td>
-                <td class="notoggle">
-                    Not used on this page
                 </td>
             </tr>
             <tr>
@@ -280,9 +223,6 @@
                 <td>
                     Makes the cell's width as small as possible without breaking up words.
                 </td>
-                <td class="notoggle">
-                    Not used on this page
-                </td>
             </tr>
             <tr>
                 <td>
@@ -291,9 +231,6 @@
                 <td>
                     Highlights element and adds a border. Overrides all other rules.
                 </td>
-                <td class="notoggle">
-                    Not used on this page
-                </td>
             </tr>
             <tr>
                 <td>
@@ -301,9 +238,6 @@
                 </td>
                 <td>
                     Hides element. Overrides all other rules.
-                </td>
-                <td class="notoggle">
-                    Not used on this page
                 </td>
             </tr>
             <tr>
@@ -314,9 +248,6 @@
                     Adds rounded corners, black background, white text, sets cursor to pointer and adds margin and padding. Element will display relative 
                     to browser window, unaffected by scrolling.
                 </td>
-                <td class="notoggle">
-                    Not used on this page
-                </td>
             </tr>
         </table>
         <span id="csstest">CSS test</span>
@@ -326,8 +257,6 @@
             These classes are added and removed using JavaScript.
         </p>
     </div>
-    <script src="csstoggleall.js"></script>
-    <script src="csstoggleselective.js"></script>
 </body>
 
 </html>
