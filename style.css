@@ -119,11 +119,15 @@ a#current {
 }
 
 .highlighted {
-    background: blue !important;
+    background: lightblue !important;
     border: 3px solid darkblue !important;
     transition-property: border color;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
+}
+
+body.darktheme .emphasis.highlighted{
+    filter: initial; /* the filter messes with the emphasis */
 }
 
 .hide {
