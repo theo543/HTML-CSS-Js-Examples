@@ -29,7 +29,7 @@ for (var cell of cells) {
     `<form>
     <label><input type="radio" name=r>None</label>
     <label><input type="radio" name=r>Hide</label>
-    <label><input type="radio" name=r>Highlisht</label>
+    <label><input type="radio" name=r>Highlight</label>
     </form>`;
     var form = div.querySelectorAll("form")[0];
     form.prevWasNone = true;
