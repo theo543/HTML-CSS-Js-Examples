@@ -165,13 +165,13 @@ body.darktheme .emphasis.highlighted, body.darktheme a.highlighted{
 #themeSwitch label {
     cursor: pointer;
     display: block;
-    content: url("dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
+    content: url("/images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
     width: 30px;
     height: 30px;
 }
 
 .darktheme #themeSwitch label {
-    content: url("dark-mode-6682-invert.svg");
+    content: url("/images/dark-mode-6682-invert.svg");
 }
 
 #themeSwitch input {
