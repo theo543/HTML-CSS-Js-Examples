@@ -176,13 +176,13 @@ body.dark-theme .emphasis.highlighted, body.dark-theme a.highlighted{
 #theme-button label {
     cursor: pointer;
     display: block;
-    content: url("/images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
+    content: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
     width: 30px;
     height: 30px;
 }
 
 .dark-theme #theme-button label {
-    content: url("/images/dark-mode-6682-invert.svg");
+    content: url("images/dark-mode-6682-invert.svg");
 }
 
 #theme-button input {
