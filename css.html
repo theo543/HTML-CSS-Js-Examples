@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" id="htmlroot">
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <link rel="icon" href="/images/icon-html.svg">
-    <link id="cssTag" rel="stylesheet" href="/style.css">
+    <link id="css-tag" rel="stylesheet" href="/style.css">
     <title>CSS - Web Languages</title>
     <script src="/scripts/themeToggle.js" defer></script>
     <script src="/scripts/CSSToggle.js" defer></script>
@@ -41,7 +41,7 @@
         <p>
             If an element is targeted by several rules, the rules will be merged.
             If the rules conflict, more specific rules will override less specific rules.
-            A rule that makes all text blue will be overriden by a rule that makes a
+            A rule that makes all text blue will be overridden by a rule that makes a
             specific paragraph black.
             A rule that makes text bold will merge with a rule that makes a specific paragraph red.
         </p>
@@ -84,7 +84,7 @@
             </tr>
             <tr>
                 <td>
-                    Body element when it has "darktheme" class
+                    Body element when it has "dark-theme" class
                 </td>
                 <td>
                     Changes color variables to dark colors.
@@ -92,7 +92,7 @@
             </tr>
             <tr>
                 <td>
-                    Links and elements with "emphasis" class while body has "darktheme" class.
+                    Links and elements with "emphasis" class while body has "dark-theme" class.
                 </td>
                 <td>
                     Increases brightness to be easier to read with dark theme.
@@ -150,7 +150,7 @@
             </tr>
             <tr>
                 <td>
-                    Elements with "nabox" class.
+                    Elements with "NA-box" class.
                 </td>
                 <td>
                     This class sets a gray background and centers text.
@@ -158,7 +158,7 @@
             </tr>
             <tr>
                 <td>
-                    The element with ID "csstest"
+                    The element with ID "css-test"
                 </td>
                 <td>
                     Hides the element for testing the CSS toggle script.
@@ -200,7 +200,7 @@
             </tr>
             <tr>
                 <td>
-                    Table cells with class "codecell"
+                    Table cells with class "code-cell"
                 </td>
                 <td>
                     Similar to "code" class. Shrinks text more.
@@ -224,16 +224,16 @@
             </tr>
             <tr>
                 <td>
-                    Element with "resetter" id
+                    Element with "reset-button" id
                 </td>
                 <td>
                     Adds rounded corners, black background, white text, sets cursor to pointer and adds margin and padding. Fixed position, unaffected by scrolling.
-                    Is hidden by a "hideResetter" class, with a transition.
+                    Is hidden by a "hide-reset-button" class, with a transition.
                 </td>
             </tr>
             <tr>
                 <td>
-                    Element with "themeSwitch" id
+                    Element with "theme-button" id
                 </td>
                 <td>
                     Sets fixed position in bottom right corner.
@@ -241,7 +241,7 @@
             </tr>
             <tr>
                 <td>
-                    Label inside element with "themeSwitch" id
+                    Label inside element with "theme-button" id
                 </td>
                 <td>
                     Sets display to fixed size block, replaces content with a moon image.
@@ -249,7 +249,7 @@
             </tr>
             <tr>
                 <td>
-                    Label inside element with "themeSwitch" id, if body has "darktheme" class
+                    Label inside element with "theme-button" id, if body has "dark-theme" class
                 </td>
                 <td>
                     Replaces content with a moon image with inverted color.
@@ -257,14 +257,14 @@
             </tr>
             <tr>
                 <td>
-                    Input inside element with "themeSwitch" id
+                    Input inside element with "theme-button" id
                 </td>
                 <td>
                     Hides it (checkboxes cannot be directly styled, clicking the label is used instead).
                 </td>
             </tr>
         </table>
-        <span id="csstest">CSS test</span>
+        <span id="css-test">CSS test</span>
         <p class="emphasis">
             Note: All toggleable properties are also set to only do anything if the page root does NOT have a
             specific "disabler class".

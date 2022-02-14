@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <span id="resetter" class="hideResetter">Click here to restore all elements!</span>
+    <span id="reset-button" class="hide-reset-button">Click here to restore all elements!</span>
     <div class="page">
         <br>
         <div class="links">
@@ -49,7 +49,7 @@
                 <li>
                     <span class="emphasis">Flex</span> - Makes the element a block-level flexible box (flexbox)
                     container. A flexbox element will attempt to align
-                    and resize it's contents across a set axis according to set parameters and proportions. The links at
+                    and resize its contents across a set axis according to set parameters and proportions. The links at
                     the top of this page are inside a flexbox
                     container that aligns them horizontally with equal space between them.
                 </li>
@@ -58,9 +58,9 @@
                 </li>
             </ol>
         <p>
-            This web site uses the following tags:
+            This website uses the following tags:
         </p>
-        <table id="toggletable">
+        <table id="toggle-table">
             <tr>
                 <th>
                     Tag(s)
@@ -79,7 +79,7 @@
                 <td>
                     Page root. All other elements are contained in the html tag.
                 </td>
-                <td class="nabox">
+                <td class="NA-box">
                     N/A
                 </td>
             </tr>
@@ -90,7 +90,7 @@
                 <td>
                     Contains visible tags.
                 </td>
-                <td class="nabox">
+                <td class="NA-box">
                     N/A
                 </td>
             </tr>
@@ -101,7 +101,7 @@
                 <td class="ignore">
                     Contains metadata tags.
                 </td>
-                <td class="nabox">
+                <td class="NA-box">
                     N/A
                 </td>
             </tr>
@@ -112,7 +112,7 @@
                 <td class="ignore">
                     Sets the page title.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;title&gt;HTML - Web Languages&lt;/title&gt;
                 </td>
             </tr>
@@ -124,7 +124,7 @@
                 <td class="ignore">
                     Links resources such as page icons or CSS files to the page.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
                 </td>
             </tr>
@@ -135,7 +135,7 @@
                 <td class="ignore">
                     Contains misc. metadata.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;meta charset=&quot;utf-8&quot;&gt;
                 </td>
             </tr>
@@ -146,7 +146,7 @@
                 <td>
                     Bundles elements placed inside into a single block-level element. Very common.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;div&gt;<br>
                     &emsp;&lt;p&gt;Text 1&lt;/p&gt;<br>
                     &emsp;&lt;p&gt;Text 2&lt;/p&gt;<br>
@@ -160,7 +160,7 @@
                 <td>
                     Links to the address specified by the tag's "href" attribute.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;a href=&quot;index.html&quot;&gt;Home Page&lt;/a&gt;
                 </td>
             </tr>
@@ -171,7 +171,7 @@
                 <td>
                     The tags h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;h1&gt;Urgent!&lt;/h1&gt;<br>
                     &lt;h2&gt;Respond ASAP!&lt;/h2&gt;<br>
                     &lt;h3&gt;Very Important!&lt;/h3&gt;<br>
@@ -187,7 +187,7 @@
                 <td>
                     Defines a block-level paragraph.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;p&gt;Text goes here.&lt;/p&gt;
                 </td>
             </tr>
@@ -196,11 +196,11 @@
                     table<br>tr<br>th<br>td
                 </td>
                 <td>
-                    The table tag is the root element of a HTML table.
+                    The table tag is the root element of an HTML table.
                     Rows are defined using tr ("table row") and th ("table header").
                     Cells are defined by the td ("table data") tag.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;table&gt;<br>
                     &emsp;&lt;th&gt;<br>
                     &emsp;&emsp;&lt;td&gt;Cell 1 Header&lt;/td&gt;<br>
@@ -220,7 +220,7 @@
                 <td>
                     Inserts a page break.<br>(page breaks directly in HTML files do nothing)
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     Text 1
                     <br>&lt;br&gt;<br>
                     Text 2
@@ -233,7 +233,7 @@
                 <td>
                     Does nothing. Useful for isolating text from paragraphs to style with CSS.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;p&gt;<br>
                     normal text&lt;br&gt;
                     <br>&lt;span class=&quot;red&quot;&gt;red text&lt;/span&gt;&lt;br&gt;<br>
@@ -248,7 +248,7 @@
                 <td class="ignore">
                     Makes a button.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;button onclick=&quot;start();&quot;&gt;<br>
                     Start<br>
                     &lt;/button&gt;
@@ -261,7 +261,7 @@
                 <td class="ignore">
                     Used to add JavaScript to a page.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;script&gt;<br>
                     &emsp;console.log(&quot;test&quot;);<br>
                     &lt;/script&gt;<br>
@@ -276,7 +276,7 @@
                     Used to define lists. li is a block-level list item. ol and ul correspond to ordered (with numbers)
                     and unordered lists.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;ul&gt;<br>
                     &emsp;&lt;li&gt;List item&lt;/li&gt;<br>
                     &emsp;&lt;li&gt;Another list item&lt;/li&gt;<br>
@@ -296,7 +296,7 @@
                     element can send all data from
                     the input elements inside it to a server when submitted without JavaScript.
                 </td>
-                <td class="codecell">
+                <td class="code-cell">
                     &lt;form action=&quot;purchase_processing.php&quot;&gt;<br>
                     &emsp;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;purchase&quot;&gt;
                     <br>

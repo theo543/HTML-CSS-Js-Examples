@@ -1,10 +1,8 @@
-var link = document.getElementById("cssTag");
-var linkState = true;
+const link = document.getElementById("css-tag");
 function toggleAll(){
-    if(linkState){
+    if(document.contains(link)){
         link.parentNode.removeChild(link);
     }else{
         document.head.appendChild(link);
     }
-    linkState = !linkState;
 }

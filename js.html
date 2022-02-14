@@ -40,26 +40,33 @@
             The following script removes a button when it is clicked:
         </p>
         <p class="code">
-            var button = document.getElementById(&quot;mybutton&quot;);<br>
-            function eventlistener(){<br>
+            const button = document.getElementById(&quot;my-button&quot;);<br>
+            function eventListener(){<br>
             &nbsp;&nbsp;&nbsp;&nbsp;button.parentElement.removeChild(button);<br>
             }<br>
-            button.addEventListener(&quot;click&quot;, eventlistener);
+            button.addEventListener(&quot;click&quot;, eventListener);
         </p>
         <br>
-        <button id="mybutton" style="display:block;">Hide</button>
+        <button id="my-button">Hide</button>
+        <script>
+            const button = document.getElementById("my-button");
+            function eventListener() {
+                button.parentElement.removeChild(button);
+            }
+            button.addEventListener("click", eventListener);
+        </script>
         <p>
-            The HTML and CSS pages on this web site use JavaScript to toggle CSS properties.
+            The HTML and CSS pages on this website use JavaScript to toggle CSS properties.
         </p>
         <p>
             This site uses 3 scripts:
         </p>
         <ul>
             <li>
-                <span class="code">htmlToggle.js</span> - Inserts radio buttons into the second cell of each row of the table with the ID "toggletable", unless
+                <span class="code">htmlToggle.js</span> - Inserts radio buttons into the second cell of each row of the table with the ID "toggle-table", unless
                 the cell has the "ignore" class.
                 Applies "hide" and "highlighted" CSS classes to the elements specified in the first cell on click.
-                Displays the "resetter" element when at least one element is modified.
+                Displays the "reset-button" element when at least one element is modified.
                 If &lt;body&gt; or &lt;html&gt; are hidden the script will reset after one second.
             </li>
             <li>
@@ -73,13 +80,6 @@
             </li>
         </ul>
     </div>
-    <script>
-        var button = document.getElementById("mybutton");
-        function eventlistener() {
-            button.parentElement.removeChild(button);
-        }
-        button.addEventListener("click", eventlistener);
-    </script>
 </body>
 
 </html>
