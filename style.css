@@ -6,11 +6,25 @@ body {
 body.dark-theme {
     --bgcolor: hsl(0, 0%, 25%);
     --pagecolor: hsl(0, 0%, 30%);
+    --dark-link: #0025ff;
+    --visited-dark-link: purple;
     color: white; /* text color*/
 }
 
 body.dark-theme a, body.dark-theme .emphasis {
     filter: brightness(3);
+}
+
+body.dark-theme a {
+    color: var(--dark-link);
+}
+
+body.dark-theme a:visited {
+    color: var(--visited-dark-link);
+}
+
+body.dark-theme a:active {
+    color: red; /* don't override clicking */
 }
 
 html, body {
@@ -120,9 +134,7 @@ a#current {
 .highlighted {
     background: rgb(177, 74, 74) !important;
     border: 3px solid darkblue !important;
-    transition-property: border, color;
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
+    transition: border ease-in-out 1s, background-color ease-in-out 1s;
 }
 
 body.dark-theme .emphasis.highlighted, body.dark-theme a.highlighted{
