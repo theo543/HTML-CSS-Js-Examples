@@ -1,0 +1,177 @@
+html {
+    $mobile-width: 1000px;
+    margin: 0;
+    body {
+        margin: 0;
+        overflow-y: scroll;
+        font-family: arial, serif;
+        * {
+            font-family: inherit;
+        }
+        --bgcolor: hsl(0, 0%, 98%);
+        --pagecolor: hsl(0, 0%, 95%);
+        background: var(--bgcolor);
+        &.dark-theme {
+            --bgcolor: hsl(0, 0%, 25%);
+            --pagecolor: hsl(0, 0%, 30%);
+            --dark-link: #0025ff;
+            --visited-dark-link: purple;
+            color: white; /* text color*/
+            a, .emphasis {
+                filter: brightness(3);
+                &.highlighted {
+                    filter: initial;
+                }
+            }
+            a {
+                color: var(--dark-link);
+                &:visited {
+                    color: var(--visited-dark-link);
+                }
+                &:active {
+                    color: red; /* don't override clicking */
+                }
+            }
+        }
+        table {
+            &, tr{
+                border: 2px solid black;
+                border-collapse: collapse;
+                margin: 0;
+            }
+            td, th {
+                display: list-item;
+                list-style-type: none;
+                border: 1px dotted grey;
+                border-collapse: collapse;
+                &:nth-child(1) br { /* on mobile we use commas instead of newlines */
+                    content: "";
+                    &::after{
+                        content: ", ";
+                    }
+                }
+            }
+            @media (min-width: $mobile-width){ /* for desktops */
+                td, th {
+                    border: 1px solid black;
+                    display: table-cell;
+                    &:nth-child(1) br {
+                        content: initial;
+                        &::after{
+                            content: initial;
+                        }
+                    }
+                }
+                td:nth-child(1) {
+                    text-align: center;
+                }
+            }
+        }
+        .page {
+            @media (min-width: $mobile-width){
+                max-width: 60%;
+                margin: auto;
+            }
+            min-height: 99vh;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 0;
+            background: var(--pagecolor);
+            box-shadow: 2px 2px 3px 1px black;
+        }
+        .title {
+            text-align: center;
+        }
+        .emphasis {
+            font-style: italic;
+            color: #1d2edb;
+        }
+        .code {
+            display: inline-block;
+            max-width: 100%;
+            word-wrap: break-word;
+            color: #33ff00;
+            background: black;
+            background: radial-gradient(#00071a 30%, #01302c);
+            border-radius: 10px;
+            padding: 1px 5px;
+            font-size: 95%;
+        }
+        .code-cell {
+            color: #33ff00;
+            background: black;
+            background: radial-gradient(#00071a 30%, #01302c);
+            white-space: nowrap;
+            font-size: 80%;
+        }
+        .NA-box {
+            background: #3d3d3d;
+            color: black;
+            text-align: center;
+        }
+        #css-test {
+            display: none;
+        }
+        .links {
+            display: flex;
+            flex-shrink: 0;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+            a {
+                margin: auto;
+                &#current {
+                    pointer-events: none;
+                    cursor: default;
+                    color: black;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+            }
+        }
+        .highlighted {
+            background: rgb(177, 74, 74) !important;
+            border: 3px solid darkblue !important;
+            transition: border ease-in-out 1s, background-color ease-in-out 1s;
+        }
+        .hide {
+            display: none !important;
+        }
+        #reset-button {
+            position: fixed;
+            cursor: pointer;
+            margin: 10px;
+            padding: 5px;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+            &.hide-reset-button {
+                cursor: default;
+                opacity: 0;
+                pointer-events: none;
+            }
+            &.hide {
+                display: initial !important;
+            }
+        }
+        #theme-button {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            label {
+                cursor: pointer;
+                display: block;
+                content: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
+                width: 30px;
+                height: 30px;
+                .dark-theme & {
+                    content: url("images/dark-mode-6682-invert.svg");
+                }
+            }
+            input {
+                display: none;
+            }
+        }
+    }
+}
