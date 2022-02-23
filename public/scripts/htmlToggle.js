@@ -1,6 +1,7 @@
 'use strict';
 
 const resetElem = document.getElementById("reset-button");
+setTimeout(() => resetElem.classList.toggle("hide-transition-on-load", false), 500);
 resetElem.addEventListener("click", (function(){
     document.querySelectorAll("form").forEach(e => e.none.click());
 }));

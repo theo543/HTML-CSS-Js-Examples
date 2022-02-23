@@ -132,12 +132,12 @@ html {
                 }
             }
         }
-        .highlighted {
+        @at-root .highlighted {
             background: rgb(177, 74, 74) !important;
             border: 3px solid darkblue !important;
             transition: border ease-in-out 1s, background-color ease-in-out 1s;
         }
-        .hide {
+        @at-root .hide {
             display: none !important;
         }
         #reset-button {
@@ -154,6 +154,9 @@ html {
                 cursor: default;
                 opacity: 0;
                 pointer-events: none;
+            }
+            &.hide-transition-on-load {
+                display: none;
             }
             &.hide {
                 display: initial !important;
