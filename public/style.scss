@@ -1,5 +1,11 @@
+$mobile-width: 1000px;
+$bg-color: hsl(0, 0%, 98%);
+$bg-color-dark: hsl(0, 0%, 25%);
+$page-color: hsl(0, 0%, 95%);
+$page-color-dark: hsl(0, 0%, 30%);
+$dark-link: #0025ff;
+$visited-dark-link: purple;
 html {
-    $mobile-width: 1000px;
     margin: 0;
     body {
         margin: 0;
@@ -8,14 +14,9 @@ html {
         * {
             font-family: inherit;
         }
-        --bgcolor: hsl(0, 0%, 98%);
-        --pagecolor: hsl(0, 0%, 95%);
-        background: var(--bgcolor);
+        background: $bg-color;
         &.dark-theme {
-            --bgcolor: hsl(0, 0%, 25%);
-            --pagecolor: hsl(0, 0%, 30%);
-            --dark-link: #0025ff;
-            --visited-dark-link: purple;
+            background: $bg-color-dark;
             color: white; /* text color*/
             a, .emphasis {
                 filter: brightness(3);
@@ -24,9 +25,9 @@ html {
                 }
             }
             a {
-                color: var(--dark-link);
+                color: $dark-link;
                 &:visited {
-                    color: var(--visited-dark-link);
+                    color: $visited-dark-link;
                 }
                 &:active {
                     color: red; /* don't override clicking */
@@ -76,7 +77,10 @@ html {
             padding-left: 10px;
             padding-right: 10px;
             margin: 0;
-            background: var(--pagecolor);
+            background: $page-color;
+            @at-root body.dark-theme .page {
+                background: $page-color-dark;
+            }
             box-shadow: 2px 2px 3px 1px black;
         }
         .title {

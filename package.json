@@ -1,8 +1,15 @@
 {
   "dependencies": {
+    "autoprefixer": "^9.0.0",
+    "cssnano": "^4.1.10",
     "express": "^4.17.3",
     "node-sass-middleware": "^1.0.1",
+    "postcss-middleware": "^1.1.4",
     "pug": "^3.0.2"
   },
-  "main": "main.js"
+  "main": "main.js",
+  "browserslist": [
+    "defaults",
+    "cover 99.9%"
+  ]
 }
