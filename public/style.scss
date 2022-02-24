@@ -172,7 +172,7 @@ html {
                 content: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
                 width: 30px;
                 height: 30px;
-                .dark-theme & {
+                @at-root html body.dark-theme #theme-button label {
                     content: url("images/dark-mode-6682-invert.svg");
                 }
             }
