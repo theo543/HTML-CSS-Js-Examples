@@ -2,7 +2,7 @@ const express = require('express')
 const path = require("path");
 const sass = require("node-sass-middleware")
 const postcss = require("postcss-middleware")
-const views = ["/index", "/js", "/css", "/html"]
+const pages = {'/index': 'Home', '/html': 'HTML', '/css': 'CSS', '/js': 'Javascript'} // path => name
 
 const app = express()
 const port = process.env.PORT || 80
@@ -21,9 +21,9 @@ app.use(/^.*\.css$/, postcss({
 }));
 app.all("/", ((req, res, next) => res.redirect("/index")));
 app.all("*.pug", ((req, res, next) => res.redirect(req.originalUrl.slice(0, -4))));
-app.all(views, ((req, res, next) => {
+app.all(Object.keys(pages), ((req, res, next) => {
         const p = path.join(__dirname, "public", req.originalUrl) + ".pug";
-        res.render(p, {path: p});
+        res.render(p, {path: req.originalUrl, pages: pages});
 }))
 app.use("/", express.static(path.join(__dirname, "public")));
 app.listen(port);

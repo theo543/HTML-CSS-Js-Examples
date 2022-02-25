@@ -10,9 +10,9 @@ mixin header(title)
 mixin links
     br
     .links
-        each val, key in {'index': 'Home', 'html': 'HTML', 'css': 'CSS', 'js': 'Javascript'}
+        each val, key in pages
             a(
-            href= "/" + key
-            id = path.endsWith(key + ".pug") ? "current" : ""
+            href = key
+            id = path.endsWith(key) ? "current" : ""
             ) #{val}
     br
