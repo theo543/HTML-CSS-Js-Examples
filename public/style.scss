@@ -142,7 +142,8 @@ html {
         }
         #reset-button {
             position: fixed;
-            cursor: pointer;
+            top: 3px;
+            left: 3px;
             margin: 10px;
             padding: 5px;
             background: black;
@@ -166,18 +167,23 @@ html {
             position: fixed;
             bottom: 5px;
             right: 5px;
+            #theme-checkbox {
+                position: absolute;
+                pointer-events: none;
+                &:not(:focus-visible) {
+                    z-index: -1;
+                    opacity: 0;
+                }
+            }
             label {
                 cursor: pointer;
                 display: block;
                 content: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
                 width: 30px;
                 height: 30px;
-                @at-root html body.dark-theme #theme-button label {
+                @at-root #theme-checkbox:checked + label {
                     content: url("images/dark-mode-6682-invert.svg");
                 }
-            }
-            input {
-                display: none;
             }
         }
     }
