@@ -15,5 +15,7 @@ function themeChange(value){
     sessionStorage.setItem("darkTheme", themeState);
 }
 themeQuery.addEventListener("change", e => themeChange(e.matches));
-form.addEventListener("change", e => themeChange(checkbox.checked));
+form.addEventListener("change", () => themeChange(checkbox.checked));
+["blur", "focus"].forEach((e) => checkbox.addEventListener(e, () =>
+    form.classList.toggle("focus-visible-within", checkbox.matches(":focus-visible"))));
 themeChange(themeState); //init

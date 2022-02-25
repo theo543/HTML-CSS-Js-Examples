@@ -35,7 +35,7 @@ html {
             }
         }
         table {
-            &, tr{
+            &, tr {
                 border: 2px solid black;
                 border-collapse: collapse;
                 margin: 0;
@@ -161,16 +161,26 @@ html {
             }
         }
         #theme-button {
+            padding: 3px;
+            user-select: none;
+            &.focus-visible-within{
+                border-width: 3px;
+                border-style: solid;
+                border-radius: 10px;
+                border-color: black;
+                padding: 0;
+                @at-root .dark-theme #theme-button.focus-visible-within {
+                    border-color: white;
+                }
+            }
             position: fixed;
             bottom: 5px;
             right: 5px;
             #theme-checkbox {
                 position: absolute;
                 pointer-events: none;
-                &:not(:focus-visible) {
-                    z-index: -1;
-                    opacity: 0;
-                }
+                z-index: -1;
+                opacity: 0;
             }
             label {
                 cursor: pointer;
@@ -178,6 +188,7 @@ html {
                 content: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
                 width: 30px;
                 height: 30px;
+                filter: blur(0.6px);
                 @at-root #theme-checkbox:checked + label {
                     content: url("images/dark-mode-6682-invert.svg");
                 }
