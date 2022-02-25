@@ -1,0 +1,158 @@
+doctype html
+html(lang="en")
+    include mixins
+    +header("HTML - Web Languages")
+        script(src="/scripts/htmlToggle.js" defer)
+    body
+        .page
+            +links
+            h1.title HTML
+            br
+            p HTML (HyperText Markup Language) is a web language used to make web pages.
+            p.
+                HTML elements (i.e. tags) define the content of a web page.
+                The tree of nested tags that make up a web page is called the #[span.emphasis Document Object Model]
+            p An important property of tags is their "display" property. There are several ways a tag could display on the page. Some are:
+                ol
+                    li #[span.emphasis None] - Does not display at all.
+                    li #[span.emphasis Block] - Will create a new line and expand as much as possible.
+                    li #[span.emphasis Inline] - Does not create a new line. Only takes as much space as needed.
+                    li.
+                        #[span.emphasis Flex] - Makes the element a block-level flexible box (flexbox)
+                        container. A flexbox element will attempt to align
+                        and resize its contents across a set axis according to set parameters and proportions. The links at
+                        the top of this page are inside a flexbox
+                        container that aligns them horizontally with equal space between them.
+                    li #[span.emphasis Table, table-cell, table-column, table-row, etc.] make the elements display as if they were in a table.
+            p This website uses the following tags:
+            table#toggle-table
+                tr
+                    th Tag(s)
+                    th Description
+                    th Example
+                tr
+                    td html
+                    td Page root. All other elements are contained in the html tag.
+                    td.NA-box N/A
+                tr
+                    td body
+                    td Contains visible tags.
+                    td.NA-box N/A
+                tr
+                    td head
+                    td.ignore Contains metadata tags.
+                    td.NA-box N/A
+                tr
+                    td title
+                    td.ignore Sets the page title.
+                    td.code-cell &lt;title&gt;HTML - Web Languages&lt;/title&gt;
+                tr
+                    td link
+                    td.ignore Links resources such as page icons or CSS files to the page.
+                    td.code-cell &lt;link rel="stylesheet" href="style.css"&gt;
+                tr
+                    td meta
+                    td.ignore Contains misc. metadata.
+                    td.code-cell &lt;meta charset="utf-8"&gt;
+                tr
+                    td div
+                    td Bundles elements placed inside into a single block-level element. Very common.
+                    td.code-cell.
+                        &lt;div&gt;#[br]
+                        &emsp;&lt;p&gt;Text 1&lt;/p&gt;#[br]
+                        &emsp;&lt;p&gt;Text 2&lt;/p&gt;#[br]
+                        &lt;/div&gt;
+                tr
+                    td a
+                    td Links to the address specified by the tag&apos;s "href" attribute.
+                    td.code-cell &lt;a href="index.html"&gt;Home Page&lt;/a&gt;
+                tr
+                    td h1#[br]h2#[br]h3#[br]h4#[br]h5#[br]h6
+                    td The tags h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
+                    td.code-cell.
+                        &lt;h1&gt;Urgent!&lt;/h1&gt;#[br]
+                        &lt;h2&gt;Respond ASAP!&lt;/h2&gt;#[br]
+                        &lt;h3&gt;Very Important!&lt;/h3&gt;#[br]
+                        &lt;h4&gt;Important!&lt;/h4&gt;#[br]
+                        &lt;h5&gt;Pretty important.&lt;/h5&gt;#[br]
+                        &lt;h6&gt;Slightly important.&lt;/h6&gt;
+                tr
+                    td p
+                    td Defines a block-level paragraph.
+                    td.code-cell &lt;p&gt;Text goes here.&lt;/p&gt;
+                tr
+                    td table#[br]tr#[br]td#[br]th
+                    td.
+                        The table tag is the root element of an HTML table.
+                        Rows are defined using tr ("table row") and th ("table header").
+                        Cells are defined by the td ("table data") tag.
+                    td.code-cell.
+                        &lt;table&gt;#[br]
+                        &emsp;&lt;th&gt;#[br]
+                        &emsp;&emsp;&lt;td&gt;Cell 1 Header&lt;/td&gt;#[br]
+                        &emsp;&emsp;&lt;td&gt;Cell 2 Header&lt;/td&gt;#[br]
+                        &emsp;&lt;/th&gt;#[br]
+                        &emsp;&lt;tr&gt;#[br]
+                        &emsp;&emsp;&lt;td&gt;Cell 1 Row 1&lt;/td&gt;#[br]
+                        &emsp;&emsp;&lt;td&gt;Cell 2 Row 1&lt;/td&gt;#[br]
+                        &emsp;&lt;/tr&gt;#[br]
+                        &lt;/table&gt;
+                tr
+                    td br
+                    td Inserts a page break.#[br](page breaks directly in HTML files do nothing)
+                    td.code-cell Text 1&lt;br&gt;Text 2
+                tr
+                    td span
+                    td Does nothing. Useful for isolating text from paragraphs to style with CSS.
+                    td.code-cell.
+                        &lt;p&gt;#[br]
+                        &emsp;normal text#[br]
+                        &emsp;&lt;br&gt;#[br]
+                        &emsp;&lt;span class="red"&gt;red text&lt;/span&gt;#[br]
+                        &emsp;&lt;br&gt;#[br]
+                        &emsp;normal text#[br]
+                        &lt;/p&gt;
+                tr
+                    td button
+                    td Makes a button.
+                    td.code-cell.
+                        &lt;button onclick="start();"&gt;#[br]
+                        &emsp;Start#[br]
+                        &lt;/button&gt;
+                tr
+                    td script
+                    td.ignore Used to add JavaScript to a page.
+                    td.code-cell.
+                        &lt;script&gt;#[br]
+                        &emsp;console.log("test");#[br]
+                        &lt;/script&gt;#[br]
+                        &lt;script src="script.js"&gt;&lt;/script&gt;
+                tr
+                    td ul#[br]ol#[br]li
+                    td.
+                        Used to define lists. li is a block-level list item. ol and ul correspond to ordered (with numbers)
+                        and unordered lists.
+                    td.code-cell.
+                        &lt;ul&gt;#[br]
+                        &emsp;&lt;li&gt;List item&lt;/li&gt;#[br]
+                        &emsp;&lt;li&gt;Another list item&lt;/li&gt;#[br]
+                        &lt;/ul&gt;#[br]
+                        &lt;ol&gt;#[br]
+                        &emsp;&lt;li&gt;List item 1&lt;/li&gt;#[br]
+                        &emsp;&lt;li&gt;List item 2&lt;/li&gt;#[br]
+                        &lt;/ol&gt;
+                tr
+                    td input#[br]form#[br]label
+                    td.
+                        Defines ways to input information such as checkboxes, text inputs, submit buttons, etc. The form
+                        element can send all data from
+                        the input elements inside it to a server when submitted without JavaScript.
+                    td.code-cell.
+                        &lt;form action="purchase_processing.php"&gt;#[br]
+                        &emsp;&lt;label&gt;&lt;input type="checkbox" name="purchase"&gt;#[br]
+                        &emsp;Agree to purchase?#[br]
+                        &emsp;&lt;/label&gt;#[br]
+                        &emsp;&lt;input type="submit" value="Submit"&gt;#[br]
+                        &lt;/form&gt;
+
+            p.emphasis Note: The highlight checkboxes work by adding and removing a "highlighted" CSS class using JavaScript.

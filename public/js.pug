@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+    include mixins
+    +header("JavaScript - Web Languages")
+    body
+        .page
+            +links
+            h1.title Javascript
+            br
+            p.
+                JavaScript is a #[span.emphasis scripting language] used to make interactive web pages. It is
+                inserted into a web page using
+                the #[span.emphasis script tag],
+                either directly
+                into the HTML file or loaded from a file or remote server.
+            p.
+                JavaScript interacts with the user by altering the Document Object Model.
+                JavaScript receives input by attaching <span class="emphasis">event listeners</span> (functions) to elements e.g.
+                listening to click events on a button.
+            p.
+                The following script removes a button when it is clicked:
+            p.code.
+                const button = document.getElementById("my-button");#[br]
+                function eventListener(){#[br]
+                &nbsp;&nbsp;&nbsp;&nbsp;button.parentElement.removeChild(button);#[br]
+                }#[br]
+                button.addEventListener("click", eventListener);
+            br
+            button#my-button Hide
+            script.
+                const button = document.getElementById("my-button");
+                function eventListener() {
+                    button.parentElement.removeChild(button);
+                }
+                button.addEventListener("click", eventListener);
+            p.
+                The HTML and CSS pages on this website use JavaScript to toggle CSS properties.
+            p.
+                This site uses 3 scripts:
+            ul
+                li.
+                    #[span.code htmlToggle.js] - Inserts radio buttons into the second cell of each row of the table with the ID "toggle-table", unless
+                    the cell has the "ignore" class.
+                    Applies "hide" and "highlighted" CSS classes to the elements specified in the first cell on click.
+                    Displays the "reset-button" element when at least one element is modified.
+                    If &lt;body&gt; or &lt;html&gt; are hidden the script will reset after one second.
+                li.
+                    #[span.code themeToggle.js] - Inserts a checkbox that toggles the dark theme class on &lt;body&gt;. Styled by CSS.
+                    Stores the current theme in localStorage. The initial value is decided by the OS theme if it is not set in localStorage.
+                    Updates when the OS theme is changed.
+                li.
+                    #[span.code CSSToggle.js] - Removes the CSS tag from the page or adds it back when a function is called.
+                    The CSS toggle button calls the function using the onclick property.

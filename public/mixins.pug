@@ -1,0 +1,18 @@
+mixin header(title)
+    head
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(charset='utf-8')
+        link(rel='icon' href='images/icon-html.svg')
+        link(rel='stylesheet' href='style.css')
+        title= title
+        script(src='scripts/themeToggle.js' defer)
+        block
+mixin links
+    br
+    .links
+        each val, key in {'index': 'Home', 'html': 'HTML', 'css': 'CSS', 'js': 'Javascript'}
+            a(
+            href= "/" + key
+            id = path.endsWith(key + ".pug") ? "current" : ""
+            ) #{val}
+    br

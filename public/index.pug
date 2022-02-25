@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+    include mixins
+    +header('Web Languages')
+    body
+        .page
+            +links
+            h1.title Web Languages
+            br
+            p This is a simple website about #[span.emphasis web languages].
+            p.
+                I made the first version of this website in 2019 for a school project.
+                I decided to redesign it to get better at making websites.
+            p There are three pages about web languages:
+            ul
+                li
+                    a.link(href='/html') HTML - HyperText Markup Language
+                li
+                    a.link(href='/css') CSS - Cascading Style Sheets
+                li
+                    a.link(href='/js') JavaScript
