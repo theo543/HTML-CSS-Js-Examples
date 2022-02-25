@@ -156,9 +156,6 @@ html {
                 opacity: 0;
                 pointer-events: none;
             }
-            &.hide-transition-on-load {
-                display: none;
-            }
             &.hide {
                 display: initial !important;
             }

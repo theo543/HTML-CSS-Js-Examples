@@ -1,8 +1,8 @@
 'use strict';
 
-document.body.insertAdjacentHTML("beforeend", '<button id="reset-button" class="hide-reset-button hide-transition-on-load">Click here to restore all elements!</button>\n')
+document.body.insertAdjacentHTML("beforeend", '<button id="reset-button" class="hide-reset-button" hidden>Click here to restore all elements!</button>\n')
 const resetElem = document.getElementById("reset-button");
-setTimeout(() => resetElem.classList.toggle("hide-transition-on-load", false), 500);
+setTimeout(() => resetElem.hidden = false, 750);
 resetElem.addEventListener("click", (function(){
     document.querySelectorAll("form").forEach(e => e.none.click());
 }));
