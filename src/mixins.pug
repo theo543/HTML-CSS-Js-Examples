@@ -2,17 +2,17 @@ mixin header(title)
     head
         meta(name='viewport' content='width=device-width, initial-scale=1')
         meta(charset='utf-8')
-        link(rel='icon' href='images/icon-html.svg')
-        link(rel='stylesheet' href='style.css')
+        link(rel='icon' href='/images/icon-html.svg')
+        link(rel='stylesheet' href='/style.css')
         title= title
-        script(src='scripts/themeToggle.js' defer)
+        script(src='/scripts/themeToggle.js' defer)
         block
 mixin links
     br
     .links
         each val, key in pages
             a(
-            href = key
-            id = path.endsWith(key) ? "current" : ""
+            href = key + ext
+            id = path.endsWith(key) ? "current" : null
             ) #{val}
     br
