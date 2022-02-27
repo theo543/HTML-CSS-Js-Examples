@@ -21,7 +21,7 @@ jobs:
           git branch -f pages main
           git checkout pages
           npm ci
-          git rm docs -f -r
+          git rm docs -f -r --ignore-unmatch
           ./build.ps1
           git add docs -f
           git commit -m "GitHub Actions"
