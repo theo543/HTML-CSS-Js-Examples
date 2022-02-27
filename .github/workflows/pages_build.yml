@@ -1,0 +1,28 @@
+name: Pages Build
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    name: Build GitHub Pages
+    runs-on: windows-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 17.5.0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Build and Commit
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+          git branch -f pages main
+          git checkout pages
+          npm ci
+          git rm docs -f -r
+          ./build.ps1
+          git add docs -f
+          git commit -m "GitHub Actions"
+          git push origin pages -f
