@@ -16,6 +16,11 @@ function themeChange(value){
 }
 themeQuery.addEventListener("change", e => themeChange(e.matches));
 form.addEventListener("change", () => themeChange(checkbox.checked));
-["blur", "focus"].forEach((e) => checkbox.addEventListener(e, () =>
-    form.classList.toggle("focus-visible-within", checkbox.matches(":focus-visible"))));
+["blur", "focus"].forEach((e) => checkbox.addEventListener(e, () => {
+    try {
+        form.classList.toggle("focus-visible-within", checkbox.matches(":focus-visible"));
+    } catch (e) {
+        form.classList.toggle("focus-visible-within", checkbox.matches(":focus"));
+    }
+}));
 themeChange(themeState); //init
