@@ -13,6 +13,6 @@ mixin links
         each val, key in pages
             a(
             href = key + ext
-            id = path.endsWith(key) ? "current" : null
+            id = filename.endsWith(key + ext) ? "current" : null
             ) #{val}
     br
