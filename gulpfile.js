@@ -7,6 +7,7 @@ const pug = require("gulp-pug")
 const path = require("path");
 const fs = require("fs");
 const babel = require("gulp-babel")
+const htmlMin = require("gulp-htmlmin")
 
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
@@ -30,6 +31,7 @@ exports.views = function views() {
                 ext: ".html"
             }
         }))
+        .pipe(htmlMin())
         .pipe(gulp.dest("docs"))
 };
 
