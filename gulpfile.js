@@ -6,6 +6,7 @@ const postcss = require("gulp-postcss")
 const pug = require("gulp-pug")
 const path = require("path");
 const fs = require("fs");
+const babel = require("gulp-babel")
 
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
@@ -39,6 +40,9 @@ exports.images = function images() {
 
 exports.scripts = function scripts() {
     return gulp.src("src/scripts/**/*.js")
+        .pipe(babel({
+            presets: ["@babel/env", "minify"]
+        }))
         .pipe(gulp.dest("docs/scripts"))
 }
 
