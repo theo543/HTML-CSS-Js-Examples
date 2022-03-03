@@ -7,7 +7,7 @@ const pug = require("gulp-pug")
 const path = require("path");
 const fs = require("fs");
 
-exports.styles = function () {
+exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
         .pipe(sass.sync())
         .pipe(rename({ extname: ".css" }))
@@ -15,7 +15,7 @@ exports.styles = function () {
         .pipe(gulp.dest("docs"))
 };
 
-exports.views = function () {
+exports.views = function views() {
     return gulp.src(["src/**/*.pug", "!src/**/_*"])
         .pipe(rename({ extname: ".html" }))
         .pipe(data(function (file) {
@@ -32,17 +32,17 @@ exports.views = function () {
         .pipe(gulp.dest("docs"))
 };
 
-exports.images = function () {
+exports.images = function images() {
     return gulp.src("src/images/**/*")
         .pipe(gulp.dest("docs/images"))
 }
 
-exports.scripts = function () {
+exports.scripts = function scripts() {
     return gulp.src("src/scripts/**/*.js")
         .pipe(gulp.dest("docs/scripts"))
 }
 
-exports.clean = function () {
+exports.clean = function clean() {
     return fs.promises.rm("docs", {recursive: true, force: true})
 }
 
