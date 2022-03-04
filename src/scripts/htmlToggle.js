@@ -4,7 +4,7 @@
     const resetElem = document.getElementById("reset-button");
     setTimeout(() => resetElem.hidden = false, 750);
     resetElem.addEventListener("click", (function () {
-        document.querySelectorAll("form").forEach(e => e.none.click());
+        document.querySelectorAll("input[data-form='none']").forEach(e => e.click());
     }));
 
     let altered = 0;
@@ -40,8 +40,10 @@
         form.none = div.querySelector("[data-form='none']")
         form.hide = div.querySelector("[data-form='hide']");
         form.highlight = div.querySelector("[data-form='highlight']");
-        form.selector = cell.previousElementSibling.innerText.toLowerCase().trim().replaceAll(/[\n ]/g, ",");
+        form.selector = cell.previousElementSibling.innerText.toLowerCase().trim().split(/[\n ,]/).join(",");
         form.addEventListener("change", updateClasses);
+        form.hide.checked = false;
+        form.highlight.checked = false;
         form.none.click()
     }
 })();

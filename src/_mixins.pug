@@ -5,6 +5,8 @@ mixin header(title)
         link(rel='icon' href='images/icon-html.svg')
         link(rel='stylesheet' href='style.css')
         title= title
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.21.1/minified.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js")
         script(src='scripts/themeToggle.js' defer)
         block
 mixin links

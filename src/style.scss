@@ -163,7 +163,7 @@ html {
         #theme-button {
             padding: 3px;
             user-select: none;
-            &.focus-visible-within{
+            &.focus-visible-within {
                 border-width: 3px;
                 border-style: solid;
                 border-radius: 10px;
@@ -185,12 +185,13 @@ html {
             label {
                 cursor: pointer;
                 display: block;
-                content: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
+                font-size: 0; /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
+                background-image: url("images/dark-mode-6682.svg");
                 width: 30px;
                 height: 30px;
                 filter: blur(0.6px);
                 @at-root #theme-checkbox:checked + label {
-                    content: url("images/dark-mode-6682-invert.svg");
+                    background-image: url("images/dark-mode-6682-invert.svg");
                 }
             }
         }

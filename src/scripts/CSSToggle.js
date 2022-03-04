@@ -6,7 +6,7 @@
             console.log("Failed to find CSS tag!");
             return;
         }
-        if (document.contains(link)) {
+        if (document.head.contains(link)) {
             link.parentNode.removeChild(link);
         } else {
             document.head.appendChild(link);
