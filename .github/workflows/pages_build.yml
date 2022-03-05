@@ -22,7 +22,7 @@ jobs:
           git checkout pages
           npm ci
           git rm docs -f -r --ignore-unmatch
-          npx gulp-cli
+          npx gulp-cli build
           git add docs -f
           git commit -m "GitHub Actions"
           git push origin pages -f

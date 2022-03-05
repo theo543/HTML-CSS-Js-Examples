@@ -8,6 +8,7 @@ const path = require("path");
 const fs = require("fs");
 const babel = require("gulp-babel")
 const htmlMin = require("gulp-htmlmin")
+const browserSync = require('browser-sync').create();
 
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
@@ -52,4 +53,24 @@ exports.clean = function clean() {
     return fs.promises.rm("docs", {recursive: true, force: true})
 }
 
-exports.default = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts))
+exports.browserSyncServe = function browserSyncServe(cb) {
+    browserSync.init({
+        server: {
+            baseDir: "docs"
+        }
+    });
+    cb();
+}
+
+exports.browserSyncReload = function browserSyncReload(cb) {
+    browserSync.reload();
+    cb();
+}
+
+exports.build = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts))
+
+exports.watch = function watch() {
+    gulp.watch("src/**/*", gulp.series(exports.build, exports.browserSyncReload));
+}
+
+exports.default = gulp.series(exports.build, exports.browserSyncServe, exports.watch);
