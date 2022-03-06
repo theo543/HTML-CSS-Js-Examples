@@ -53,7 +53,7 @@ exports.clean = function clean() {
     return fs.promises.rm("docs", {recursive: true, force: true})
 }
 
-exports.browserSyncServe = function browserSyncServe(cb) {
+exports.serve = function browserSyncServe(cb) {
     browserSync.init({
         server: {
             baseDir: "docs"
@@ -62,7 +62,7 @@ exports.browserSyncServe = function browserSyncServe(cb) {
     cb();
 }
 
-exports.browserSyncReload = function browserSyncReload(cb) {
+exports.refresh = function browserSyncReload(cb) {
     browserSync.reload();
     cb();
 }
@@ -70,7 +70,7 @@ exports.browserSyncReload = function browserSyncReload(cb) {
 exports.build = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts))
 
 exports.watch = function watch() {
-    gulp.watch("src/**/*", gulp.series(exports.build, exports.browserSyncReload));
+    gulp.watch("src/**/*", gulp.series(exports.build, exports.refresh));
 }
 
-exports.default = gulp.series(exports.build, exports.browserSyncServe, exports.watch);
+exports.default = gulp.series(exports.build, exports.serve, exports.watch);
