@@ -36,10 +36,11 @@ html(lang='en')
             p.
                 The HTML and CSS pages on this website use JavaScript to toggle CSS properties.
             p.
-                This site uses 3 scripts:
+                This site uses 5 scripts:
             ul
                 li.
-                    #[span.code htmlToggle.js] - Inserts radio buttons into the second cell of each row of the table with the ID "toggle-table", unless
+                    #[span.code htmlToggle.js] - Inserts reset element and
+                    radio buttons into the second cell of each row of the table with the ID "toggle-table", unless
                     the cell has the "ignore" class.
                     Applies "hide" and "highlighted" CSS classes to the elements specified in the first cell on click.
                     Displays the "reset-button" element when at least one element is modified.
@@ -47,7 +48,20 @@ html(lang='en')
                 li.
                     #[span.code themeToggle.js] - Inserts a checkbox that toggles the dark theme class on &lt;body&gt;. Styled by CSS.
                     Stores the current theme in localStorage. The initial value is decided by the OS theme if it is not set in localStorage.
-                    Updates when the OS theme is changed.
+                    Updates when the OS theme is changed. If the checkbox is focused by keyboard, a CSS class is added that
+                    adds a border to the CSS-inserted image to show focus. On browsers that do not allow for checking
+                    keyboard focus (the #[span.emphasis :focus-visible] selector), any click on the button shows the border (#[span.emphasis :focus]).
                 li.
                     #[span.code CSSToggle.js] - Removes the CSS tag from the page or adds it back when a function is called.
                     The CSS toggle button calls the function using the onclick property.
+                li.
+                    #[span.code.dark-theme #[a(href='https://github.com/zloirock/core-js') core-js]] -
+                    A polyfill library that implements many standard JavaScript features.
+                    A #[span.emphasis polyfill] is JavaScript that implements JS features for browsers that do not support them.
+                li.
+                    #[span.code.dark-theme #[a(href='https://github.com/yola/classlist-polyfill') classlist-polyfill]] -
+                    Polyfill for the classList property that is used to modify CSS classes.
+                    Used to fix some browsers incorrectly implementing the class toggle function.
+                    #[span.code element.classList.toggle("hide", false);] is supposed to remove the "hide" class,
+                    if it exists, but on some browsers the second argument is ignored and the class is always toggled on/off.
+                    This would cause every element to be hidden when the "None" button is selected on load.

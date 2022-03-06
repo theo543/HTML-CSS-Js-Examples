@@ -15,9 +15,9 @@ html(lang="en")
                 #[span.code &lt;link rel="stylesheet" href="style.css"&gt;].
                 It tells the browser to load the #[span.code style.css] file and apply it to this web page.
             p.
-                A #[span.emphasis CSS Rule] is some CSS code that is only applied to certain HTML tags.
+                A #[span.emphasis CSS Rule] is CSS code that alters the presentation of HTML tags.
                 #[br]
-                A #[span.emphasis CSS Selector] determines which tags a rule is applied to.
+                A #[span.emphasis CSS Selector] is the part of a CSS Rule that determines which tags are targeted.
                 #[br]
             p.
                 If an element is targeted by several rules, the rules will be merged.
@@ -26,99 +26,118 @@ html(lang="en")
                 specific paragraph black.
                 A rule that makes text bold will merge with a rule that makes a specific paragraph red.
             button(id="CSSToggle") Click here to toggle all CSS on this page on/off!
+            span#css-test
+                strong &emsp;THIS ELEMENT IS HIDDEN WHEN CSS IS ENABLED
             p.
-                Examples of CSS rules in #[span.code style.css]:
+                Examples of CSS in #[span.code style.css]:
             table#css-table
                 tr
                     th Target
                     th Description
                 tr
-                    td Root elements
-                    td Removes default margins.
+                    td body, html
+                    td
+                        ul
+                            li Sets the font to Arial with Serif as a fallback font. Removes default margins.
+                            li Sets min heights such that the page is always filled.
+                            li Scrollbar is always shown on html tag to keep the home page aligned with the longer pages
                 tr
-                    td All elements
-                    td Sets the font to Arial.
-                tr
-                    td Body element
-                    td Sets variables that control the color of the background and the page element.
-                tr
-                    td Body element when it has "dark-theme" class
-                    td Changes color variables to dark colors.
-                tr
-                    td Links and elements with "emphasis" class while body has "dark-theme" class.
-                    td Increases brightness to be easier to read with dark theme.
-                tr
-                    td Tables and all components of tables
-                    td Adds a border to this table. Touching borders are set to merge.
-                tr
-                    td First cell of each row of all tables
-                    td Centers text.
+                    td Tables and components of tables with IDs css-table and toggle-table
+                    td
+                        ul
+                            li Adds borders. On mobile, some are grey to highlight rows.
+                            li On mobile, rows become lists and page breaks commas.
+                            li On desktop, the first cell has centered text.
+                            li Adds padding.
+                            li Sets width to 100% of .page.
+                            li Sets second cell of css-table to 100% width, which minimizes the first cell on desktop.
                 tr
                     td "page" class
-                    td.
-                        Centers, sets the background color, expands vertically to fill the viewport, adds a shadow, adds margin and padding.
-                        On small screens, it expands horizontally.
+                    td
+                        ul
+                            li Sets the background color (depending on the theme setting)
+                            li Adds a shadow
+                            li On desktop, sets max width to 60%
+                            li Sets margin to auto (center)
+                            li Adds an one pixel black border. This prevents margins from breaking out and
+                            | making body bigger than html, since without a border the browser might
+                            | merge margins into outer elements.
                 tr
                     td "title" class
                     td Centers the page title.
                 tr
                     td "emphasis" class
-                    td Makes text class italic and blue.
+                    td Makes text italic and blue (or green on dark theme for contrast).
                 tr
-                    td Elements with "code" class
-                    td.
-                        Adds a radial gradient background, rounded corners, padding, makes text green, makes the element always display as a rectangle (inline block),
-                        slightly shrinks the text to keep it from touching the gradient borders.
+                    td "code" class
+                    td
+                        ul
+                            li Radial gradient background, green text
+                            li Rounded corners
+                            li Padding
+                            li Set display to inline-block
+                            li Shrinks text to 95%
+                            li Sets font to Consolas (with other monospace fonts as fallback)
                 tr
-                    td Elements with "NA-box" class.
-                    td This class sets a gray background and centers text.
+                    td "NA-box" class.
+                    td Sets a gray background, bolds and centers text.
                 tr
-                    td The element with ID "css-test"
+                    td ID "css-test"
                     td Hides the element for testing the CSS toggle script.
                 tr
-                    td Element with class of "links"
-                    td.
-                        This class, in conjunction with the following rule, horizontally aligns the elements inside the
-                        container element. Also adds a bottom border.
-                tr
-                    td Elements inside element with class of "links"
-                    td Horizontally aligns the elements in conjunction with the previous rule.
-                tr
-                    td The link element with ID of "current"
-                    td Disables the link and makes it bold.
-                tr
-                    td Page root
-                    td.
-                        Makes the vertical scrollbar always show even if not needed so there is no alignment change between
-                        short pages and long pages.
+                    td "links" class
+                    td
+                        ul
+                            li Horizontally aligns elements inside using flexbox, with equal margins around.
+                            li Link with "current" ID
+                                ul
+                                    li Color is reset to default.
+                                    li Clicking is disabled.
+                                    li Cursor is set to default instead of pointer.
+                                    li Underline is removed.
+                            li Adds a bottom border and padding.
                 tr
                     td Table cells with class "code-cell"
-                    td Similar to "code" class. Shrinks text more.
+                    td Similar to "code" class. No wrapping, shrinks text more, no inline-block.
                 tr
-                    td Elements with "highlighted" class
+                    td "highlighted" class
                     td Highlights element and adds a border with a transition. Overrides all other rules.
                 tr
-                    td Elements with "hide" class
+                    td "hide" class
                     td Hides element. Overrides all other rules.
                 tr
-                    td Element with "reset-button" id
-                    td.
-                        Adds rounded corners, black background, white text, sets cursor to pointer and adds margin and padding. Fixed position, unaffected by scrolling.
-                        Is hidden by a "hide-reset-button" class, with a transition.
+                    td "reset-button" id
+                    td
+                        ul
+                            li Rounded corners.
+                            li Black background and white text.
+                            li Fixed position.
+                            li Opacity transition.
+                            li "hide-reset-button" class:
+                                ul
+                                    li Sets opacity to 0. The display property is not a continuum from 0% to 100%, unlike opacity, so it cannot be animated.
+                                    li Disables click events
+                                    li Disables tabbing to the element.
+                                    li Sets cursor to default.
+                            li "hide" class is overridden. Since this rule is further down in #[span.code style.css], it has priority.
                 tr
-                    td Element with "theme-button" id
-                    td Sets fixed position in bottom right corner.
-                tr
-                    td Label inside element with "theme-button" id
-                    td Sets display to fixed size block, replaces content with a moon image.
-                tr
-                    td Label inside element with "theme-button" id, if body has "dark-theme" class
-                    td Replaces content with a moon image with inverted color.
-                tr
-                    td Input inside element with "theme-button" id
-                    td Hides it (checkboxes cannot be directly styled, clicking the label is used instead).
-            span#css-test CSS test
-            p.emphasis.
-                Note: All toggleable properties are also set to only do anything if the page root does NOT have a
-                specific "disabler class".
-                These classes are added and removed using JavaScript.
+                    td "theme-button" id
+                    td
+                        ul
+                            li Fixed position.
+                            li Cannot be selected with double-click like text.
+                            li When the checkbox inside is focused by keyboard (detected by JavaScript), a border is applied, white on dark theme.
+                            li The actual checkbox is hidden and has click events disabled. Since labels cannot accept focus, the checkbox is still used
+                            | for keyboard users.
+                            li Padding is added when border is not active to keep position constant.
+                            li The "Dark Theme" text is hidden (disable CSS to see it) with font-size 0 and transparency
+                            | (in case of browsers that have minimum text sizes).
+                            li A background image of a moon is added, inverted on dark theme.
+            p.emphasis
+                span.strikethrough.
+                    Note: All toggleable properties are also set to only do anything if the page root does NOT have a
+                    specific "disabler class".
+                    These classes are added and removed using JavaScript.
+                |
+                |
+                span This was making it impossible to modify the CSS without invalidating this page, especially after I started using SCSS.

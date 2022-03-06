@@ -31,7 +31,7 @@ html {
             padding-bottom: 0.5vh;
         }
         background: $bg-color;
-        &.dark-theme {
+        @at-root .dark-theme {
             background: $bg-color-dark;
             color: white; /* text color*/
             .emphasis {
@@ -48,6 +48,18 @@ html {
             }
         }
         table#toggle-table, table#css-table {
+            width: 100%;
+            ul {
+                margin: 0;
+                list-style-position: inside; // keeps list bullets from clipping through table border
+                padding-left: 3px;
+            }
+            td {
+                padding-left: 3px;
+            }
+            @at-root #css-table td:nth-child(2) {
+                width: 100%;
+            }
             &, tr {
                 border: 2px solid black;
                 border-collapse: collapse;
@@ -86,6 +98,7 @@ html {
             margin: 0 auto;
             min-height: 100%;
             border: 1px solid black;
+            width: 100%;
             @media (min-width: $mobile-width){
                 max-width: 60%;
             }
@@ -100,26 +113,31 @@ html {
         .title {
             text-align: center;
         }
+        .strikethrough {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
         .emphasis {
             font-style: italic;
+            font-weight: bold;
             color: $emphasis;
         }
         & { // code styles
             .code {
                 display: inline-block;
-                max-width: 100%;
+                max-width: 99%; //enough space for one punctuation mark if needed
                 word-wrap: break-word;
                 border-radius: 10px;
                 padding: 1px 5px;
                 font-size: 95%;
             }
-            .code-cell, .code {
+            td.code-cell, .code {
                 color: #33ff00;
                 background: black;
                 background: radial-gradient(#00071a 30%, #01302c);
                 font-family: $font-code, $font-default;
             }
-            .code-cell {
+            td.code-cell {
                 white-space: nowrap;
                 font-size: 80%;
             }
@@ -201,8 +219,9 @@ html {
             label {
                 cursor: pointer;
                 display: block;
-                font-size: 0; /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
-                background-image: url("images/dark-mode-6682.svg");
+                color: transparent;
+                font-size: 0;
+                background-image: url("images/dark-mode-6682.svg"); /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
                 width: 30px;
                 height: 30px;
                 filter: blur(0.6px);

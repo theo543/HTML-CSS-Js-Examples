@@ -8,8 +8,8 @@ html(lang="en")
             +links
             h1.title HTML
             br
-            p HTML (HyperText Markup Language) is a web language used to make web pages.
             p.
+                HTML (HyperText Markup Language) is a web language used to make web pages.
                 HTML elements (i.e. tags) define the content of a web page.
                 The tree of nested tags that make up a web page is called the #[span.emphasis Document Object Model]
             p An important property of tags is their "display" property. There are several ways a tag could display on the page. Some are:
@@ -80,6 +80,10 @@ html(lang="en")
                     td p
                     td Defines a block-level paragraph.
                     td.code-cell &lt;p&gt;Text goes here.&lt;/p&gt;
+                tr
+                    td strong
+                    td.ignore Makes text bold.
+                    td.code-cell This document is about &lt;strong&gt;HTML&lt;strong/&gt;.
                 tr
                     td table#[br]tr#[br]td#[br]th
                     td.
@@ -154,5 +158,4 @@ html(lang="en")
                         &emsp;&lt;/label&gt;#[br]
                         &emsp;&lt;input type="submit" value="Submit"&gt;#[br]
                         &lt;/form&gt;
-
-            p.emphasis Note: The highlight checkboxes work by adding and removing a "highlighted" CSS class using JavaScript.
+            p.emphasis Note: The radio buttons work by assigning CSS classes with JavaScript.
