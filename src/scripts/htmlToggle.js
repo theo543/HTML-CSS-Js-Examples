@@ -1,6 +1,6 @@
 'use strict';
 (function() {
-    document.body.insertAdjacentHTML("beforeend", '<button id="reset-button" class="hide-reset-button" hidden>Click here to restore all elements!</button>\n')
+    document.body.insertAdjacentHTML("afterbegin", '<button id="reset-button" class="hide-reset-button" hidden>Click here to restore all elements!</button>\n')
     const resetElem = document.getElementById("reset-button");
     setTimeout(() => resetElem.hidden = false, 750);
     resetElem.addEventListener("click", (function () {

@@ -2,7 +2,7 @@
 (function() {
     const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     let themeState = sessionStorage.getItem("darkTheme") ? (sessionStorage.getItem("darkTheme") === "true") : themeQuery.matches;
-    document.body.insertAdjacentHTML("beforeend",
+    document.body.insertAdjacentHTML("afterbegin",
    `<form id="theme-button"><input type="checkbox" name="checkbox" id="theme-checkbox"><label for="theme-checkbox">Dark Theme</label></form>`);
     const form = document.getElementById("theme-button");
     const checkbox = form.elements["checkbox"];

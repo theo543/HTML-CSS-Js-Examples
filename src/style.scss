@@ -3,8 +3,10 @@ $bg-color: hsl(0, 0%, 98%);
 $bg-color-dark: hsl(0, 0%, 25%);
 $page-color: hsl(0, 0%, 95%);
 $page-color-dark: hsl(0, 0%, 30%);
-$dark-link: #0025ff;
-$visited-dark-link: purple;
+$dark-link: #77ceff;
+$visited-dark-link: #f5aeff;
+$emphasis: #1d2edb;
+$dark-emphasis: #a2ff00;
 $font-default: arial, serif;
 $font-code: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono;
 html {
@@ -22,11 +24,8 @@ html {
         &.dark-theme {
             background: $bg-color-dark;
             color: white; /* text color*/
-            a, .emphasis {
-                filter: brightness(3);
-                &.highlighted {
-                    filter: initial;
-                }
+            .emphasis {
+                color: $dark-emphasis;
             }
             a {
                 color: $dark-link;
@@ -92,7 +91,7 @@ html {
         }
         .emphasis {
             font-style: italic;
-            color: #1d2edb;
+            color: $emphasis;
         }
         & { // code styles
             .code {
@@ -160,6 +159,7 @@ html {
                 cursor: default;
                 opacity: 0;
                 pointer-events: none;
+                tab-index: -1;
             }
             &.hide {
                 display: inline-block !important;
