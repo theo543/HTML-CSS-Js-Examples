@@ -5,12 +5,14 @@ $page-color: hsl(0, 0%, 95%);
 $page-color-dark: hsl(0, 0%, 30%);
 $dark-link: #0025ff;
 $visited-dark-link: purple;
+$font-default: arial, serif;
+$font-code: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono;
 html {
     margin: 0;
     body {
         margin: 0;
         overflow-y: scroll;
-        font-family: arial, serif;
+        font-family: $font-default;
         * {
             font-family: inherit;
         }
@@ -90,23 +92,25 @@ html {
             font-style: italic;
             color: #1d2edb;
         }
-        .code {
-            display: inline-block;
-            max-width: 100%;
-            word-wrap: break-word;
-            color: #33ff00;
-            background: black;
-            background: radial-gradient(#00071a 30%, #01302c);
-            border-radius: 10px;
-            padding: 1px 5px;
-            font-size: 95%;
-        }
-        .code-cell {
-            color: #33ff00;
-            background: black;
-            background: radial-gradient(#00071a 30%, #01302c);
-            white-space: nowrap;
-            font-size: 80%;
+        & { // code styles
+            .code {
+                display: inline-block;
+                max-width: 100%;
+                word-wrap: break-word;
+                border-radius: 10px;
+                padding: 1px 5px;
+                font-size: 95%;
+            }
+            .code-cell, .code {
+                color: #33ff00;
+                background: black;
+                background: radial-gradient(#00071a 30%, #01302c);
+                font-family: $font-code, $font-default;
+            }
+            .code-cell {
+                white-space: nowrap;
+                font-size: 80%;
+            }
         }
         .NA-box {
             background: #3d3d3d;
