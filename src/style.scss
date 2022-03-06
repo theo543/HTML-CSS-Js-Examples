@@ -113,9 +113,8 @@ html {
             }
         }
         .NA-box {
-            background: #3d3d3d;
-            color: black;
             text-align: center;
+            font-weight: bold;
         }
         #css-test {
             display: none;
@@ -130,7 +129,7 @@ html {
                 &#current {
                     pointer-events: none;
                     cursor: default;
-                    color: black;
+                    color: inherit;
                     text-decoration: none;
                     font-weight: bold;
                 }
