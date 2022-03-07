@@ -63,6 +63,23 @@ html(lang="en")
                         &emsp;&lt;p&gt;Text 2&lt;/p&gt;#[br]
                         &lt;/div&gt;
                 tr
+                    td nav
+                    td Represents the navigation section of a website. Used by screen readers.
+                    td.code-cell.
+                        &lt;nav&gt;&lt;a href="index.html"&gt;Home Page&lt;a&gt;&lt;/nav&gt;
+                tr
+                    td main
+                    td Represents the main section of a website. Used by screen readers.
+                    td.code-cell.
+                        &lt;main&gt;Text.....&lt;/main&gt;
+                tr
+                    td caption
+                    td The caption of a table. Is displayed above the table, but the tag is inside it.
+                    td.code-cell.
+                        &lt;table&gt;#[br]
+                        &emsp;&lt;caption&gt;Empty Table&lt;/caption&gt;#[br]
+                        &lt;/table&gt;
+                tr
                     td a
                     td Links to the address specified by the tag&apos;s "href" attribute.
                     td.code-cell &lt;a href="index.html"&gt;Home Page&lt;/a&gt;
@@ -154,7 +171,7 @@ html(lang="en")
                     td.code-cell.
                         &lt;form action="purchase_processing.php"&gt;#[br]
                         &emsp;&lt;label&gt;&lt;input type="checkbox" name="purchase"&gt;#[br]
-                        &emsp;Agree to purchase?#[br]
+                        &emsp;&emsp;Agree to purchase?#[br]
                         &emsp;&lt;/label&gt;#[br]
                         &emsp;&lt;input type="submit" value="Submit"&gt;#[br]
                         &lt;/form&gt;
