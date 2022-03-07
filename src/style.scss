@@ -188,6 +188,9 @@ html {
             background: black;
             color: white;
             border-radius: 5px;
+            &:focus {
+                outline-color: darkgreen;
+            }
             transition: opacity 0.5s ease-in-out;
             opacity: 1;
             &.hide-reset-button {
