@@ -6,7 +6,7 @@ $page-color-dark: hsl(0, 0%, 30%);
 $dark-link: #77ceff;
 $visited-dark-link: #f5aeff;
 $emphasis: #1d2edb;
-$dark-emphasis: #a2ff00;
+$dark-emphasis: #00d0ff;
 $font-default: arial, serif;
 $font-code: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono;
 * {
@@ -34,6 +34,9 @@ html {
         @at-root .dark-theme {
             background: $bg-color-dark;
             color: white; /* text color*/
+            .page {
+                background: $page-color-dark;
+            }
             .emphasis {
                 color: $dark-emphasis;
             }
@@ -49,6 +52,10 @@ html {
         }
         table#toggle-table, table#css-table {
             width: 100%;
+            caption {
+                text-align: left;
+                margin: 2px 0;
+            }
             ul {
                 margin: 0;
                 list-style-position: inside; // keeps list bullets from clipping through table border
@@ -56,9 +63,6 @@ html {
             }
             td {
                 padding-left: 3px;
-            }
-            @at-root #css-table td:nth-child(2) {
-                width: 100%;
             }
             &, tr {
                 border: 2px solid black;
@@ -105,17 +109,19 @@ html {
             padding-left: 10px;
             padding-right: 10px;
             background: $page-color;
-            @at-root body.dark-theme .page {
-                background: $page-color-dark;
-            }
             box-shadow: 2px 2px 3px 1px black;
+        }
+        del {
+            text-decoration-color: black;
         }
         .title {
             text-align: center;
         }
-        .strikethrough {
-            text-decoration: line-through;
-            text-decoration-thickness: 2px;
+        .serif {
+            font-family: Serif, $font-default;
+        }
+        .consolas {
+            font-family: Consolas, $font-default;
         }
         .emphasis {
             font-style: italic;

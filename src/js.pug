@@ -3,7 +3,7 @@ html(lang='en')
     include _mixins
     +header("JavaScript - Web Languages")
     body
-        .page
+        main.page
             +links
             h1.title JavaScript
             br
@@ -64,4 +64,4 @@ html(lang='en')
                     Used to fix some browsers incorrectly implementing the class toggle function.
                     #[span.code element.classList.toggle("hide", false);] is supposed to remove the "hide" class,
                     if it exists, but on some browsers the second argument is ignored and the class is always toggled on/off.
-                    This would cause every element to be hidden when the "None" button is selected on load.
+                    This would cause every element to be hidden when the "Display" button is selected on load.

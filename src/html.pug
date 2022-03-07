@@ -4,7 +4,7 @@ html(lang="en")
     +header("HTML - Web Languages")
         script(src="scripts/htmlToggle.js" defer)
     body
-        .page
+        main.page
             +links
             h1.title HTML
             br
@@ -24,8 +24,8 @@ html(lang="en")
                         the top of this page are inside a flexbox
                         container that aligns them horizontally with equal space between them.
                     li #[span.emphasis Table, table-cell, table-column, table-row, etc.] make the elements display as if they were in a table.
-            p This website uses the following tags:
             table#toggle-table
+                caption This website uses the following tags:
                 tr
                     th Tag(s)
                     th Description

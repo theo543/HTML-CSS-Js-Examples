@@ -4,7 +4,7 @@ html(lang="en")
     +header("CSS - Web Languages")
         script(src="scripts/CSSToggle.js" async)
     body
-        .page
+        main.page
             +links
             h1.title CSS
             br
@@ -28,31 +28,30 @@ html(lang="en")
             button(id="CSSToggle") Click here to toggle all CSS on this page on/off!
             span#css-test
                 strong &emsp;THIS ELEMENT IS HIDDEN WHEN CSS IS ENABLED
-            p.
-                Examples of CSS in #[span.code style.css]:
             table#css-table
+                caption  Examples of CSS in #[span.code style.css]:
                 tr
                     th Target
                     th Description
                 tr
-                    td body, html
+                    td #[span.code body], #[span.code html]
                     td
                         ul
-                            li Sets the font to Arial with Serif as a fallback font. Removes default margins.
+                            li Sets the font to Arial with #[span.serif Serif] as a fallback font. Removes default margins.
                             li Sets min heights such that the page is always filled.
                             li Scrollbar is always shown on html tag to keep the home page aligned with the longer pages
                 tr
-                    td Tables and components of tables with IDs css-table and toggle-table
+                    td Tables with IDs #[span.code #css-table] and #[span.code #toggle-table]
                     td
                         ul
                             li Adds borders. On mobile, some are grey to highlight rows.
                             li On mobile, rows become lists and page breaks commas.
                             li On desktop, the first cell has centered text.
                             li Adds padding.
-                            li Sets width to 100% of .page.
-                            li Sets second cell of css-table to 100% width, which minimizes the first cell on desktop.
+                            li Sets width to 100%.
+                            li Aligns the table caption to the left and adds vertical margins.
                 tr
-                    td "page" class
+                    td #[span.code .page]
                     td
                         ul
                             li Sets the background color (depending on the theme setting)
@@ -63,13 +62,13 @@ html(lang="en")
                             | making body bigger than html, since without a border the browser might
                             | merge margins into outer elements.
                 tr
-                    td "title" class
+                    td #[span.code .title]
                     td Centers the page title.
                 tr
-                    td "emphasis" class
+                    td #[span.code .emphasis]
                     td Makes text italic and blue (or green on dark theme for contrast).
                 tr
-                    td "code" class
+                    td #[span.code .code]
                     td
                         ul
                             li Radial gradient background, green text
@@ -77,19 +76,19 @@ html(lang="en")
                             li Padding
                             li Set display to inline-block
                             li Shrinks text to 95%
-                            li Sets font to Consolas (with other monospace fonts as fallback)
+                            li Sets font to #[span.consolas Consolas] (with other monospace fonts as fallback)
                 tr
-                    td "NA-box" class.
+                    td #[span.code .NA-box]
                     td Sets a gray background, bolds and centers text.
                 tr
-                    td ID "css-test"
+                    td #[span.code #css-test]
                     td Hides the element for testing the CSS toggle script.
                 tr
-                    td "links" class
+                    td #[span.code .links]
                     td
                         ul
                             li Horizontally aligns elements inside using flexbox, with equal margins around.
-                            li Link with "current" ID
+                            li Link with #[span.code #current]
                                 ul
                                     li Color is reset to default.
                                     li Clicking is disabled.
@@ -97,31 +96,32 @@ html(lang="en")
                                     li Underline is removed.
                             li Adds a bottom border and padding.
                 tr
-                    td Table cells with class "code-cell"
-                    td Similar to "code" class. No wrapping, shrinks text more, no inline-block.
+                    td Table cells with class #[span.code .code-cell]
+                    td Similar to #[span.code .code]. No wrapping, shrinks text more, no inline-block.
                 tr
-                    td "highlighted" class
-                    td Highlights element and adds a border with a transition. Overrides all other rules.
+                    td #[span.code .highlighted]
+                    td.
+                        Highlights element and adds a border with a transition. Overrides all other rules.
                 tr
-                    td "hide" class
+                    td #[span.code .hide]
                     td Hides element. Overrides all other rules.
                 tr
-                    td "reset-button" id
+                    td #[span.code #reset-button]
                     td
                         ul
                             li Rounded corners.
                             li Black background and white text.
                             li Fixed position.
                             li Opacity transition.
-                            li "hide-reset-button" class:
+                            li #[span.code .hide-reset-button]:
                                 ul
-                                    li Sets opacity to 0. The display property is not a continuum from 0% to 100%, unlike opacity, so it cannot be animated.
+                                    li Sets opacity to 0. The display property is not a continuum from 0% to 100%, unlike opacity, so it cannot be used with transitions.
                                     li Disables click events
                                     li Disables tabbing to the element.
                                     li Sets cursor to default.
-                            li "hide" class is overridden. Since this rule is further down in #[span.code style.css], it has priority.
+                            li With #[span.code .hide]: keeps display set to inline-block. Both rules have the #[span.code !important] property, but this one has priority because it is more specific.
                 tr
-                    td "theme-button" id
+                    td #[span.code #theme-button]
                     td
                         ul
                             li Fixed position.
@@ -134,7 +134,7 @@ html(lang="en")
                             | (in case of browsers that have minimum text sizes).
                             li A background image of a moon is added, inverted on dark theme.
             p.emphasis
-                span.strikethrough.
+                del.
                     Note: All toggleable properties are also set to only do anything if the page root does NOT have a
                     specific "disabler class".
                     These classes are added and removed using JavaScript.

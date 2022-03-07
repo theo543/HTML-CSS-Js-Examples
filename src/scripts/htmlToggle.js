@@ -31,7 +31,7 @@
         const div = cell.appendChild(document.createElement("div"));
         div.innerHTML =
        `<form>
-        <label><input type="radio" name="r" data-form='none'">None</label>
+        <label><input type="radio" name="r" data-form='none'">Display</label>
         <label><input type="radio" name="r" data-form='highlight'>Highlight</label>
         <label><input type="radio" name="r" data-form='hide'>Hide</label>
         </form>`;
