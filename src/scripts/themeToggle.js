@@ -2,8 +2,15 @@
 (function() {
     const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     let themeState = sessionStorage.getItem("darkTheme") ? (sessionStorage.getItem("darkTheme") === "true") : themeQuery.matches;
-    document.body.insertAdjacentHTML("afterbegin",
-   `<form id="theme-button"><input type="checkbox" name="checkbox" id="theme-checkbox"><label for="theme-checkbox">Dark Theme</label></form>`);
+    document.body.insertAdjacentHTML("afterbegin", /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
+   `
+    <form id="theme-button"><input type="checkbox" name="checkbox" id="theme-checkbox">
+    <label for="theme-checkbox">Toggle Dark Theme
+    <img id="moon-label" src="images/dark-mode-6682.svg" alt="Dark Moon Icon - Toggle Theme">
+    <img id="inverted-moon-label" src="images/dark-mode-6682-invert.svg" alt="White Moon Icon - Toggle Theme">
+    </label>
+    </form>
+    `);
     const form = document.getElementById("theme-button");
     const checkbox = form.elements["checkbox"];
 
