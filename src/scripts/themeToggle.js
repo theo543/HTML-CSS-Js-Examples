@@ -5,10 +5,10 @@
     document.body.insertAdjacentHTML("afterbegin", /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
    `
     <form id="theme-button"><input type="checkbox" name="checkbox" id="theme-checkbox">
-    <label for="theme-checkbox">Toggle Dark Theme
-    <img id="moon-label" src="images/dark-mode-6682.svg" alt="Dark Moon Icon - Toggle Theme">
-    <img id="inverted-moon-label" src="images/dark-mode-6682-invert.svg" alt="White Moon Icon - Toggle Theme">
-    </label>
+        <label for="theme-checkbox">Toggle Dark Theme
+            <img id="moon-label" src="images/dark-mode-6682.svg" alt="Dark Moon Icon - Toggle Theme" width="30px" height="30px">
+            <img id="inverted-moon-label" src="images/dark-mode-6682-invert.svg" alt="White Moon Icon - Toggle Theme" width="30px" height="30px">
+        </label>
     </form>
     `);
     const form = document.getElementById("theme-button");

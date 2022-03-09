@@ -236,8 +236,13 @@ html {
                     width: 100%;
                     height: 100%;
                 }
-                @at-root #inverted-moon-label {
-                    display: none;
+                @at-root {
+                    #moon-label {
+                        display: block;
+                    }
+                    #inverted-moon-label {
+                        display: none;
+                    }
                 }
                 @at-root #theme-checkbox:checked + label {
                     #inverted-moon-label {

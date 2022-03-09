@@ -130,9 +130,14 @@ html(lang="en")
                             li The actual checkbox is hidden and has click events disabled. Since labels cannot accept focus, the checkbox is still used
                             | for keyboard users.
                             li Padding is added when border is not active to keep position constant.
-                            li The "Dark Theme" text is hidden (disable CSS to see it) with font-size 0 and transparency
-                            | (in case of browsers that have minimum text sizes).
-                            li A background image of a moon is added, inverted on dark theme.
+                            li.
+                                The "Dark Theme" text is hidden (disable CSS to see it) with font-size 0 and transparency
+                                (in case of browsers that have minimum text sizes).
+                            li.
+                                Shows #[span.code #inverted-moon-label] if dark theme is on, or else #[span.code #moon-label].
+                                Sets the image width and height to 100% of the #[span.code label] container. The images
+                                also have width and height attributes set in HTML, which keeps them from filling the page
+                                if CSS is disabled or fails to load.
             p.emphasis
                 del.
                     Note: All toggleable properties are also set to only do anything if the page root does NOT have a
