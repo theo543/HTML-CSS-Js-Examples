@@ -52,6 +52,9 @@ html {
         }
         table#toggle-table, table#css-table {
             width: 100%;
+            @at-root #toggle-table td:nth-child(1) {
+                font-family: $font-code;
+            }
             caption {
                 text-align: left;
                 margin: 2px 0;
@@ -62,7 +65,7 @@ html {
                 padding-left: 3px;
             }
             td {
-                padding-left: 3px;
+                padding: 0 3px;
             }
             &, tr {
                 border: 2px solid black;
@@ -70,30 +73,24 @@ html {
                 margin: 0;
             }
             td, th {
-                display: list-item;
                 list-style-type: none;
-                border: 1px dotted grey;
                 border-collapse: collapse;
-                @at-root #toggle-table td:nth-child(1) br { /* on mobile we use commas instead of newlines */
-                    content: "";
-                    &::after{
-                        content: ", ";
+                border: 1px solid black;
+                @media not all and (max-width: $mobile-width) {
+                    &:first-child {
+                        text-align: center;
                     }
                 }
-            }
-            @media (min-width: $mobile-width){ /* for desktops */
-                td, th {
-                    border: 1px solid black;
-                    display: table-cell;
-                    @at-root html #toggle-table td:nth-child(1) br {
-                        content: initial;
-                        &::after{
-                            content: initial;
+                @media (max-width: $mobile-width) {
+                    display: list-item;
+                    border: 1px dotted grey;
+                    @at-root #toggle-table td:nth-child(1) br {
+                        /* on mobile we use commas instead of newlines */
+                        content: "";
+                        &::after {
+                            content: ", ";
                         }
                     }
-                }
-                td:nth-child(1) {
-                    text-align: center;
                 }
             }
         }
