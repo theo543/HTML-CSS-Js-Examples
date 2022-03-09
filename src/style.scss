@@ -9,6 +9,18 @@ $emphasis: #1d2edb;
 $dark-emphasis: #00d0ff;
 $font-default: arial, serif;
 $font-code: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono;
+@mixin breakpoint($type) {
+    @if $type == mobile {
+        @media (max-width: $mobile-width) {
+            @content;
+        }
+    }
+    @else if $type == desktop {
+        @media not all and (max-width: $mobile-width) {
+            @content;
+        }
+    }
+}
 * {
     overflow-anchor: none;
     font-family: inherit;
@@ -26,7 +38,7 @@ html {
         min-height: 100%;
         display: flex;
         flex-flow: row;
-        @media (min-width: $mobile-width) {
+        @include breakpoint(desktop) {
             padding-top: 0.5vh;
             padding-bottom: 0.5vh;
         }
@@ -80,12 +92,12 @@ html {
                 list-style-type: none;
                 border-collapse: collapse;
                 border: 1px solid black;
-                @media not all and (max-width: $mobile-width) {
+                @include breakpoint(desktop) {
                     &:first-child {
                         text-align: center;
                     }
                 }
-                @media (max-width: $mobile-width) {
+                @include breakpoint(mobile) {
                     display: list-item;
                     border: 1px dotted grey;
                     @at-root #html-table td:nth-child(1) br {
@@ -104,7 +116,7 @@ html {
             min-height: 100%;
             border: 1px solid black;
             width: 100%;
-            @media (min-width: $mobile-width){
+            @include breakpoint(desktop){
                 max-width: 60%;
             }
             padding-left: 10px;
@@ -145,7 +157,7 @@ html {
                 font-family: $font-code, $font-default;
             }
             td.code-cell {
-                @media (min-width: $mobile-width) {
+                @include breakpoint(desktop) {
                     white-space: nowrap;
                 }
                 font-size: 80%;
