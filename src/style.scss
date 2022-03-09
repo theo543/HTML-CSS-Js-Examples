@@ -144,7 +144,9 @@ html {
                 font-family: $font-code, $font-default;
             }
             td.code-cell {
-                white-space: nowrap;
+                @media (min-width: $mobile-width) {
+                    white-space: nowrap;
+                }
                 font-size: 80%;
             }
         }
