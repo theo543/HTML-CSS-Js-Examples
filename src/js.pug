@@ -50,10 +50,19 @@ html(lang='en')
                     Stores the current theme in localStorage. The initial value is decided by the OS theme if it is not set in localStorage.
                     Updates when the OS theme is changed. If the checkbox is focused by keyboard, a CSS class is added that
                     adds a border to the CSS-inserted image to show focus. On browsers that do not allow for checking
-                    keyboard focus (the #[span.emphasis :focus-visible] selector), any click on the button shows the border (#[span.emphasis :focus]).
+                    keyboard focus (the #[span.consolas :focus-visible] selector), any click on the button shows the border (#[span.consolas :focus]).
                 li.
                     #[span.code CSSToggle.js] - Removes the CSS tag from the page or adds it back when a function is called.
                     The CSS toggle button calls the function using the onclick property.
+                li.
+                    #[span.code addMDNLinks.js] - Links tag names in the html page to the Mozilla
+                    #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element") HTML elements reference].
+                    The target is specified using the #[span.consolas mdn-link-target-container] class with the
+                    #[span.consolas data-mdn-link-selector="tr td:first-child"] attribute.
+                    The scripts cannot simply check every cell in the table for html tag names,
+                    because there is no way to check if a word exists in the HTML reference website.
+                    Security restrictions on HTTP requests to foreign websites prevent JavaScript from checking
+                    if the link returns a 404 error, so the first cell of each row selector is needed.
                 li.
                     #[span.code.dark-theme #[a(href='https://github.com/zloirock/core-js') core-js]] -
                     A polyfill library that implements many standard JavaScript features.

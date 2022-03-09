@@ -55,7 +55,7 @@ html {
             @at-root #html-table td:nth-child(1) {
                 font-family: $font-code;
             }
-            @at-root #css-table td:nth-child(1) {
+            td:nth-child(1) {
                 padding: 1px;
             }
             caption {

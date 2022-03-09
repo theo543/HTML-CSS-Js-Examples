@@ -3,6 +3,7 @@ html(lang="en")
     include _mixins
     +header("HTML - Web Languages")
         script(src="scripts/htmlToggle.js" defer)
+        script(src="scripts/addMDNLinks.js" defer)
     body
         main.page
             +links
@@ -24,7 +25,7 @@ html(lang="en")
                         the top of this page are inside a flexbox
                         container that aligns them horizontally with equal space between them.
                     li #[span.emphasis Table, table-cell, table-column, table-row, etc.] make the elements display as if they were in a table.
-            table#html-table
+            table#html-table.mdn-link-target-container(data-mdn-link-selector="tr td:first-child")
                 caption This website uses the following tags:
                 tr
                     th Tag(s)
