@@ -50,6 +50,8 @@ html(lang="en")
                             li Adds padding.
                             li Sets width to 100%.
                             li Aligns the table caption to the left and adds vertical margins.
+                            li The font of the tags in #[span.code #html-table] is set to #[span.consolas Consolas].
+                            li Replaces the padding of lists with smaller margins on list items.
                 tr
                     td #[span.code .page]
                     td
@@ -58,9 +60,10 @@ html(lang="en")
                             li Adds a shadow
                             li On desktop, sets max width to 60%
                             li Sets margin to auto (center)
-                            li Adds an one pixel black border. This prevents margins from breaking out and
-                            | making body bigger than html, since without a border the browser might
-                            | merge margins into outer elements.
+                            li.
+                                Adds an one pixel black border. This prevents margins from breaking out and
+                                making body bigger than html, since without a border the browser might
+                                merge margins into outer elements.
                 tr
                     td #[span.code .title]
                     td Centers the page title.
@@ -127,8 +130,9 @@ html(lang="en")
                             li Fixed position.
                             li Cannot be selected with double-click like text.
                             li When the checkbox inside is focused by keyboard (detected by JavaScript), a border is applied, white on dark theme.
-                            li The actual checkbox is hidden and has click events disabled. Since labels cannot accept focus, the checkbox is still used
-                            | for keyboard users.
+                            li.
+                                The actual checkbox is hidden and has click events disabled. Since labels cannot accept focus, the checkbox is still used
+                                for keyboard users.
                             li Padding is added when border is not active to keep position constant.
                             li.
                                 The "Dark Theme" text is hidden (disable CSS to see it) with font-size 0 and transparency

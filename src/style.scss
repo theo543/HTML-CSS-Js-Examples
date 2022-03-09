@@ -55,14 +55,18 @@ html {
             @at-root #html-table td:nth-child(1) {
                 font-family: $font-code;
             }
+            @at-root #css-table td:nth-child(1) {
+                padding: 1px;
+            }
             caption {
                 text-align: left;
                 margin: 2px 0;
             }
-            ul {
-                margin: 0;
-                list-style-position: inside; // keeps list bullets from clipping through table border
-                padding-left: 3px;
+            ul, ol {
+                padding-left: 0;
+                li {
+                    margin-left: 20px;
+                }
             }
             td {
                 padding: 0 3px;
