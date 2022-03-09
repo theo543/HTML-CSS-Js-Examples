@@ -8,7 +8,7 @@
     }));
 
     let altered = 0;
-    const cells = document.querySelectorAll("#toggle-table tr td:nth-child(2):not(.ignore)");
+    const cells = document.querySelectorAll("#html-table tr td:nth-child(2):not(.ignore)");
 
     function updateClasses(event) {
         const form = event.currentTarget

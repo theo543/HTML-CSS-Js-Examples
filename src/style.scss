@@ -50,9 +50,9 @@ html {
                 }
             }
         }
-        table#toggle-table, table#css-table {
+        table#html-table, table#css-table {
             width: 100%;
-            @at-root #toggle-table td:nth-child(1) {
+            @at-root #html-table td:nth-child(1) {
                 font-family: $font-code;
             }
             caption {
@@ -84,7 +84,7 @@ html {
                 @media (max-width: $mobile-width) {
                     display: list-item;
                     border: 1px dotted grey;
-                    @at-root #toggle-table td:nth-child(1) br {
+                    @at-root #html-table td:nth-child(1) br {
                         /* on mobile we use commas instead of newlines */
                         content: "";
                         &::after {
