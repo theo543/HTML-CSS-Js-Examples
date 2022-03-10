@@ -209,10 +209,10 @@ html {
             background: black;
             color: white;
             border-radius: 5px;
-            &:focus {
-                outline-color: darkgreen;
+            &:focus-visible, &:hover {
+                background-color: slateblue;
             }
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
             opacity: 1;
             &.hide-reset-button {
                 cursor: default;
