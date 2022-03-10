@@ -10,7 +10,7 @@ html(lang='en')
             p.
                 JavaScript is a #[span.emphasis scripting language] used to make interactive web pages. It is
                 inserted into a web page using
-                the #[span.emphasis script tag],
+                the #[span.emphasis script element],
                 either directly
                 into the HTML file or loaded from a file or remote server.
             p.
@@ -34,7 +34,7 @@ html(lang='en')
                 }
                 button.addEventListener("click", eventListener);
             p.
-                The HTML and CSS pages on this website use JavaScript to toggle CSS properties.
+                The interactive elements on this website use JavaScript to toggle CSS properties and modify html elements.
             p.
                 This site uses 5 scripts:
             ul
@@ -52,14 +52,14 @@ html(lang='en')
                     adds a border to the CSS-inserted image to show focus. On browsers that do not allow for checking
                     keyboard focus (the #[span.consolas :focus-visible] selector), any click on the button shows the border (#[span.consolas :focus]).
                 li.
-                    #[span.code CSSToggle.js] - Removes the CSS tag from the page or adds it back when a function is called.
+                    #[span.code CSSToggle.js] - Removes the CSS element from the page or adds it back when a function is called.
                     The CSS toggle button calls the function using the onclick property.
                 li.
-                    #[span.code addMDNLinks.js] - Links tag names in the html page to the Mozilla
+                    #[span.code addMDNLinks.js] - Links element names in the html page to the Mozilla
                     #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element") HTML elements reference].
                     The target is specified using the #[span.consolas mdn-link-target-container] class with the
                     #[span.consolas data-mdn-link-selector="tr td:first-child"] attribute.
-                    The scripts cannot simply check every cell in the table for html tag names,
+                    The scripts cannot simply check every cell in the table for html element names,
                     because there is no way to check if a word exists in the HTML reference website.
                     Security restrictions on HTTP requests to foreign websites prevent JavaScript from checking
                     if the link returns a 404 error, so the first cell of each row selector is needed.

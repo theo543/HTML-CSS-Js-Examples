@@ -11,9 +11,9 @@ html(lang="en")
             br
             p.
                 HTML (HyperText Markup Language) is a web language used to make web pages.
-                HTML elements (i.e. tags) define the content of a web page.
-                The tree of nested tags that make up a web page is called the #[span.emphasis Document Object Model]
-            p An important property of tags is their "display" property. There are several ways a tag could display on the page. Some are:
+                HTML elements define the content of a web page.
+                The tree of nested elements that make up a web page is called the #[span.emphasis Document Object Model]
+            p An important property of elements is their "display" property. There are several ways an element could display on the page. Some are:
                 ol
                     li #[span.emphasis None] - Does not display at all.
                     li #[span.emphasis Block] - Will create a new line and expand as much as possible.
@@ -26,22 +26,22 @@ html(lang="en")
                         container that aligns them horizontally with equal space between them.
                     li #[span.emphasis Table, table-cell, table-column, table-row, etc.] make the elements display as if they were in a table.
             table#html-table.mdn-link-target-container(data-mdn-link-selector="tr td:first-child")
-                caption This website uses the following tags:
+                caption This website uses the following elements:
                 tr
                     th Tag(s)
                     th Description
                     th Example
                 tr
                     td html
-                    td Page root. All other elements are contained in the html tag.
+                    td Page root. All other elements are contained in the html element.
                     td.NA-box N/A
                 tr
                     td body
-                    td Contains visible tags.
+                    td Contains visible elements.
                     td.NA-box N/A
                 tr
                     td head
-                    td.ignore Contains metadata tags.
+                    td.ignore Contains metadata elements.
                     td.NA-box N/A
                 tr
                     td title
@@ -82,11 +82,11 @@ html(lang="en")
                         &lt;/table&gt;
                 tr
                     td a
-                    td Links to the address specified by the tag&apos;s "href" attribute.
+                    td Links to the address specified by the element&apos;s "href" attribute.
                     td.code-cell &lt;a href="index.html"&gt;Home Page&lt;/a&gt;
                 tr
                     td h1#[br]h2#[br]h3#[br]h4#[br]h5#[br]h6
-                    td The tags h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
+                    td The elements h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
                     td.code-cell.
                         &lt;h1&gt;Urgent!&lt;/h1&gt;#[br]
                         &lt;h2&gt;Respond ASAP!&lt;/h2&gt;#[br]
@@ -110,9 +110,9 @@ html(lang="en")
                 tr
                     td table#[br]tr#[br]td#[br]th
                     td.
-                        The table tag is the root element of an HTML table.
+                        The table element is the root element of an HTML table.
                         Rows are defined using tr ("table row") and th ("table header").
-                        Cells are defined by the td ("table data") tag.
+                        Cells are defined by the td ("table data") element.
                     td.code-cell.
                         &lt;table&gt;#[br]
                         &emsp;&lt;th&gt;#[br]
