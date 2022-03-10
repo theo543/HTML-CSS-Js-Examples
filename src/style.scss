@@ -38,6 +38,7 @@ html {
         min-height: 100%;
         display: flex;
         flex-flow: row;
+        justify-content: center;
         @include breakpoint(desktop) {
             padding-top: 0.5vh;
             padding-bottom: 0.5vh;
@@ -110,9 +111,14 @@ html {
                 }
             }
         }
-        .page {
+        .flex-side {
             flex-grow: 1;
-            margin: 0 auto;
+            justify-content: center;
+            width: 0;
+            overflow: hidden;
+            display: flex;
+        }
+        .page {
             min-height: 100%;
             border: 1px solid black;
             width: 100%;

@@ -3,7 +3,7 @@ html(lang='en')
     include _mixins
     +header("JavaScript - Web Languages")
     body
-        main.page
+        +page
             +links
             h1.title JavaScript
             br
@@ -34,8 +34,7 @@ html(lang='en')
                 }
                 button.addEventListener("click", eventListener);
             p.
-                The interactive elements on this website use JavaScript to toggle CSS properties and modify html elements.
-            p.
+                The interactive elements on this website use JavaScript to toggle CSS properties and modify html elements.#[br]
                 This site uses 5 scripts:
             ul
                 li.

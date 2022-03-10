@@ -18,3 +18,8 @@ mixin links
             id = filename.endsWith(key + ext) ? "current" : null
             ) #{val}
     br
+mixin page
+    .flex-side
+    main.page
+        block
+    .flex-side
