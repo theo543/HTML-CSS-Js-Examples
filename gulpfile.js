@@ -30,6 +30,7 @@ exports.views = function views() {
         .pipe(pug({
             locals: {
                 pages: {'index': 'Home', 'html': 'HTML', 'css': 'CSS', 'js': 'Javascript'},
+                originals: {'index': 'home', 'html': 'html', 'css': 'css', 'js': 'js'},
                 ext: ".html"
             }
         }))

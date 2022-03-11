@@ -129,6 +129,12 @@ html {
             padding-right: 10px;
             background: $page-color;
             box-shadow: 2px 2px 3px 1px black;
+            &.mini-page {
+                min-height: 0;
+                height: max-content;
+                width: auto;
+                max-width: none;
+            }
         }
         .emphasis del {
             text-decoration-color: black;

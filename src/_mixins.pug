@@ -20,6 +20,13 @@ mixin links
     br
 mixin page
     .flex-side
+        - original = originals[filename.slice(0, -ext.length)]
+        - target = "original/" + original + ".html"
+        if original !== undefined
+            .page.mini-page(data-iframe-target=`${target}`)
+                p View the original version of this page!
+                p.text-center
+                    a(href=`${target}`) Load
     main.page
         block
     .flex-side
