@@ -9,6 +9,7 @@ const fs = require("fs");
 const babel = require("gulp-babel")
 const htmlMin = require("gulp-htmlmin")
 const browserSync = require('browser-sync').create();
+const {spawn} = require("child_process")
 
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
@@ -49,11 +50,24 @@ exports.scripts = function scripts() {
         .pipe(gulp.dest("docs/scripts"))
 }
 
+exports.originals = function originals() {
+    const index = "gulp_checkout_originals_tmp_git_index";
+    const firstCommit = "7fd8bc2522cac90cd376bcfd98566eb1edcdd61a";
+    const target = "docs/original/";
+    return spawn("powershell", [`
+        $Env:GIT_INDEX_FILE = "${index}";
+        git read-tree "${firstCommit}";
+        git checkout-index --prefix="${target}" -a;
+        rm Env:/GIT_INDEX_FILE;
+        rm "${index}";
+    `], {stdio: "inherit"});
+}
+
 exports.clean = function clean() {
     return fs.promises.rm("docs", {recursive: true, force: true})
 }
 
-exports.serve = function browserSyncServe(cb) {
+exports.serve = function serve(cb) {
     browserSync.init({
         server: {
             baseDir: "docs"
@@ -62,12 +76,12 @@ exports.serve = function browserSyncServe(cb) {
     cb();
 }
 
-exports.refresh = function browserSyncReload(cb) {
+exports.refresh = function refresh(cb) {
     browserSync.reload();
     cb();
 }
 
-exports.build = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts))
+exports.build = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts, exports.originals))
 
 exports.watch = function watch() {
     gulp.watch("src/**/*", gulp.series(exports.build, exports.refresh));
