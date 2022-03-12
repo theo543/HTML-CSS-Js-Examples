@@ -9,6 +9,8 @@ const fs = require("fs");
 const babel = require("gulp-babel")
 const htmlMin = require("gulp-htmlmin")
 const browserSync = require('browser-sync').create();
+const filter = require("gulp-filter");
+const ts = require("gulp-typescript");
 
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
@@ -42,11 +44,17 @@ exports.images = function images() {
 }
 
 exports.scripts = function scripts() {
-    return gulp.src("src/scripts/**/*.js")
+    const tsFilter = filter("**/*.ts", {restore:true});
+    return gulp.src(["src/scripts/**/*.js", "src/scripts/**/*.ts"])
+        .pipe(tsFilter)
+        .pipe(ts({
+            strict: true
+        }))
+        .pipe(tsFilter.restore)
         .pipe(babel({
             presets: ["@babel/env", "minify"]
         }))
-        .pipe(gulp.dest("docs/scripts"))
+        .pipe(gulp.dest("docs/scripts"));
 }
 
 exports.clean = function clean() {
