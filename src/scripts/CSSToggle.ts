@@ -1,13 +1,16 @@
 'use strict';
 (function() {
     const link = document.querySelector("head link[rel='stylesheet']");
-    document.getElementById("CSSToggle").addEventListener("click", () => {
+    const button = document.getElementById("CSSToggle")
+    if(!button)
+        return;
+    button.addEventListener("click", () => {
         if (!link) {
             console.log("Failed to find CSS tag!");
             return;
         }
         if (document.head.contains(link)) {
-            link.parentNode.removeChild(link);
+            document.head.removeChild(link);
         } else {
             document.head.appendChild(link);
         }
