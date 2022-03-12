@@ -1,8 +1,8 @@
 'use strict';
-(function() {
+(function () {
     const link = document.querySelector("head link[rel='stylesheet']");
     const button = document.getElementById("CSSToggle")
-    if(!button)
+    if (!button)
         return;
     button.addEventListener("click", () => {
         if (!link) {

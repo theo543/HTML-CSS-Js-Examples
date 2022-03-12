@@ -1,9 +1,10 @@
 'use strict';
-(function() {
+(function () {
     const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     let themeState: boolean = sessionStorage.getItem("darkTheme") ? (sessionStorage.getItem("darkTheme") === "true") : themeQuery.matches;
     document.body.insertAdjacentHTML("afterbegin", /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
-   `
+        `
+    <!--suppress HtmlUnknownTarget -->
     <form id="theme-button"><input type="checkbox" name="checkbox" id="theme-checkbox">
         <label for="theme-checkbox">Toggle Dark Theme
             <img id="moon-label" src="images/dark-mode-6682.svg" alt="Dark Moon Icon - Toggle Theme" width="30px" height="30px">
@@ -11,7 +12,7 @@
         </label>
     </form>
     `);
-    const form = document.getElementById("theme-button") as HTMLInputElement & {checkbox: HTMLInputElement};
+    const form = document.getElementById("theme-button") as HTMLInputElement & { checkbox: HTMLInputElement };
     const checkbox = form.checkbox;
 
     function themeChange(value: boolean) {
@@ -21,7 +22,8 @@
         checkbox.checked = value;
         sessionStorage.setItem("darkTheme", String(themeState));
     }
-    if(themeQuery.addEventListener)
+
+    if (themeQuery.addEventListener)
         themeQuery.addEventListener("change", e => themeChange(e.matches));
     form.addEventListener("change", () => themeChange(checkbox.checked));
     ["blur", "focus"].forEach((e) => checkbox.addEventListener(e, () => {

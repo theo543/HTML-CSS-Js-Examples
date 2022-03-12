@@ -10,277 +10,320 @@ $dark-emphasis: #00d0ff;
 $font-default: arial, serif;
 $font-code: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono;
 @mixin breakpoint($type) {
-    @if $type == mobile {
-        @media (max-width: $mobile-width) {
-            @content;
-        }
+  @if $type == mobile {
+    @media (max-width: $mobile-width) {
+      @content;
     }
-    @else if $type == desktop {
-        @media not all and (max-width: $mobile-width) {
-            @content;
-        }
+  } @else if $type == desktop {
+    @media not all and (max-width: $mobile-width) {
+      @content;
     }
+  }
 }
+
 * {
-    overflow-anchor: none;
-    font-family: inherit;
-    box-sizing: inherit;
+  overflow-anchor: none;
+  font-family: inherit;
+  box-sizing: inherit;
 }
+
 html {
-    box-sizing: border-box;
-    font-family: $font-default;
-    height: 100%;
-    overflow-y: scroll;
-    &, body {
+  box-sizing: border-box;
+  font-family: $font-default;
+  height: 100%;
+  overflow-y: scroll;
+
+  &, body {
+    margin: 0;
+  }
+
+  body {
+    min-height: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    @include breakpoint(desktop) {
+      padding-top: 0.5vh;
+      padding-bottom: 0.5vh;
+    }
+    background: $bg-color;
+    @at-root .dark-theme {
+      background: $bg-color-dark;
+      color: white; /* text color*/
+      .page {
+        background: $page-color-dark;
+      }
+
+      .emphasis {
+        color: $dark-emphasis;
+      }
+
+      a {
+        color: $dark-link;
+
+        &:visited {
+          color: $visited-dark-link;
+        }
+
+        &:active {
+          color: red; /* don't override clicking */
+        }
+      }
+    }
+    table#html-table, table#css-table {
+      width: 100%;
+      @at-root #html-table td:nth-child(1) {
+        font-family: $font-code;
+      }
+      td:nth-child(1) {
+        padding: 1px;
+      }
+
+      caption {
+        text-align: left;
+        margin: 2px 0;
+      }
+
+      ul, ol {
+        padding-left: 0;
+
+        li {
+          margin-left: 20px;
+        }
+      }
+
+      td {
+        padding: 0 3px;
+      }
+
+      &, tr {
+        border: 2px solid black;
+        border-collapse: collapse;
         margin: 0;
-    }
-    body {
-        min-height: 100%;
-        display: flex;
-        flex-flow: row;
-        justify-content: center;
+      }
+
+      td, th {
+        list-style-type: none;
+        border-collapse: collapse;
+        border: 1px solid black;
         @include breakpoint(desktop) {
-            padding-top: 0.5vh;
-            padding-bottom: 0.5vh;
-        }
-        background: $bg-color;
-        @at-root .dark-theme {
-            background: $bg-color-dark;
-            color: white; /* text color*/
-            .page {
-                background: $page-color-dark;
-            }
-            .emphasis {
-                color: $dark-emphasis;
-            }
-            a {
-                color: $dark-link;
-                &:visited {
-                    color: $visited-dark-link;
-                }
-                &:active {
-                    color: red; /* don't override clicking */
-                }
-            }
-        }
-        table#html-table, table#css-table {
-            width: 100%;
-            @at-root #html-table td:nth-child(1) {
-                font-family: $font-code;
-            }
-            td:nth-child(1) {
-                padding: 1px;
-            }
-            caption {
-                text-align: left;
-                margin: 2px 0;
-            }
-            ul, ol {
-                padding-left: 0;
-                li {
-                    margin-left: 20px;
-                }
-            }
-            td {
-                padding: 0 3px;
-            }
-            &, tr {
-                border: 2px solid black;
-                border-collapse: collapse;
-                margin: 0;
-            }
-            td, th {
-                list-style-type: none;
-                border-collapse: collapse;
-                border: 1px solid black;
-                @include breakpoint(desktop) {
-                    &:first-child {
-                        text-align: center;
-                    }
-                }
-                @include breakpoint(mobile) {
-                    display: list-item;
-                    border: 1px dotted grey;
-                    @at-root #html-table td:nth-child(1) br {
-                        /* on mobile we use commas instead of newlines */
-                        content: "";
-                        &::after {
-                            content: ", ";
-                        }
-                    }
-                }
-            }
-        }
-        .flex-side {
-            flex-grow: 1;
-            justify-content: center;
-            width: 0;
-            overflow: hidden;
-            display: flex;
-        }
-        .page {
-            min-height: 100%;
-            border: 1px solid black;
-            width: 100%;
-            @include breakpoint(desktop){
-                max-width: 60%;
-            }
-            padding-left: 10px;
-            padding-right: 10px;
-            background: $page-color;
-            box-shadow: 2px 2px 3px 1px black;
-            &.mini-page {
-                min-height: 0;
-                height: max-content;
-                width: auto;
-                max-width: none;
-            }
-        }
-        .emphasis del {
-            text-decoration-color: black;
-        }
-        .text-center {
+          &:first-child {
             text-align: center;
+          }
         }
-        .serif {
-            font-family: Serif, $font-default;
-        }
-        .consolas {
-            font-family: Consolas, $font-default;
-        }
-        .emphasis {
-            font-style: italic;
-            font-weight: bold;
-            color: $emphasis;
-        }
-        & { // code styles
-            .code {
-                display: inline-block;
-                max-width: 99%; //enough space for one punctuation mark if needed
-                word-wrap: break-word;
-                border-radius: 10px;
-                padding: 1px 5px;
-                font-size: 95%;
+        @include breakpoint(mobile) {
+          display: list-item;
+          border: 1px dotted grey;
+          @at-root #html-table td:nth-child(1) br {
+            /* on mobile we use commas instead of newlines */
+            content: "";
+            &::after {
+              content: ", ";
             }
-            td.code-cell, .code {
-                color: #33ff00;
-                background: black;
-                background: radial-gradient(#00071a 30%, #01302c);
-                font-family: $font-code, $font-default;
-            }
-            td.code-cell {
-                @include breakpoint(desktop) {
-                    white-space: nowrap;
-                }
-                font-size: 80%;
-            }
+          }
         }
-        .NA-box {
-            text-align: center;
-            font-weight: bold;
-        }
-        #css-test {
-            display: none;
-        }
-        .links {
-            display: flex;
-            flex-shrink: 0;
-            border-bottom: 1px solid black;
-            padding-bottom: 10px;
-            a {
-                margin: auto;
-                &#current {
-                    pointer-events: none;
-                    cursor: default;
-                    color: inherit;
-                    text-decoration: none;
-                    font-weight: bold;
-                }
-            }
-        }
-        @at-root .highlighted {
-            background: rgb(177, 74, 74) !important;
-            border: 3px solid darkblue !important;
-            transition: border ease-in-out 1s, background-color ease-in-out 1s;
-        }
-        @at-root .hide {
-            display: none !important;
-        }
-        #reset-button {
-            position: fixed;
-            top: 3px;
-            left: 3px;
-            margin: 10px;
-            padding: 5px;
-            background: black;
-            color: white;
-            border-radius: 5px;
-            &:focus-visible, &:hover {
-                background-color: slateblue;
-            }
-            transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
-            opacity: 1;
-            &.hide-reset-button {
-                cursor: default;
-                opacity: 0;
-                pointer-events: none;
-                tab-index: -1;
-            }
-            &.hide {
-                display: inline-block !important;
-            }
-        }
-        #theme-button {
-            padding: 3px;
-            user-select: none;
-            &.focus-visible-within {
-                border-width: 3px;
-                border-style: solid;
-                border-radius: 10px;
-                border-color: black;
-                padding: 0;
-                @at-root .dark-theme #theme-button.focus-visible-within {
-                    border-color: white;
-                }
-            }
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            #theme-checkbox {
-                position: absolute;
-                pointer-events: none;
-                z-index: -1;
-                opacity: 0;
-            }
-            label {
-                cursor: pointer;
-                display: block;
-                color: transparent;
-                font-size: 0;
-                width: 30px;
-                height: 30px;
-                filter: blur(0.6px);
-                #moon-label, #inverted-moon-label {
-                    width: 100%;
-                    height: 100%;
-                }
-                @at-root {
-                    #moon-label {
-                        display: block;
-                    }
-                    #inverted-moon-label {
-                        display: none;
-                    }
-                }
-                @at-root #theme-checkbox:checked + label {
-                    #inverted-moon-label {
-                        display: block;
-                    }
-                    #moon-label {
-                        display: none;
-                    }
-                }
-            }
-        }
+      }
     }
+
+    .flex-side {
+      flex-grow: 1;
+      justify-content: center;
+      width: 0;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .page {
+      min-height: 100%;
+      border: 1px solid black;
+      width: 100%;
+      @include breakpoint(desktop) {
+        max-width: 60%;
+      }
+      padding-left: 10px;
+      padding-right: 10px;
+      background: $page-color;
+      box-shadow: 2px 2px 3px 1px black;
+
+      &.mini-page {
+        min-height: 0;
+        height: max-content;
+        width: auto;
+        max-width: none;
+      }
+    }
+
+    .emphasis del {
+      text-decoration-color: black;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .serif {
+      font-family: Serif, $font-default;
+    }
+
+    .consolas {
+      font-family: Consolas, $font-default;
+    }
+
+    .emphasis {
+      font-style: italic;
+      font-weight: bold;
+      color: $emphasis;
+    }
+
+    & { // code styles
+      .code {
+        display: inline-block;
+        max-width: 99%; //enough space for one punctuation mark if needed
+        word-wrap: break-word;
+        border-radius: 10px;
+        padding: 1px 5px;
+        font-size: 95%;
+      }
+
+      td.code-cell, .code {
+        color: #33ff00;
+        background: black;
+        background: radial-gradient(#00071a 30%, #01302c);
+        font-family: $font-code, $font-default;
+      }
+
+      td.code-cell {
+        @include breakpoint(desktop) {
+          white-space: nowrap;
+        }
+        font-size: 80%;
+      }
+    }
+
+    .NA-box {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #css-test {
+      display: none;
+    }
+
+    .links {
+      display: flex;
+      flex-shrink: 0;
+      border-bottom: 1px solid black;
+      padding-bottom: 10px;
+
+      a {
+        margin: auto;
+
+        &#current {
+          pointer-events: none;
+          cursor: default;
+          color: inherit;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      }
+    }
+
+    @at-root .highlighted {
+      background: rgb(177, 74, 74) !important;
+      border: 3px solid darkblue !important;
+      transition: border ease-in-out 1s, background-color ease-in-out 1s;
+    }
+    @at-root .hide {
+      display: none !important;
+    }
+    #reset-button {
+      position: fixed;
+      top: 3px;
+      left: 3px;
+      margin: 10px;
+      padding: 5px;
+      background: black;
+      color: white;
+      border-radius: 5px;
+
+      &:focus-visible, &:hover {
+        background-color: slateblue;
+      }
+
+      transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out;
+      opacity: 1;
+
+      &.hide-reset-button {
+        cursor: default;
+        opacity: 0;
+        pointer-events: none;
+        tab-index: -1;
+      }
+
+      &.hide {
+        display: inline-block !important;
+      }
+    }
+
+    #theme-button {
+      padding: 3px;
+      user-select: none;
+
+      &.focus-visible-within {
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: black;
+        padding: 0;
+        @at-root .dark-theme #theme-button.focus-visible-within {
+          border-color: white;
+        }
+      }
+
+      position: fixed;
+      bottom: 5px;
+      right: 5px;
+
+      #theme-checkbox {
+        position: absolute;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      label {
+        cursor: pointer;
+        display: block;
+        color: transparent;
+        font-size: 0;
+        width: 30px;
+        height: 30px;
+        filter: blur(0.6px);
+
+        #moon-label, #inverted-moon-label {
+          width: 100%;
+          height: 100%;
+        }
+
+        @at-root {
+          #moon-label {
+            display: block;
+          }
+
+          #inverted-moon-label {
+            display: none;
+          }
+        }
+        @at-root #theme-checkbox:checked + label {
+          #inverted-moon-label {
+            display: block;
+          }
+
+          #moon-label {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }

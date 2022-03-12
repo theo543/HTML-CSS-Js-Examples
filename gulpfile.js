@@ -16,14 +16,14 @@ const ts = require("gulp-typescript");
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
         .pipe(sass.sync())
-        .pipe(rename({ extname: ".css" }))
-        .pipe(postcss())
+        .pipe(rename({extname: ".css"}))
+        .pipe(postcss(undefined, undefined))
         .pipe(gulp.dest("docs"))
 };
 
 exports.views = function views() {
     return gulp.src(["src/**/*.pug", "!src/**/_*"])
-        .pipe(rename({ extname: ".html" }))
+        .pipe(rename({extname: ".html"}))
         .pipe(data(function (file) {
             return {
                 filename: path.basename(file.path)
@@ -46,7 +46,7 @@ exports.images = function images() {
 }
 
 exports.scripts = function scripts() {
-    const tsFilter = filter("**/*.ts", {restore:true});
+    const tsFilter = filter("**/*.ts", {restore: true});
     return gulp.src(["src/scripts/**/*.js", "src/scripts/**/*.ts"])
         .pipe(tsFilter)
         .pipe(ts({
@@ -61,6 +61,7 @@ exports.scripts = function scripts() {
 
 exports.originals = function originals() {
     const index = "gulp_checkout_originals_tmp_git_index";
+    // noinspection SpellCheckingInspection
     const firstCommit = "7fd8bc2522cac90cd376bcfd98566eb1edcdd61a";
     const target = "docs/original/";
     return spawn("powershell", [`
@@ -86,7 +87,7 @@ exports.serve = function serve(cb) {
 }
 
 exports.refresh = function refresh(cb) {
-    browserSync.reload();
+    browserSync.reload("**/*");
     cb();
 }
 

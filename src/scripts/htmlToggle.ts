@@ -1,5 +1,5 @@
 'use strict';
-(function() {
+(function () {
     let resetInProgress: boolean = false;
     document.body.insertAdjacentHTML("afterbegin", '<button id="reset-button" class="hide-reset-button" hidden>Click here to restore all elements!</button>\n')
     const resetElem = document.getElementById("reset-button")!;
@@ -27,7 +27,7 @@
 
     function updateClasses(event: Event) {
         const form = event.currentTarget as HTMLFormElementWithRadioData;
-        if(!resetInProgress) { // skip this if resetElem will handle it
+        if (!resetInProgress) { // skip this if resetElem will handle it
             document.querySelectorAll(form.selector).forEach((tag) => {
                 tag.classList.toggle("hide", form.hide.checked);
                 tag.classList.toggle("highlighted", form.highlight.checked);
@@ -45,7 +45,7 @@
     }
 
     cells.forEach(cell => {
-        if(!(cell.previousElementSibling instanceof HTMLTableCellElement))
+        if (!(cell.previousElementSibling instanceof HTMLTableCellElement))
             return;
         cell.insertAdjacentHTML("beforeend", `
         <form data-radio-container>
