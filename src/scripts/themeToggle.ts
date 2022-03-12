@@ -1,7 +1,7 @@
 'use strict';
 (function () {
     const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    let themeState: boolean = sessionStorage.getItem("darkTheme") ? (sessionStorage.getItem("darkTheme") === "true") : themeQuery.matches;
+    let themeState: boolean = localStorage.getItem("darkTheme") ? (localStorage.getItem("darkTheme") === "true") : themeQuery.matches;
     document.body.insertAdjacentHTML("afterbegin", /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
         `
     <!--suppress HtmlUnknownTarget -->
@@ -20,7 +20,7 @@
         document.body.classList.toggle("dark-theme", themeState);
         document.body.classList.toggle("light-theme", !themeState);
         checkbox.checked = value;
-        sessionStorage.setItem("darkTheme", String(themeState));
+        localStorage.setItem("darkTheme", String(themeState));
     }
 
     if (themeQuery.addEventListener)
