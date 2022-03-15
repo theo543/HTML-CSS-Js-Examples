@@ -2,9 +2,9 @@
 (function () {
     const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     let themeState: boolean = localStorage.getItem("darkTheme") ? (localStorage.getItem("darkTheme") === "true") : themeQuery.matches;
+    // noinspection HtmlUnknownTarget
     document.body.insertAdjacentHTML("afterbegin", /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
         `
-    <!--suppress HtmlUnknownTarget -->
     <form id="theme-button"><input type="checkbox" name="checkbox" id="theme-checkbox">
         <label for="theme-checkbox">Toggle Dark Theme
             <img id="moon-label" src="images/dark-mode-6682.svg" alt="Dark Moon Icon - Toggle Theme" width="30px" height="30px">
