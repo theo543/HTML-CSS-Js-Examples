@@ -63,6 +63,16 @@ html(lang='en')
                     Security restrictions on HTTP requests to foreign websites prevent JavaScript from checking
                     if the link returns a 404 error, so the first cell of each row selector is needed.
                 li.
+                    #[span.code showOriginal.js] - If the "View original version" popup exists,
+                    inserts a minimize button, toggles the #[span.code .minimized] class,
+                    stores the minimization state in localStorage and minimized the popup immediately on load
+                    if it was minimized on the previous page. Replaces the "Load" link with a button that
+                    inserts an iframe and displays the semi-transparent backdrop that hides the rest of the page.
+                    If the user presses ESC inside or outside the iframe, or clicks outside the iframe,
+                    it is removed and the backdrop is hidden. If iframe loses focus, it is refocused (necessary
+                    for good keyboard accessibility). If somehow the button is clicked when an
+                    iframe already exists, nothing happens.
+                li.
                     #[span.code.dark-theme #[a(href='https://github.com/zloirock/core-js') core-js]] -
                     A polyfill library that implements many standard JavaScript features.
                     A #[span.emphasis polyfill] is JavaScript that implements JS features for browsers that do not support them.
