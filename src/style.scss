@@ -237,6 +237,7 @@ html {
       display: none !important;
     }
     #reset-button {
+      z-index: 1;
       position: fixed;
       top: 3px;
       left: 3px;
@@ -370,6 +371,10 @@ html {
       }
     }
 
+    #show-original-wrapper {
+      z-index: 100;
+    }
+
     #show-original-modal {
       cursor: pointer;
       position: fixed;
@@ -384,7 +389,7 @@ html {
     #show-original-iframe {
       background-color: white;
       position: fixed;
-      z-index: 100;
+      z-index: 200;
       width: 90%;
       height: 90%;
       top: 5%;
