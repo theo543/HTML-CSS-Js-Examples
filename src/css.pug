@@ -142,6 +142,46 @@ html(lang="en")
                                 Sets the image width and height to 100% of the #[span.code label] container. The images
                                 also have width and height attributes set in HTML, which keeps them from filling the page
                                 if CSS is disabled or fails to load.
+                tr
+                    td #[span.code #show-original]
+                    td
+                        ul
+                            li On mobile, has fixed position.
+                            li #[span.code #show-original-minimize]: (the minimize button)
+                                ul
+                                    li Removes standard button styles.
+                                    li Sets a simple black border.
+                                    li Sets negative margin to ignore #[span.code .page] padding.
+                                    li Centers the minus.
+                                    li Sets background color to blue, with a hover and focus style of #[span.code(style="color:deepskyblue;") deepskyblue] (0.25s transition).
+                                    li #[span.code #show-original-minus]:
+                                        ul
+                                            li Width and height are set to 8px and 2px.
+                                            li Sets background color to white.
+                            li #[span.code .minimized]:
+                                ul
+                                    li Removes border and padding.
+                                    li Sets left margin to 97% - 20px.
+                                    li Hides all elements except #[span.code #show-original-minimize].
+                                    li Removes negative margin on #[span.code #show-original-minimize].
+                tr
+                    td #[span.code #show-original-wrapper]
+                    td
+                        ul
+                            li Is hidden when the iframe is not active.
+                            li #[span.code #show-original-modal]:
+                                ul
+                                    li Width and height are set to 100%
+                                    li Color is set to transparent black.
+                                    li Position is fixed.
+                                    li Cursor is set to arrow on hover.
+                            li #[span.code #show-original-iframe]:
+                                ul
+                                    li Background color is set to white.
+                                    li Position is fixed.
+                                    li Displays above modal.
+                                    li Width and height are set to 90%.
+                                    li Top and left distance is 5% (centered).
             p.emphasis
                 del.
                     Note: All toggleable properties are also set to only do anything if the page root does NOT have a
