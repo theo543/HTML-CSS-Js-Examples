@@ -1,0 +1,154 @@
+doctype html
+html(lang='en')
+    include _mixins
+    +header("Tools - Web Languages")
+    body
+        +page
+            +links
+            h1.text-center Web Development Tools
+            br
+            p There are many tools used to speed up and simplify software development. This page lists the tools used to make this website.
+            h2 #[a(href="https://git-scm.com/") Git - Source Control]
+            p.
+                Source control is the tracking and managing of changes to source code files.
+                The most popular source control program used as of today is #[span.emphasis Git].
+                Git is a distributed version control system, meaning that no central server is necessary to
+                use Git. At the software level, there is no difference between the Git data stored on a server and on
+                a developer's computer. Uploading (#[span.emphasis 'pushing']) is not required to save edits (#[span.emphasis 'commits']).
+                This allows the user to use Git while offline. Additionally, two users
+                editing the same code will not encounter any errors until they attempt to push their commit
+                to the server (repository/#[span.emphasis 'repo']), at which point it is easy to resolve
+                conflicts between the two commits. Each commit is linked to one or more commits which are
+                the previous versions of the repository.
+            p.
+                Git allows for easy development using multiple branches of a project. The default
+                branch (main/master) is generally used for the latest project version which is available to users.
+                Often, another branch is used while working on the next version of the project, which is merged
+                into the main branch after it is done.
+                New branches can be created from any commit and can be merged into any branch.
+                It is possible to merge branches without deleting either. For example, if an urgent change
+                is made directly to main, because it cannot wait for the next version to be finished,
+                merging main into the development branch will not delete or modify main.
+                (Merging branch main into dev will update dev with the changes from main.
+                Merging dev into main will update main. Only the currently loaded branch is modified.)
+            h2 Transpiled Languages
+            p.
+                Many languages used in web development are not processed directly by a web browser or server.
+                Instead, they are compiled into HTML, CSS or JavaScript. A transpiler is a compiler that
+                converts code between human-readable languages, unlike compilers which convert code
+                into executable files.
+            h3 #[a(href="https://www.typescriptlang.org/") TypeScript]
+            p.
+                TypeScript is a strongly typed version of JavaScript. In JavaScript, you can store
+                any kind of data in a variable. In TypeScript, you declare what kind of data
+                can be stored in each variable. This prevents errors such as using the text "false"
+                instead of the boolean false value when calling a function i.e. #[span.code element.classList.toggle("blue", "false")]
+                would #[em enable] the "blue" class, because any non-empty string is converted to true.
+                TypeScript would detect the error, and editor integration would highlight it even before
+                compilation. Compilation erases type information, since JavaScript does not support
+                such features, so TypeScript cannot prevent errors at runtime, but type-related errors
+                can be found at compile-time if variables are not declared with overly-general types or
+                using the 'any' type.
+            h3 #[a(href="https://sass-lang.com/") SCSS]
+            p.
+                SCSS is a #[span.emphasis superset] of CSS (any CSS is valid SCSS) which adds better syntax
+                for reusing code, mostly nested rules. For example:
+            p.code.
+                #password-change-window {#[br]
+                &emsp;font-weight: bold;#[br]
+                &emsp;button {#[br]
+                &emsp;&emsp;background-color: red;#[br]
+                &emsp;}#[br]
+                &emsp;input[type='text'] {#[br]
+                &emsp;&emsp;background-color: orange;#[br]
+                &emsp;}#[br]
+                }
+            p.
+                This is converted to three CSS rules. If this was written directly in CSS, you would need
+                to manually repeat the ID. When changing an ID or class name in CSS, it is much more likely
+                to forget to update something than in SCSS. SCSS also allows defining blocks of code ("mixins") that
+                can then be reused using include statements:
+            p.code.
+                @mixin breakpoint($type) {#[br]
+                &emsp;@if $type == mobile {#[br]
+                &emsp;&emsp;@media (max-width: $mobile-width) {#[br]
+                &emsp;&emsp;&emsp;@content;#[br]
+                &emsp;&emsp;}#[br]
+                &emsp;} @else if $type == desktop {#[br]
+                &emsp;&emsp;@media not all and (max-width: $mobile-width) {#[br]
+                &emsp;&emsp;&emsp;@content;#[br]
+                &emsp;&emsp;}#[br]
+                &emsp;}#[br]
+                }
+            br
+            p.code.
+                nav {#[br]
+                &emsp;@include breakpoint(desktop) {#[br]
+                &emsp;&emsp;max-width: 60%;#[br]
+                &emsp;}#[br]
+                &emsp;background-color: yellow;#[br]
+                }
+            p.
+                This is used to write CSS that only applies to mobile or desktop based on screen width.
+            h3 #[a(href="https://pugjs.org/") Pug]
+            p.
+                Pug is a templating engine, which can also be compiled at build-time.
+                It can be used to dynamically generate HTML based on the user's request.
+                Pug code is similar to HTML; It uses indentation instead of { brackets,
+                has shortcuts for the class and ID attributes, and other syntax shortcuts for common purposes. Example:
+            p.code.
+                #main-section This will become a div with the ID main-section!#[br]
+                &emsp;p.center-text.blue Welcome to the website! This text has the center-text and blue classes!#[br]
+                &emsp;#{'p Click #[a(href="https://google.com") here] to open Google! This paragraph has a link tag in it!'}
+            p.
+                It also supports mixins, similar to SCSS, which is the main reason I used it for this website.
+                The &lt;head&gt; tag, links section, and page div are all defined in mixins. This means that if
+                a script needs to be added to each page from the header, only one file needs to be changed.
+                Additionally, Pug allows JavaScript code to run when compiling. For example,
+                the bolded link in this page is automatically detected using code which checks if the
+                link target equals the name of the file being compiled. The popup to visit
+                the original website does not appear here because this webpage has no original version;
+                This is not detected in JavaScript but in Pug, the script simply checks if the window
+                exists and enhances it if it does.
+            h2 #[a(href="https://babeljs.io/") Babel]
+            p.
+                Babel is a tool used to transform JavaScript code based on plugins.
+                This website is compiled using a standard plugin preset for compatibility which rewrites
+                code to be more compatible with old browsers and a plugin which minimizes file size.
+            h2 #[a(href="https://postcss.org/") PostCSS]
+            p.
+                Similar to Babel, uses plugins to transform CSS. This website uses a compatibility
+                plugin which adds prefixes to properties (i.e. -moz-box-sizing for Firefox).
+                Usually, browsers use prefixes when first implementing experimental additions to the CSS
+                standards, and remove the prefix once the feature is finalized. On up-to-date browsers
+                the prefixed properties do nothing, but on old browsers they are needed. It also uses
+                a plugin that minimized file size.
+            h2 #[a(href="https://github.com/kangax/html-minifier") html-minifier]
+            p A standalone tool that minimizes HTML file sizes.
+            h2 #[a(href="https://browsersync.io/") Browsersync]
+            p.
+                A testing tools which creates a local server that refreshes the browser
+                automatically when a file is modified.
+            h2 #[a(href="https://www.npmjs.com/") npm]
+            p.
+                Npm is the package manager used by Node.js, which is a JavaScript runtime that runs
+                JavaScript on the server. This website is static and does not use server-side scripts,
+                however npm is also used to install packages used only for development written in Node.js JavaScript.
+                Every other tool is installed and managed through npm.
+            h2 #[a(href="https://gulpjs.com/") Gulp]
+            p.
+                A build automation tool. Executes tasks defined using Node.js JavaScript and provides
+                tools for passing files between different programs using plugins. For example,
+                the Pug task first takes all files that do not start with "_" (the mixins file does),
+                renames the extension to ".html", uses a plugin to expose the file name to the Pug compiler
+                (used for the bolded link), compiles the files, passes them to html-minifier, then writes
+                them to the output folder. Another task runs a series of commands that copies the first Git
+                commit to a subfolder named "original". Gulp allows for serial and parallel tasks.
+                The 'build' task, for example, generates the compiled website, however the default
+                tasks runs 'build', opens it with Browsersync and then watches the files for changes.
+                When a file is changed, 'build' is run again and the refresh function is called,
+                continuing until the program is closed.
+            h2 #[a(href="https://github.com/features/actions") GitHub Actions]
+            p A build and test tool that runs code when a commit is pushed to a GitHub repo. Used to run 'build' with Gulp and commit the result to another branch.
+            h2 #[a(href="https://pages.github.com/") GitHub Pages]
+            p A free hosting service provided by GitHub. Updates automatically when the built website is pushed to the 'pages' branch by GitHub Actions.
