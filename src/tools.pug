@@ -98,8 +98,19 @@ html(lang='en')
                 has shortcuts for the class and ID attributes, and other syntax shortcuts for common purposes. Example:
             p.code.
                 #main-section This will become a div with the ID main-section!
-                    p.center-text.blue Welcome to the website! This text has the center-text and blue classes!
-                    #{'p Click #[a(href="https://google.com") here] to open Google! This paragraph has a link tag in it!'}
+                    p.center-text.blue: strong.
+                        Welcome to the website!
+                        This text has the center-text and blue classes and is
+                        bolded by the &lt;strong&gt; tag!
+                    p.
+                        #{'Click #[a(href="https://google.com") here] to open Google!'}
+                        This paragraph has a link tag in it!
+                    p(style="white-space:pre;").
+                        The first two paragraphs will display as one line,
+                        because line breaks and whitespace are limited
+                        to one space by default. However, this
+                        paragraph will still be five lines in the browser.
+                        This  line  will  keep  the  double  spaces.
             p.
                 It also supports mixins, similar to SCSS, which is the main reason I used it for this website.
                 The &lt;head&gt; tag, links section, and page div are all defined in mixins. This means that if
