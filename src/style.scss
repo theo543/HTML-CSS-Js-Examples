@@ -186,6 +186,7 @@ html {
       }
 
       td.code-cell, .code {
+        white-space: pre-wrap;
         color: #33ff00;
         background: black;
         background: radial-gradient(#00071a 30%, #01302c);
@@ -194,7 +195,7 @@ html {
 
       td.code-cell {
         @include breakpoint(desktop) {
-          white-space: nowrap;
+          white-space: pre;
         }
         font-size: 80%;
       }

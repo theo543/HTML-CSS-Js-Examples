@@ -54,39 +54,39 @@ html(lang='en')
                 SCSS is a #[span.emphasis superset] of CSS (any CSS is valid SCSS) which adds better syntax
                 for reusing code, mostly nested rules. For example:
             p.code.
-                #password-change-window {#[br]
-                &emsp;font-weight: bold;#[br]
-                &emsp;button {#[br]
-                &emsp;&emsp;background-color: red;#[br]
-                &emsp;}#[br]
-                &emsp;input[type='text'] {#[br]
-                &emsp;&emsp;background-color: orange;#[br]
-                &emsp;}#[br]
+                #password-change-window {
+                    font-weight: bold;
+                    button {
+                        background-color: red;
+                    }
+                    input[type='text'] {
+                        background-color: orange;
+                    }
                 }
-            p.
+            p
                 This is converted to three CSS rules. If this was written directly in CSS, you would need
                 to manually repeat the ID. When changing an ID or class name in CSS, it is much more likely
                 to forget to update something than in SCSS. SCSS also allows defining blocks of code ("mixins") that
                 can then be reused using include statements:
             p.code.
-                @mixin breakpoint($type) {#[br]
-                &emsp;@if $type == mobile {#[br]
-                &emsp;&emsp;@media (max-width: $mobile-width) {#[br]
-                &emsp;&emsp;&emsp;@content;#[br]
-                &emsp;&emsp;}#[br]
-                &emsp;} @else if $type == desktop {#[br]
-                &emsp;&emsp;@media not all and (max-width: $mobile-width) {#[br]
-                &emsp;&emsp;&emsp;@content;#[br]
-                &emsp;&emsp;}#[br]
-                &emsp;}#[br]
+                @mixin breakpoint($type) {
+                    @if $type == mobile {
+                        @media (max-width: $mobile-width) {
+                            @content;
+                        }
+                    } @else if $type == desktop {
+                        @media not all and (max-width: $mobile-width) {
+                            @content;
+                        }
+                    }
                 }
             br
             p.code.
-                nav {#[br]
-                &emsp;@include breakpoint(desktop) {#[br]
-                &emsp;&emsp;max-width: 60%;#[br]
-                &emsp;}#[br]
-                &emsp;background-color: yellow;#[br]
+                nav {
+                    @include breakpoint(desktop) {
+                        max-width: 60%;
+                    }
+                    background-color: yellow;
                 }
             p.
                 This is used to write CSS that only applies to mobile or desktop based on screen width.
@@ -97,9 +97,9 @@ html(lang='en')
                 Pug code is similar to HTML; It uses indentation instead of { brackets,
                 has shortcuts for the class and ID attributes, and other syntax shortcuts for common purposes. Example:
             p.code.
-                #main-section This will become a div with the ID main-section!#[br]
-                &emsp;p.center-text.blue Welcome to the website! This text has the center-text and blue classes!#[br]
-                &emsp;#{'p Click #[a(href="https://google.com") here] to open Google! This paragraph has a link tag in it!'}
+                #main-section This will become a div with the ID main-section!
+                    p.center-text.blue Welcome to the website! This text has the center-text and blue classes!
+                    #{'p Click #[a(href="https://google.com") here] to open Google! This paragraph has a link tag in it!'}
             p.
                 It also supports mixins, similar to SCSS, which is the main reason I used it for this website.
                 The &lt;head&gt; tag, links section, and page div are all defined in mixins. This means that if

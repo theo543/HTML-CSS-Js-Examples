@@ -59,15 +59,17 @@ html(lang="en")
                     td div
                     td Bundles elements placed inside into a single block-level element. Very common.
                     td.code-cell.
-                        &lt;div&gt;#[br]
-                        &emsp;&lt;p&gt;Text 1&lt;/p&gt;#[br]
-                        &emsp;&lt;p&gt;Text 2&lt;/p&gt;#[br]
+                        &lt;div&gt;
+                            &lt;p&gt;Text 1&lt;/p&gt;
+                            &lt;p&gt;Text 2&lt;/p&gt;
                         &lt;/div&gt;
                 tr
                     td nav
                     td Represents the navigation section of a website. Used by screen readers.
                     td.code-cell.
-                        &lt;nav&gt;#[br]&emsp;&lt;a href="index.html"&gt;Home Page&lt;a&gt;#[br]&lt;/nav&gt;
+                        &lt;nav&gt;
+                            &lt;a href="index.html"&gt;Home Page&lt;a&gt;
+                        &lt;/nav&gt;
                 tr
                     td main
                     td Represents the main section of a website. Used by screen readers.
@@ -77,8 +79,8 @@ html(lang="en")
                     td caption
                     td The caption of a table. Is displayed above the table, but the tag is inside it.
                     td.code-cell.
-                        &lt;table&gt;#[br]
-                        &emsp;&lt;caption&gt;Empty Table&lt;/caption&gt;#[br]
+                        &lt;table&gt;
+                            &lt;caption&gt;Empty Table&lt;/caption&gt;
                         &lt;/table&gt;
                 tr
                     td a
@@ -88,11 +90,11 @@ html(lang="en")
                     td h1#[br]h2#[br]h3#[br]h4#[br]h5#[br]h6
                     td The elements h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
                     td.code-cell.
-                        &lt;h1&gt;Urgent!&lt;/h1&gt;#[br]
-                        &lt;h2&gt;Respond ASAP!&lt;/h2&gt;#[br]
-                        &lt;h3&gt;Very Important!&lt;/h3&gt;#[br]
-                        &lt;h4&gt;Important!&lt;/h4&gt;#[br]
-                        &lt;h5&gt;Pretty important.&lt;/h5&gt;#[br]
+                        &lt;h1&gt;Urgent!&lt;/h1&gt;
+                        &lt;h2&gt;Respond ASAP!&lt;/h2&gt;
+                        &lt;h3&gt;Very Important!&lt;/h3&gt;
+                        &lt;h4&gt;Important!&lt;/h4&gt;
+                        &lt;h5&gt;Pretty important.&lt;/h5&gt;
                         &lt;h6&gt;Slightly important.&lt;/h6&gt;
                 tr
                     td p
@@ -114,15 +116,15 @@ html(lang="en")
                         Rows are defined using tr ("table row") and th ("table header").
                         Cells are defined by the td ("table data") element.
                     td.code-cell.
-                        &lt;table&gt;#[br]
-                        &emsp;&lt;th&gt;#[br]
-                        &emsp;&emsp;&lt;td&gt;Cell 1 Header&lt;/td&gt;#[br]
-                        &emsp;&emsp;&lt;td&gt;Cell 2 Header&lt;/td&gt;#[br]
-                        &emsp;&lt;/th&gt;#[br]
-                        &emsp;&lt;tr&gt;#[br]
-                        &emsp;&emsp;&lt;td&gt;Cell 1 Row 1&lt;/td&gt;#[br]
-                        &emsp;&emsp;&lt;td&gt;Cell 2 Row 1&lt;/td&gt;#[br]
-                        &emsp;&lt;/tr&gt;#[br]
+                        &lt;table&gt;
+                            &lt;th&gt;
+                                &lt;td&gt;Cell 1 Header&lt;/td&gt;
+                                &lt;td&gt;Cell 2 Header&lt;/td&gt;
+                            &lt;/th&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Cell 1 Row 1&lt;/td&gt;
+                                &lt;td&gt;Cell 2 Row 1&lt;/td&gt;
+                            &lt;/tr&gt;
                         &lt;/table&gt;
                 tr
                     td br
@@ -132,27 +134,27 @@ html(lang="en")
                     td span
                     td Does nothing. Useful for isolating text from paragraphs to style with CSS.
                     td.code-cell.
-                        &lt;p&gt;#[br]
-                        &emsp;normal text#[br]
-                        &emsp;&lt;br&gt;#[br]
-                        &emsp;&lt;span class="red"&gt;red text&lt;/span&gt;#[br]
-                        &emsp;&lt;br&gt;#[br]
-                        &emsp;normal text#[br]
+                        &lt;p&gt;
+                            normal text
+                            &lt;br&gt;
+                            &lt;span class="red"&gt;red text&lt;/span&gt;
+                            &lt;br&gt;
+                            normal text
                         &lt;/p&gt;
                 tr
                     td button
                     td Makes a button.
                     td.code-cell.
-                        &lt;button onclick="start();"&gt;#[br]
-                        &emsp;Start#[br]
+                        &lt;button onclick="start();"&gt;
+                            Start
                         &lt;/button&gt;
                 tr
                     td script
                     td.ignore Used to add JavaScript to a page.
                     td.code-cell.
-                        &lt;script&gt;#[br]
-                        &emsp;console.log("test");#[br]
-                        &lt;/script&gt;#[br]
+                        &lt;script&gt;
+                            console.log("test");
+                        &lt;/script&gt;
                         &lt;script src="script.js"&gt;&lt;/script&gt;
                 tr
                     td ul#[br]ol#[br]li
@@ -160,13 +162,13 @@ html(lang="en")
                         Used to define lists. li is a block-level list item. ol and ul correspond to ordered (with numbers)
                         and unordered lists.
                     td.code-cell.
-                        &lt;ul&gt;#[br]
-                        &emsp;&lt;li&gt;List item&lt;/li&gt;#[br]
-                        &emsp;&lt;li&gt;Another list item&lt;/li&gt;#[br]
-                        &lt;/ul&gt;#[br]
-                        &lt;ol&gt;#[br]
-                        &emsp;&lt;li&gt;List item 1&lt;/li&gt;#[br]
-                        &emsp;&lt;li&gt;List item 2&lt;/li&gt;#[br]
+                        &lt;ul&gt;
+                            &lt;li&gt;List item&lt;/li&gt;
+                            &lt;li&gt;Another list item&lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;ol&gt;
+                            &lt;li&gt;List item 1&lt;/li&gt;
+                            &lt;li&gt;List item 2&lt;/li&gt;
                         &lt;/ol&gt;
                 tr
                     td input#[br]form#[br]label
@@ -175,12 +177,12 @@ html(lang="en")
                         element can send all data from
                         the input elements inside it to a server when submitted without JavaScript.
                     td.code-cell.
-                        &lt;form action="purchase_processing.php"&gt;#[br]
-                        &emsp;&lt;label&gt;#[br]
-                        &emsp;&emsp;&lt;input type="checkbox" name="purchase"&gt;#[br]
-                        &emsp;&emsp;Agree to purchase?#[br]
-                        &emsp;&lt;/label&gt;#[br]
-                        &emsp;&lt;input type="submit" value="Submit"&gt;#[br]
+                        &lt;form action="purchase_processing.php"&gt;
+                            &lt;label&gt;
+                                &lt;input type="checkbox" name="purchase"&gt;
+                                Agree to purchase?
+                            &lt;/label&gt;
+                            &lt;input type="submit" value="Submit"&gt;
                         &lt;/form&gt;
                 tr
                     td img
