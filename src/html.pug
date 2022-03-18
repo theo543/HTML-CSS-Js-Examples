@@ -12,19 +12,34 @@ html(lang="en")
             p.
                 HTML (HyperText Markup Language) is a web language used to make web pages.
                 HTML elements define the content of a web page.
-                The tree of nested elements that make up a web page is called the #[span.emphasis Document Object Model]
-            p An important property of elements is their "display" property. There are several ways an element could display on the page. Some are:
+                The tree of nested elements that make up a web page is called the #[span.emphasis Document Object Model].
+            p
+                | An important property of elements is their "display" property. There are several ways an element could display on the page.
+                | This is often changed in CSS. Some possible values are:
                 ol
-                    li #[span.emphasis None] - Does not display at all.
-                    li #[span.emphasis Block] - Will create a new line and expand as much as possible.
-                    li #[span.emphasis Inline] - Does not create a new line. Only takes as much space as needed.
+                    li #[span.emphasis None] - Does not display at all. Used to hide elements from CSS.
+                    li #[span.emphasis Block] - Will create a new line and expand horizontally as much as possible.
+                    li #[span.emphasis Inline] - Does not create a new line. Only takes as much space as needed and is part of the normal text flow.
                     li.
                         #[span.emphasis Flex] - Makes the element a block-level flexible box (flexbox)
                         container. A flexbox element will attempt to align
                         and resize its contents across a set axis according to set parameters and proportions. The links at
                         the top of this page are inside a flexbox
                         container that aligns them horizontally with equal space between them.
+                        This property is set using CSS.
                     li #[span.emphasis Table, table-cell, table-column, table-row, etc.] make the elements display as if they were in a table.
+            p.
+                HTML elements, aside from their standard behaviour and CSS properties, have #[span.emphasis semantic] meaning.
+                The nav element, for example, is used for the navigation section (links to other pages). Even though
+                this element has no special function in a standard browser, it is useful for other programs
+                which are attempting to parse the web page, such as screen readers and search engines.
+                Even though many elements can be fairly easily implemented using divs/spans, CSS and sometimes JavaScript,
+                it is better to use elements with the proper semantic meaning. Sometimes these elements have behaviour
+                which cannot be completely replicated with JavaScript, but even when they don't it is important
+                for code readability - if you see a "nav" element you immediately know what it is for, unlike
+                a div with some CSS styling - and accessibility - screen readers often have to rely on semantic
+                tags to understand a web page, since it is very hard to parse "faked" elements, such as divs
+                which change color when clicked used instead of buttons (this also would not support tabbing).
             table#html-table.mdn-link-target-container(data-mdn-link-selector="tr td:first-child")
                 caption This website uses the following elements:
                 tr
@@ -57,7 +72,9 @@ html(lang="en")
                     td.code-cell &lt;meta charset="utf-8"&gt;
                 tr
                     td div
-                    td Bundles elements placed inside into a single block-level element. Very common.
+                    td.
+                        Bundles elements placed inside into a single element. Very common.
+                        Has no meaning in pure HTML; Is used with CSS or JavaScript.
                     td.code-cell.
                         &lt;div&gt;
                             &lt;p&gt;Text 1&lt;/p&gt;
@@ -103,7 +120,7 @@ html(lang="en")
                 tr
                     td strong
                     td.ignore Makes text bold.
-                    td.code-cell This document is about#[br]&lt;strong&gt;HTML&lt;strong/&gt;.
+                    td.code-cell This document is about#[br]&lt;strong&gt;HTML&lt;/strong&gt;.
                 tr
                     td del
                     td.ignore Used for deleted text.
