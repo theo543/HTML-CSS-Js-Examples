@@ -37,6 +37,11 @@ html(lang='en')
                 Instead, they are compiled into HTML, CSS or JavaScript. A transpiler is a compiler that
                 converts code between human-readable languages, unlike compilers which convert code
                 into executable files.
+            p.
+                There are no files with the ".css", ".js" and ".html" extensions in the
+                #[a(href="https://github.com/theo543/HTML-CSS-Js-Examples/tree/main/src") source files] for
+                this website. Instead, ".scss", ".ts" and ".pug" files are transpiled into the standard languages
+                at build time.
             h3 #[a(href="https://www.typescriptlang.org/") TypeScript]
             p.
                 TypeScript is a strongly typed version of JavaScript. In JavaScript, you can store
@@ -150,16 +155,21 @@ html(lang='en')
             p.
                 A build automation tool. Executes tasks defined using Node.js JavaScript and provides
                 tools for passing files between different programs using plugins. For example,
-                the Pug task first takes all files that do not start with "_" (the mixins file does),
+                the Pug task first takes all files that do not start with "_" (the "_mixins.pug" file is the only one that does),
                 renames the extension to ".html", uses a plugin to expose the file name to the Pug compiler
                 (used for the bolded link), compiles the files, passes them to html-minifier, then writes
                 them to the output folder. Another task runs a series of commands that copies the first Git
                 commit to a subfolder named "original". Gulp allows for serial and parallel tasks.
+            p.
                 The 'build' task, for example, generates the compiled website, however the default
-                tasks runs 'build', opens it with Browsersync and then watches the files for changes.
-                When a file is changed, 'build' is run again and the refresh function is called,
-                continuing until the program is closed.
+                task runs 'build', then also opens the output with Browsersync and watches files for changes.
+                The 'build' tasks first deletes previous compiled output, then runs several compiling tasks
+                simultaneously. Gulp will detect when all 'build' tasks are done, then the default task starts a Browsersync
+                test server and then a watch task that runs indefinitely. The watch task calls
+                'build' again whenever the project is edited and refreshes Browsersync after 'build' is done.
             h2 #[a(href="https://github.com/features/actions") GitHub Actions]
             p A build and test tool that runs code when a commit is pushed to a GitHub repo. Used to run 'build' with Gulp and commit the result to another branch.
             h2 #[a(href="https://pages.github.com/") GitHub Pages]
-            p A free hosting service provided by GitHub. Updates automatically when the built website is pushed to the 'pages' branch by GitHub Actions.
+            p.
+                A free hosting service provided by GitHub. Updates automatically when the built website is pushed to the
+                #[a(href="https://github.com/theo543/HTML-CSS-Js-Examples/tree/pages/docs") 'pages'] branch by GitHub Actions.
