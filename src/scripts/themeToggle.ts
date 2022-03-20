@@ -1,7 +1,19 @@
 'use strict';
 (function () {
+    const prevTime: number = Number(localStorage.getItem("darkThemeTimeSet")) ?? Date.now();
+    if((Date.now() - prevTime) > 60 * 60 * 1000) {
+        localStorage.removeItem("darkTheme");
+        localStorage.removeItem("darkThemeTimeSet");
+    }
     const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
     let themeState: boolean = localStorage.getItem("darkTheme") ? (localStorage.getItem("darkTheme") === "true") : themeQuery.matches;
+
+    function refreshTime() {
+        localStorage.setItem("darkThemeTimeSet", String(Date.now()));
+        setTimeout(refreshTime, 1000 * 60);
+    }
+    refreshTime();
+
     // noinspection HtmlUnknownTarget
     document.body.insertAdjacentHTML("afterbegin", /* https://www.iconpacks.net/free-icon/dark-mode-6682.html */
         `
