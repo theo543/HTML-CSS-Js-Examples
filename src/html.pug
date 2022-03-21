@@ -14,11 +14,16 @@ html(lang="en")
                 HTML elements define the content of a web page.
                 The tree of nested elements that make up a web page is called the #[span.emphasis Document Object Model].
             p
-                | An important property of elements is their "display" property. There are several ways an element could display on the page.
+                | An important property of elements is their #[span.emphasis display] property. There are several ways an element could display on the page.
                 | This is often changed in CSS. Some possible values are:
                 ol
                     li #[span.emphasis None] - Does not display at all. Used to hide elements from CSS.
-                    li #[span.emphasis Block] - Will create a new line and expand horizontally as much as possible.
+                    li.
+                        #[span.emphasis Block] - Will create a new line and expand horizontally as much as possible.
+                        Most block display elements cannot be nested, even if changed to inline with CSS.
+                        Elements such as span and div are considered #[span.emphasis grouping elements] which can be nested.
+                        Setting #[span.consolas display] in CSS does not change this.
+                        (The HTML syntax is never altered by CSS.)
                     li #[span.emphasis Inline] - Does not create a new line. Only takes as much space as needed and is part of the normal text flow.
                     li.
                         #[span.emphasis Flex] - Makes the element a block-level flexible box (flexbox)
@@ -31,17 +36,22 @@ html(lang="en")
             p.
                 HTML elements, aside from their standard behaviour and CSS properties, have #[span.emphasis semantic] meaning.
                 The nav element, for example, is used for the navigation section (links to other pages). Even though
-                this element has no special function in a standard browser, it is useful for other programs
-                which are attempting to parse the web page, such as screen readers and search engines.
-                Even though many elements can be fairly easily implemented using divs/spans, CSS and sometimes JavaScript,
+                this element is identical to a div in the browser, it is useful for other programs
+                which are attempting to extract data from the web page, such as screen readers and search engines.
+            p.
+                Most elements could be implemented using divs, spans, CSS and sometimes JavaScript, but
                 it is better to use elements with the proper semantic meaning. Sometimes these elements have behaviour
                 which cannot be completely replicated with JavaScript, but even when they don't it is important
                 for code readability - if you see a "nav" element you immediately know what it is for, unlike
-                a div with some CSS styling - and accessibility - screen readers often have to rely on semantic
-                tags to understand a web page, since it is very hard to parse "faked" elements, such as divs
-                which change color when clicked used instead of buttons (this also would not support tabbing).
+                a div with some CSS styling - and accessibility - screen readers often have to rely on semantic tags
+                and the general structure of a web page to extract information from it. It is very hard for a program
+                to parse a website which uses nonstandard "faked" elements, such as a div with a click handler
+                which changes color when clicked instead of a button. This would not be recognised as an interactive
+                element and would not be accessible by keyboard users either. Using HTML attributes such as
+                #[span.consolas tabindex="0", role="button"], some of these issues can be resolved,
+                however this will not support enter/space key presses, is unnecessarily complicated and therefore error-prone.
             table#html-table.mdn-link-target-container(data-mdn-link-selector="tr td:first-child")
-                caption This website uses the following elements:
+                caption This website uses elements such as:
                 tr
                     th Tag(s)
                     th Description
@@ -82,14 +92,14 @@ html(lang="en")
                         &lt;/div&gt;
                 tr
                     td nav
-                    td Represents the navigation section of a website. Used by screen readers.
+                    td Represents the navigation section of a website.
                     td.code-cell.
                         &lt;nav&gt;
                             &lt;a href="index.html"&gt;Home Page&lt;a&gt;
                         &lt;/nav&gt;
                 tr
                     td main
-                    td Represents the main section of a website. Used by screen readers.
+                    td Represents the main section of a website.
                     td.code-cell.
                         &lt;main&gt;Text.....&lt;/main&gt;
                 tr
@@ -105,21 +115,23 @@ html(lang="en")
                     td.code-cell &lt;a href="index.html"&gt;Home Page&lt;/a&gt;
                 tr
                     td h1#[br]h2#[br]h3#[br]h4#[br]h5#[br]h6
-                    td The elements h1, h2, ..., h6 define a page heading. h1 is the largest and h6 is just bold text.
+                    td The elements h1, h2, ..., h6 define levels of page headings. h1 is the largest and h6 is just bold text.
                     td.code-cell.
-                        &lt;h1&gt;Urgent!&lt;/h1&gt;
-                        &lt;h2&gt;Respond ASAP!&lt;/h2&gt;
-                        &lt;h3&gt;Very Important!&lt;/h3&gt;
-                        &lt;h4&gt;Important!&lt;/h4&gt;
-                        &lt;h5&gt;Pretty important.&lt;/h5&gt;
-                        &lt;h6&gt;Slightly important.&lt;/h6&gt;
+                        #{'<h1>Felines</h1>'}
+                        #{'<h2>Cats</h2>'}
+                        #{'<h3>Persian</h3>'}
+                        #{'<h4>Persian Kittens</h4>'}
+                        #{'<h3>Siamese</h3>'}
+                        #{'<h2>Big Cats</h2>'}
+                        #{'<h3>Lions</h3>'}
+                        #{'<h1>Canines</h1>'}
                 tr
                     td p
                     td Defines a block-level paragraph.
                     td.code-cell &lt;p&gt;Text goes here.&lt;/p&gt;
                 tr
                     td strong
-                    td.ignore Makes text bold.
+                    td.ignore Makes text bold. Signifies importance.
                     td.code-cell This document is about#[br]&lt;strong&gt;HTML&lt;/strong&gt;.
                 tr
                     td del
@@ -145,11 +157,14 @@ html(lang="en")
                         &lt;/table&gt;
                 tr
                     td br
-                    td Inserts a page break.#[br](page breaks directly in HTML files do nothing)
+                    td.
+                        Inserts a page break. Page breaks and multiple spaces directly in HTML do nothing
+                        unless using the #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre") preformatted text element]
+                        or CSS #[span.consolas white-space] property.
                     td.code-cell Text 1&lt;br&gt;Text 2
                 tr
                     td span
-                    td Does nothing. Useful for isolating text from paragraphs to style with CSS.
+                    td Does nothing. Useful for isolating text from paragraphs to style with CSS. Grouping element.
                     td.code-cell.
                         &lt;p&gt;
                             normal text
@@ -210,7 +225,9 @@ html(lang="en")
                     td iframe
                     td.ignore.
                         Embeds another document within the current page. Iframes from the same domain
-                        can be accessed by JavaScript.
+                        can be accessed by JavaScript. Many servers are configured to tell
+                        browsers not to embed their pages in foreign websites, since iframes embedding login/payment
+                        pages can be made invisible to trick the user into clicking an "Accept" button.
                     td.code-cell.
                         &lt;iframe src="index.html"&gt;&lt;/iframe&gt;
             p.emphasis Note: The radio buttons work by assigning CSS classes with JavaScript.
