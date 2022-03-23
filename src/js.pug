@@ -39,32 +39,32 @@ html(lang='en')
             ul
                 li.
                     #[span.code htmlToggle.js] - Inserts reset element and
-                    radio buttons into the second cell of each row of the table #[span.consolas #html-table], unless
-                    the cell has the #[span.consolas .ignore] class.
-                    Applies #[span.consolas .hide, .highlighted] CSS classes to the elements specified in the first cell on click.
-                    Displays #[span.consolas #reset-button] element when at least one element is modified.
-                    If #[span.consolas &lt;body&gt;] or #[span.consolas &lt;html&gt;]    are hidden the script will reset after one second.
+                    radio buttons into the second cell of each row of the table #[span.code-value #html-table], unless
+                    the cell has the #[span.code-value .ignore] class.
+                    Applies #[span.code-value .hide, .highlighted] CSS classes to the elements specified in the first cell on click.
+                    Displays #[span.code-value #reset-button] element when at least one element is modified.
+                    If #[span.code-value &lt;body&gt;] or #[span.code-value &lt;html&gt;]    are hidden the script will reset after one second.
                 li.
-                    #[span.code themeToggle.js] - Inserts a checkbox that toggles the dark theme class on #[span.consolas &lt;body&gt;]. Styled by CSS.
+                    #[span.code themeToggle.js] - Inserts a checkbox that toggles the dark theme class on #[span.code-value &lt;body&gt;]. Styled by CSS.
                     Stores the current theme in localStorage. The initial value is decided by the OS theme if it is not set in localStorage.
                     Updates when the OS theme is changed. If the checkbox is focused by keyboard, a CSS class is added that
                     adds a border to the CSS-inserted image to show focus. On browsers that do not allow for checking
-                    keyboard focus (the #[span.consolas :focus-visible] selector), any click on the button shows the border (#[span.consolas :focus]).
+                    keyboard focus (the #[span.code-value :focus-visible] selector), any click on the button shows the border (#[span.code-value :focus]).
                 li.
-                    #[span.code CSSToggle.js] - Adds an event listener to the #[span.consolas #CSSToggle] element
+                    #[span.code CSSToggle.js] - Adds an event listener to the #[span.code-value #CSSToggle] element
                     to add/remove the CSS element on click.
                 li.
                     #[span.code addMDNLinks.js] - Links element names in the html page to the Mozilla
                     #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element") HTML elements reference].
-                    The target is specified using the #[span.consolas mdn-link-target-container] class with the
-                    #[span.consolas data-mdn-link-selector="tr td:first-child"] attribute.
+                    The target is specified using the #[span.code-value mdn-link-target-container] class with the
+                    #[span.code-value data-mdn-link-selector="tr td:first-child"] attribute.
                     The scripts cannot simply check every cell in the table for html element names,
                     because there is no way to check if a word exists in the HTML reference website.
                     Security restrictions on HTTP requests to foreign websites prevent JavaScript from checking
                     if the link returns a 404 error, so the first cell of each row selector is needed.
                 li.
                     #[span.code showOriginal.js] - If the "View original version" popup exists,
-                    inserts a minimize button, toggles the #[span.consolas .minimized] class,
+                    inserts a minimize button, toggles the #[span.code-value .minimized] class,
                     stores the minimization state in localStorage and minimized the popup immediately on load
                     if it was minimized on the previous page. Replaces the "Load" link with a button that
                     inserts an iframe and displays the semi-transparent backdrop that hides the rest of the page.

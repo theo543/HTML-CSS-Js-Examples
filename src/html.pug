@@ -22,7 +22,7 @@ html(lang="en")
                         #[span.emphasis Block] - Will create a new line and expand horizontally as much as possible.
                         Most block display elements cannot be nested, even if changed to inline with CSS.
                         Elements such as span and div are considered #[span.emphasis grouping elements] which can be nested.
-                        Setting #[span.consolas display] in CSS does not change this.
+                        Setting #[span.code-value display] in CSS does not change this.
                         (The HTML syntax is never altered by CSS.)
                     li #[span.emphasis Inline] - Does not create a new line. Only takes as much space as needed and is part of the normal text flow.
                     li.
@@ -48,7 +48,7 @@ html(lang="en")
                 to parse a website which uses nonstandard "faked" elements, such as a div with a click handler
                 which changes color when clicked instead of a button. This would not be recognised as an interactive
                 element and would not be accessible by keyboard users either. Using HTML attributes such as
-                #[span.consolas tabindex="0", role="button"], some of these issues can be resolved,
+                #[span.code-value tabindex="0", role="button"], some of these issues can be resolved,
                 however this will not support enter/space key presses, is unnecessarily complicated and therefore error-prone.
             table#html-table.mdn-link-target-container(data-mdn-link-selector="tr td:first-child")
                 caption This website uses elements such as:
@@ -160,7 +160,7 @@ html(lang="en")
                     td.
                         Inserts a page break. Page breaks and multiple spaces directly in HTML do nothing
                         unless using the #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre") preformatted text element]
-                        or CSS #[span.consolas white-space] property.
+                        or CSS #[span.code-value white-space] property.
                     td.code-cell Text 1&lt;br&gt;Text 2
                 tr
                     td span
