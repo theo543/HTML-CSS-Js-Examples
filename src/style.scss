@@ -7,7 +7,7 @@ $page-color-dark: hsl(0, 0%, 30%);
 $dark-link: #77ceff;
 $visited-dark-link: #f5aeff;
 $emphasis: #1d2edb;
-$dark-emphasis: #00d0ff;
+$dark-emphasis: #a5fff5;
 $font-default: arial, serif;
 $font-code: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono;
 @mixin breakpoint($type) {
@@ -165,7 +165,7 @@ html {
       font-family: Serif, $font-default;
     }
 
-    .consolas {
+    .code-value {
       font-family: Consolas, $font-default;
     }
 
