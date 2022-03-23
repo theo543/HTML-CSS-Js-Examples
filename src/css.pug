@@ -10,14 +10,15 @@ html(lang="en")
             br
             p.
                 CSS (Cascading Style Sheets) is a web language used to style web pages.
-                It is added to a web page by linking a CSS file using the "link" element.
+                It is added to a web page by linking a CSS file using the
+                #[a(href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link") link] element.
                 Every web page on this site contains the following element:
                 #[span.code &lt;link rel="stylesheet" href="style.css"&gt;].
-                It tells the browser to load the #[span.code style.css] file and apply it to this web page.
+                It tells the browser to load the #[span.consolas style.css] file and apply it to this web page.
             p.
                 A #[span.emphasis CSS Rule] is CSS code that alters the presentation of HTML elements.
                 #[br]
-                A #[span.emphasis CSS Selector] is the part of a CSS Rule that determines which elements are targeted.
+                A #[span.emphasis CSS Selector] is the part of a CSS rule that determines which elements are targeted.
                 #[br]
             p.
                 If an element is targeted by several rules, the rules will be merged.
@@ -29,49 +30,48 @@ html(lang="en")
             span#css-test
                 strong &emsp;THIS ELEMENT IS HIDDEN WHEN CSS IS ENABLED
             table#css-table
-                caption  Examples of CSS in #[span.code style.css]:
+                caption  Examples of CSS in #[span.consolas style.css]:
                 tr
                     th Target
                     th Description
                 tr
-                    td #[span.code body], #[span.code html]
+                    td #[span.consolas body], #[span.consolas html]
                     td
                         ul
                             li Sets the font to Arial with #[span.serif Serif] as a fallback font. Removes default margins.
                             li Sets min heights such that the page is always filled.
                             li Scrollbar is always shown to keep the home page aligned with the longer pages
                 tr
-                    td Tables with IDs #[span.code #css-table] and #[span.code #html-table]
+                    td Tables with IDs #[span.consolas #css-table] and #[span.consolas #html-table]
                     td
                         ul
-                            li Adds borders. On mobile, some are grey to highlight rows.
+                            li Adds borders. On mobile, some are grey to highlight which rows are from the same column.
                             li On mobile, rows become lists and page breaks commas.
                             li On desktop, the first cell has centered text.
                             li Adds padding.
                             li Sets width to 100%.
                             li Aligns the table caption to the left and adds vertical margins.
-                            li The font of the elements in #[span.code #html-table] is set to #[span.consolas Consolas].
+                            li The font of the elements in #[span.consolas #html-table] is set to #[span.consolas Consolas].
                             li Replaces the padding of lists with smaller margins on list items.
                 tr
-                    td #[span.code .page]
+                    td #[span.consolas .page]
                     td
                         ul
                             li Sets the background color (depending on the theme setting)
                             li Adds a shadow
                             li On desktop, sets max width to 60%
-                            li Sets margin to auto (center)
                             li.
                                 Adds an one pixel black border. This prevents margins from breaking out and
                                 making body bigger than html, since without a border the browser might
                                 merge margins into outer elements.
                 tr
-                    td #[span.code .text-center]
+                    td #[span.consolas .text-center]
                     td Centers text within a block element.
                 tr
-                    td #[span.code .emphasis]
-                    td Makes text italic and blue (or green on dark theme for contrast).
+                    td #[span.consolas .emphasis]
+                    td Makes text italic and blue (light cyan on dark theme for contrast).
                 tr
-                    td #[span.code .code]
+                    td #[span.consolas .code]
                     td
                         ul
                             li Radial gradient background, green text
@@ -80,18 +80,19 @@ html(lang="en")
                             li Set display to inline-block
                             li Shrinks text to 95%
                             li Sets font to #[span.consolas Consolas] (with other monospace fonts as fallback)
+                            li Sets white-space property to preformatted, preventing whitespace and line breaks from being replaced with one space.
                 tr
-                    td #[span.code .NA-box]
-                    td Sets a gray background, bolds and centers text.
+                    td #[span.consolas .NA-box]
+                    td Bolds and centers text.
                 tr
-                    td #[span.code #css-test]
+                    td #[span.consolas #css-test]
                     td Hides the element for testing the CSS toggle script.
                 tr
-                    td #[span.code .links]
+                    td #[span.consolas .links]
                     td
                         ul
                             li Horizontally aligns elements inside using flexbox, with equal margins around.
-                            li Link with #[span.code #current]
+                            li Link with #[span.consolas #current]
                                 ul
                                     li Color is reset to default.
                                     li Clicking is disabled.
@@ -99,36 +100,37 @@ html(lang="en")
                                     li Underline is removed.
                             li Adds a bottom border and padding.
                 tr
-                    td Table cells with class #[span.code .code-cell]
-                    td Similar to #[span.code .code]. No wrapping, shrinks text more, no inline-block.
+                    td Table cells with class #[span.consolas .code-cell]
+                    td Similar to #[span.consolas .code]. No wrapping, shrinks text more, no inline-block.
                 tr
-                    td #[span.code .highlighted]
+                    td #[span.consolas .highlighted]
                     td.
                         Highlights element and adds a border with a transition. Overrides all other rules.
                 tr
-                    td #[span.code .hide]
+                    td #[span.consolas .hide]
                     td Hides element. Overrides all other rules.
                 tr
-                    td #[span.code #reset-button]
+                    td #[span.consolas #reset-button]
                     td
                         ul
                             li Rounded corners.
                             li Black background and white text.
                             li Fixed position.
                             li Opacity transition.
-                            li #[span.code .hide-reset-button]:
+                            li #[span.consolas .hide-reset-button]:
                                 ul
                                     li Sets opacity to 0. The display property is not a continuum from 0% to 100%, unlike opacity, so it cannot be used with transitions.
                                     li Disables click events
                                     li Disables tabbing to the element.
                                     li Sets cursor to default.
-                            li With #[span.code .hide]: keeps display set to inline-block. Both rules have the #[span.code !important] property, but this one has priority because it is more specific.
+                            li With #[span.consolas .hide]: keeps display set to inline-block. Both rules have the #[span.consolas !important] property, but this one has priority because it is more specific.
+                            li Changes color on hover or focus.
                 tr
-                    td #[span.code #theme-button]
+                    td #[span.consolas #theme-button]
                     td
                         ul
                             li Fixed position.
-                            li Cannot be selected with double-click like text.
+                            li Cannot be highlighted with double-click like text.
                             li When the checkbox inside is focused by keyboard (detected by JavaScript), a border is applied, white on dark theme.
                             li.
                                 The actual checkbox is hidden and has click events disabled. Since labels cannot accept focus, the checkbox is still used
@@ -138,49 +140,49 @@ html(lang="en")
                                 The "Dark Theme" text is hidden (disable CSS to see it) with font-size 0 and transparency
                                 (in case of browsers that have minimum text sizes).
                             li.
-                                Shows #[span.code #inverted-moon-label] if dark theme is on, or else #[span.code #moon-label].
-                                Sets the image width and height to 100% of the #[span.code label] container. The images
+                                Shows #[span.consolas #inverted-moon-label] if dark theme is on, or else #[span.consolas #moon-label].
+                                Sets the image width and height to 100% of the #[span.consolas label] container. The images
                                 also have width and height attributes set in HTML, which keeps them from filling the page
                                 if CSS is disabled or fails to load.
                 tr
-                    td #[span.code #show-original]
+                    td #[span.consolas #show-original]
                     td
                         ul
                             li On mobile, has fixed position.
-                            li #[span.code #show-original-minimize]: (the minimize button)
+                            li #[span.consolas #show-original-minimize]: (the minimize button)
                                 ul
                                     li Removes standard button styles.
                                     li Sets a simple black border.
-                                    li Sets negative margin to ignore #[span.code .page] padding.
+                                    li Sets negative margin to ignore #[span.consolas .page] padding.
                                     li Centers the minus.
-                                    li Sets background color to blue, with a hover and focus style of #[span.code(style="color:deepskyblue;") deepskyblue] (0.25s transition).
-                                    li #[span.code #show-original-minus]:
+                                    li Sets background color to blue, with a hover and focus style of #[span.consolas(style="color:deepskyblue;") deepskyblue] (0.25s transition).
+                                    li #[span.consolas #show-original-minus]:
                                         ul
                                             li Width and height are set to 8px and 2px.
                                             li Sets background color to white.
-                            li #[span.code .minimized]:
+                            li #[span.consolas .minimized]:
                                 ul
                                     li Removes border and padding.
                                     li Sets left margin to 97% - 20px.
-                                    li Hides all elements except #[span.code #show-original-minimize].
-                                    li Removes negative margin on #[span.code #show-original-minimize].
+                                    li Hides all elements except #[span.consolas #show-original-minimize].
+                                    li Removes negative margin on #[span.consolas #show-original-minimize].
                 tr
-                    td #[span.code #show-original-wrapper]
+                    td #[span.consolas #show-original-wrapper]
                     td
                         ul
                             li Displays above all other elements.
-                            li Is hidden when the iframe is not active via the #[span.code .display-none class].
-                            li #[span.code #show-original-modal]:
+                            li Is hidden when the iframe is not active via the #[span.consolas .display-none class].
+                            li #[span.consolas #show-original-modal]:
                                 ul
                                     li Width and height are set to 100%
                                     li Color is set to transparent black.
                                     li Position is fixed.
                                     li Cursor is set to arrow on hover.
-                            li #[span.code #show-original-iframe]:
+                            li #[span.consolas #show-original-iframe]:
                                 ul
                                     li Background color is set to white.
                                     li Position is fixed.
-                                    li Displays above #[span.code #show-original-modal].
+                                    li Displays above #[span.consolas #show-original-modal].
                                     li Width and height are set to 90%.
                                     li Top and left distance is 5% (centered).
             p.emphasis
@@ -190,4 +192,6 @@ html(lang="en")
                     These classes are added and removed using JavaScript.
                 |
                 |
-                span This was making it impossible to modify the CSS without invalidating this page, especially after I started using SCSS.
+                span.
+                    The original website had a script to toggle CSS rules. This was making it impossible to
+                    modify or move around CSS without immediately breaking this page.
