@@ -50,6 +50,10 @@ html(lang='en')
                     Updates when the OS theme is changed. If the checkbox is focused by keyboard, a CSS class is added that
                     adds a border to the CSS-inserted image to show focus. On browsers that do not allow for checking
                     keyboard focus (the #[span.code-value :focus-visible] selector), any click on the button shows the border (#[span.code-value :focus]).
+                    The localStorage theme value expires after an hour passes without the website open. I would have used sessionStorage
+                    to discard the value after the user closes the browser, but sessionStorage creates a new session when a tab is opened,
+                    instead of keeping one session for the entire browser, so I faked the 'delete on session end' functionality
+                    with a time limit for the entire browser.
                 li.
                     #[span.code CSSToggle.js] - Adds an event listener to the #[span.code-value #CSSToggle] element
                     to add/remove the CSS element on click.
