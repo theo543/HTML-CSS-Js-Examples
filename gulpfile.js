@@ -66,10 +66,15 @@ exports.originals = function originals() {
     const target = "docs/original/";
     return spawn("powershell", [`
         $Env:GIT_INDEX_FILE = "${index}";
+        if(test-path "${index}") {
+            rm "${index}"
+        }
         git read-tree "${firstCommit}";
         git checkout-index --prefix="${target}" -a;
         rm Env:/GIT_INDEX_FILE;
-        rm "${index}";
+        if(test-path "${index}") {
+            rm "${index}"
+        }
     `], {stdio: "inherit"});
 }
 
