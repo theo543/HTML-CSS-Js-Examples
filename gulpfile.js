@@ -12,6 +12,9 @@ const browserSync = require('browser-sync').create();
 const {spawn} = require("child_process")
 const filter = require("gulp-filter");
 const ts = require("gulp-typescript");
+const webpack = require("webpack-stream")
+const webpack_compiler = require("webpack")
+const named = require('vinyl-named-with-path');
 
 exports.styles = function styles() {
     return gulp.src(["src/**/*.scss", "!src/**/_*"])
@@ -54,7 +57,7 @@ exports.scripts = function scripts() {
         }))
         .pipe(tsFilter.restore)
         .pipe(babel({
-            presets: ["@babel/env", "minify"]
+            presets: [["@babel/env", {useBuiltIns: "usage", corejs: "3.21.1", modules: false}]]
         }))
         .pipe(gulp.dest("docs/scripts"));
 }
@@ -96,7 +99,22 @@ exports.refresh = function refresh(cb) {
     cb();
 }
 
-exports.build = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts, exports.originals))
+exports.bundle = function bundle() {
+    return gulp.src("docs/scripts/**/*.js")
+        .pipe(named())
+        .pipe(webpack({
+            mode: "production",
+            optimization: {
+                splitChunks: {
+                    chunks: "all",
+                    name: "shared"
+                }
+            }
+        }), webpack_compiler)
+        .pipe(gulp.dest("docs/scripts"))
+}
+
+exports.build = gulp.series(exports.clean, gulp.parallel(exports.styles, exports.views, exports.images, exports.scripts, exports.originals), exports.bundle)
 
 exports.watch = function watch() {
     gulp.watch("src/**/*", gulp.series(exports.build, exports.refresh));
