@@ -41,8 +41,8 @@ exports.views = function views() {
 };
 
 exports.images = function images() {
-    return gulp.src("src/images/**/*")
-        .pipe(gulp.dest("docs/images"))
+    return gulp.src(["src/**/*.svg", "src/favicon.ico"])
+        .pipe(gulp.dest("docs"))
 }
 
 exports.scripts = function scripts() {
