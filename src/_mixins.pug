@@ -9,8 +9,8 @@ mixin header(title)
         link(rel='icon' href='images/icon-html.svg')
         link(rel='stylesheet' href='style.css')
         title= title
-        script(src="scripts/shared.js")
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js")
+        script(src="scripts/shared.js" defer)
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/dom4/2.1.6/dom4.max.min.js" integrity="sha512-7+YfSs7MPZo0SmtHjG+W3EDBluxz2XFa0ia2K55Ss/ujtqx0Z91HtpS7stYdqVGcP2TRtwL1ArKE4hvX4hsN6Q==" defer)
         script(src='scripts/themeToggle.js' defer)
         script(src='scripts/showOriginal.js' defer)
         block
