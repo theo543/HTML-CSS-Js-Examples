@@ -27,6 +27,18 @@
     const form = document.getElementById("theme-button") as HTMLInputElement & { checkbox: HTMLInputElement };
     const checkbox = form.checkbox;
 
+    ["moon-label", "inverted-moon-label"].forEach(id => {
+        const e = document.getElementById(id);
+        if(e instanceof HTMLImageElement) {
+            const prevState = checkbox.checked;
+            e.click();
+            if(prevState === checkbox.checked)
+                e.addEventListener("click", () => checkbox.click()); // IE fix
+            checkbox.checked = prevState;
+        }
+    });
+
+
     function themeChange(value: boolean) {
         themeState = value;
         document.body.classList.toggle("dark-theme", themeState);
