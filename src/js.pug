@@ -54,6 +54,10 @@ html(lang='en')
                     to discard the value after the user closes the browser, but sessionStorage creates a new session when a tab is opened,
                     instead of keeping one session for the entire browser, so I faked the 'delete on session end' functionality
                     with a time limit for the entire browser.
+                    When the moon images are first inserted, the script checks if clicking an image clicks
+                    the checkbox. If it does not, it adds an event listener that clicks the checkbox instead.
+                    This fixes an Internet Explorer bug where clicking images inside label elements does not click
+                    the label's associated form element.
                 li.
                     #[span.code CSSToggle.js] - Adds an event listener to the #[span.code-value #CSSToggle] element
                     to add/remove the CSS element on click.
@@ -83,11 +87,9 @@ html(lang='en')
                     Not directly imported from a script tag. Necessary parts of core-js are detected at build time
                     and merged into the other scripts. Common code is stored in "shared.js" to avoid duplicated code.
                 li.
-                    #[span.code.dark-theme #[a(href='https://github.com/eligrey/classList.js') classList.js]] -
-                    Polyfill for the classList property that is used to modify CSS classes.
-                    Used to fix some browsers incorrectly implementing the class toggle function.
-                    #[span.code element.classList.toggle("hide", false);] is supposed to remove the "hide" class,
-                    if it exists, but on some browsers the second argument is ignored and the class is always toggled on/off.
-                    This would cause every element to be hidden when the "Display" button is selected on load.
-                    This file is #[a(href="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js") directly imported]
-                    from a hosting service, since core-js does not support polyfills for DOM element functions.
+                    #[span.code.dark-theme #[a(href='https://github.com/WebReflection/dom4') dom4]] -
+                    Polyfill library similar to core-js that implements Document Object Model functions and properties.
+                    Fixes implementation errors and missing DOM functions in older browsers.
+                    This file is #[a(href="https://cdnjs.cloudflare.com/ajax/libs/dom4/2.1.6/dom4.max.min.js") directly imported]
+                    from a public CDN (Content Distribution Network) service instead of being stored with the other scripts (this is a
+                    common way of importing libraries).
