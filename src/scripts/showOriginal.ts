@@ -7,7 +7,7 @@
         div.parentElement.style.position = "relative";
     div.insertAdjacentHTML("afterbegin", `
     <button id="show-original-minimize" aria-label="Minimize 'View original page' window." title="Minimize">
-        <div id="show-original-minus"></div>
+        <span id="show-original-minus"></span>
     </button>
     `);
     const minimize = document.getElementById("show-original-minimize")!;
