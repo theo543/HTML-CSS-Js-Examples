@@ -230,9 +230,9 @@ html {
     }
 
     @at-root .highlighted {
-      background: rgb(177, 74, 74) !important;
-      border: 3px solid darkblue !important;
-      transition: border ease-in-out 1s, background-color ease-in-out 1s;
+      background-color: rgb(177, 74, 74) !important;
+      transition: background-color ease-in-out 0.5s !important;
+
     }
     @at-root .hide {
       display: none !important;

@@ -3,12 +3,24 @@
     let resetInProgress: boolean = false;
     document.body.insertAdjacentHTML("afterbegin", '<button id="reset-button" class="hide-reset-button" hidden>Click here to restore all elements!</button>\n')
     const resetElem = document.getElementById("reset-button")!;
+    function handleHighlightEnd(e: Element) {
+        if(!e.classList.contains("highlighted"))
+            return;
+        if(e instanceof HTMLElement) {
+            e.style.transition = getComputedStyle(e).transition;
+            e.addEventListener("transitionend", function f(){
+                e.style.transition = "";
+                e.removeEventListener("transitionend", f);
+            });
+        }
+    }
     setTimeout(() => resetElem.hidden = false, 750);
     resetElem.addEventListener("click", (function () {
         resetInProgress = true;
         document.querySelectorAll("input[data-form='none']").forEach(e => (e as HTMLInputElement).click());
         document.querySelectorAll(".hide, .highlighted").forEach(e => {
             e.classList.remove("hide");
+            handleHighlightEnd(e);
             e.classList.remove("highlighted");
         });
         resetInProgress = false;
@@ -30,6 +42,8 @@
         if (!resetInProgress) { // skip this if resetElem will handle it
             document.querySelectorAll(form.selector).forEach((tag) => {
                 tag.classList.toggle("hide", form.hide.checked);
+                if(!form.highlight.checked)
+                    handleHighlightEnd(tag);
                 tag.classList.toggle("highlighted", form.highlight.checked);
             });
         }
