@@ -19,6 +19,6 @@ npx gulp
 - Node.js, npm
 - Deploying to GitHub Pages with GitHub Actions
 - Polyfills
-- Accessibility
-- Basic Web Design
-- Documentation
+- Accessibility (modal focus trapping, focus indicators for custom controls)
+- Responsive Design
+- Code Documentation
