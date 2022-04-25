@@ -1,0 +1,1 @@
+!function(){"use strict";var e,t;e=document.querySelector("head link[rel='stylesheet']"),(t=document.getElementById("CSSToggle"))&&t.addEventListener("click",(function(){e?document.head.contains(e)?document.head.removeChild(e):document.head.appendChild(e):console.log("Failed to find CSS tag!")}))}();

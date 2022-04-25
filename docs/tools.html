@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A website I made to improve my knowledge of web programming and modern web development tools."><link rel="icon" href="images/icon-html.svg"><link rel="stylesheet" href="style.css"><title>Tools - Web Languages</title><script src="scripts/shared.js" defer="defer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dom4/2.1.6/dom4.max.min.js" integrity="sha512-7+YfSs7MPZo0SmtHjG+W3EDBluxz2XFa0ia2K55Ss/ujtqx0Z91HtpS7stYdqVGcP2TRtwL1ArKE4hvX4hsN6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" defer="defer"></script><script src="scripts/themeToggle.js" defer="defer"></script><script src="scripts/showOriginal.js" defer="defer"></script></head><body><div class="flex-side"></div><main class="page"><br><nav class="links"><a href="index.html">Home</a><a href="html.html">HTML</a><a href="css.html">CSS</a><a href="js.html">JavaScript</a><a href="tools.html" id="current">Tools</a></nav><br><h1 class="text-center">Web Development Tools</h1><br><p>There are many tools used to speed up and simplify software development. This page lists the tools used to make this website.</p><h2><a href="https://git-scm.com/">Git - Source Control</a></h2><p>Source control is the tracking and managing of changes to source code files.
+The most popular source control program used as of today is <span class="emphasis">Git</span>.
+Git is a distributed version control system, meaning that no central server is necessary to
+use Git. At the software level, there is no difference between the Git data stored on a server and on
+a developer's computer. Uploading (<span class="emphasis">'pushing'</span>) is not required to save edits (<span class="emphasis">'commits'</span>).
+This allows the user to use Git while offline. Additionally, two users
+editing the same code will not encounter any errors until they attempt to push their commit
+to the server (repository/<span class="emphasis">'repo'</span>), at which point it is easy to resolve
+conflicts between the two commits. Each commit is linked to one or more commits which are
+the previous versions of the repository.</p><p>Git allows for easy development using multiple branches of a project. The default
+branch (main/master) is generally used for the latest project version which is available to users.
+Often, another branch is used while working on the next version of the project, which is merged
+into the main branch after it is done.
+New branches can be created from any commit and can be merged into any branch.
+It is possible to merge branches without deleting either. For example, if an urgent change
+is made directly to main, because it cannot wait for the next version to be finished,
+merging main into the development branch will not delete or modify main.
+(Merging branch main into dev will update dev with the changes from main.
+Merging dev into main will update main. Only the currently loaded branch is modified.)</p><h2>Transpiled Languages</h2><p>Many languages used in web development are not processed directly by a web browser or server.
+Instead, they are compiled into HTML, CSS or JavaScript. A transpiler is a compiler that
+converts code between human-readable languages, unlike compilers which convert code
+into executable files.</p><p>There are no files with the ".css", ".js" and ".html" extensions in the
+<a href="https://github.com/theo543/HTML-CSS-Js-Examples/tree/main/src">source files</a> for
+this website. Instead, ".scss", ".ts" and ".pug" files are transpiled into the standard languages
+at build time.</p><h3><a href="https://www.typescriptlang.org/">TypeScript</a></h3><p>TypeScript is a strongly typed version of JavaScript. In JavaScript, you can store
+any kind of data in a variable. In TypeScript, you declare what kind of data
+can be stored in each variable. This prevents errors such as using the text "false"
+instead of the boolean false value when calling a function i.e. <span class="code">element.classList.toggle("blue", "false")</span>
+would <em>enable</em> the "blue" class, because any non-empty string is converted to true.
+TypeScript would detect the error, and editor integration would highlight it even before
+compilation. Compilation erases type information, since JavaScript does not support
+such features, so TypeScript cannot prevent errors at runtime, but type-related errors
+can be found at compile-time if variables are not declared with overly-general types or
+using the 'any' type.</p><h3><a href="https://sass-lang.com/">SCSS</a></h3><p>SCSS is a <span class="emphasis">superset</span> of CSS (any CSS is valid SCSS) which adds better syntax
+for reusing code, mostly nested rules. For example:</p><p class="code">#password-change-window {
+    font-weight: bold;
+    button {
+        background-color: red;
+    }
+    input[type='text'] {
+        background-color: orange;
+    }
+}</p><p>This is converted to three CSS rules. If this was written directly in CSS, you would need
+to manually repeat the ID. When changing an ID or class name in CSS, it is much more likely
+to forget to update something than in SCSS. SCSS also allows defining blocks of code ("mixins") that
+can then be reused using include statements:</p><p class="code">@mixin breakpoint($type) {
+    @if $type == mobile {
+        @media (max-width: $mobile-width) {
+            @content;
+        }
+    } @else if $type == desktop {
+        @media not all and (max-width: $mobile-width) {
+            @content;
+        }
+    }
+}</p><br><p class="code">nav {
+    @include breakpoint(desktop) {
+        max-width: 60%;
+    }
+    background-color: yellow;
+}</p><p>This is used to write CSS that only applies to mobile or desktop based on screen width.</p><h3><a href="https://pugjs.org/">Pug</a></h3><p>Pug is a templating engine, which can also be compiled at build-time.
+It can be used to dynamically generate HTML based on the user's request.
+Pug code is similar to HTML; It uses indentation instead of { brackets,
+has shortcuts for the class and ID attributes, and other syntax shortcuts for common purposes. Example:</p><p class="code">#main-section This will become a div with the ID main-section!
+    p.center-text.blue: strong.
+        Welcome to the website!
+        This text has the center-text and blue classes and is
+        bolded by the &lt;strong&gt; tag!
+    p.
+        Click #[a(href=&quot;https://google.com&quot;) here] to open Google!
+        This paragraph has a link tag in it!
+    p(style="white-space:pre;").
+        The first two paragraphs will display as one line,
+        because line breaks and whitespace are limited
+        to one space by default. However, this
+        paragraph will still be five lines in the browser.
+        This  line  will  keep  the  double  spaces.</p><p>It also supports mixins, similar to SCSS, which is the main reason I used it for this website.
+The &lt;head&gt; tag, links section, and page div are all defined in mixins. This means that if
+a script needs to be added to each page from the header, only one file needs to be changed.
+Additionally, Pug allows JavaScript code to run when compiling. For example,
+the bolded link in this page is automatically detected using code which checks if the
+link target equals the name of the file being compiled. The popup to visit
+the original website does not appear here because this webpage has no original version;
+This is not detected in JavaScript but in Pug, the script simply checks if the window
+exists and enhances it if it does.</p><h2><a href="https://babeljs.io/">Babel</a></h2><p>Babel is a tool used to transform JavaScript code based on plugins.
+This website is compiled using a standard plugin preset for compatibility which rewrites
+code to be more compatible with old browsers.
+Automatically includes necessary core-js features.</p><h2><a href="https://postcss.org/">PostCSS</a></h2><p>Similar to Babel, uses plugins to transform CSS. This website uses a compatibility
+plugin which adds prefixes to properties (i.e. -moz-box-sizing for Firefox).
+Usually, browsers use prefixes when first implementing experimental additions to the CSS
+standards, and remove the prefix once the feature is finalized. On up-to-date browsers
+the prefixed properties do nothing, but on old browsers they are needed. It also uses
+a plugin that minimized file size.</p><h2><a href="https://github.com/kangax/html-minifier">html-minifier</a></h2><p>A standalone tool that minimizes HTML file sizes.</p><h2><a href="https://browsersync.io/">Browsersync</a></h2><p>A testing tools which creates a local server that refreshes the browser
+automatically when a file is modified.</p><h2><a href="https://www.npmjs.com/">npm</a></h2><p>Npm is the package manager used by Node.js, which is a JavaScript runtime that runs
+JavaScript on the server. This website is static and does not use server-side scripts,
+however npm is also used to install packages used only for development written in Node.js JavaScript.
+Every other tool is installed and managed through npm.</p><h2><a href="https://gulpjs.com/">Gulp</a></h2><p>A build automation tool. Executes tasks defined using Node.js JavaScript and provides
+tools for passing files between different programs using plugins. For example,
+the Pug task first takes all files that do not start with "_" (the "_mixins.pug" file is the only one that does),
+renames the extension to ".html", uses a plugin to expose the file name to the Pug compiler
+(used for the bolded link), compiles the files, passes them to html-minifier, then writes
+them to the output folder. Another task runs a series of commands that copies the first Git
+commit to a subfolder named "original". Gulp allows for serial and parallel tasks.</p><p>The 'build' task, for example, generates the compiled website, however the default
+task runs 'build', then also opens the output with Browsersync and watches files for changes.
+The 'build' tasks first deletes previous compiled output, then runs several compiling tasks
+simultaneously. Gulp will detect when all 'build' tasks are done, then the default task starts a Browsersync
+test server and then a watch task that runs indefinitely. The watch task calls
+'build' again whenever the project is edited and refreshes Browsersync after 'build' is done.</p><h2><a href="https://www.npmjs.com/package/webpack-stream">Webpack</a></h2><p>Used to bundle JavaScript code into a website's <span class="emphasis">entry points</span>, meaning the JavaScript files referenced
+directly from script tags. This allows splitting long files into many files which will be merged into
+the entry points, however it also allows using npm modules in client-side code,
+such as the core-js include statements generated by babel which refer to a local module.
+Webpack merges the module into the script files, extracts shared code into "shared.js" to avoid duplicating
+core-js for each file, removes unused code and minimized the generated files.</p><p>Webpack can be used to process any kind of file when using the correct plugins, such as HTML files,
+TypeScript, assets such as images, CSS etc. Although this project only uses Webpack for core-js,
+many projects use Webpack without Gulp, since it supports complex functions such as compiling TypeScript,
+minimizing file size for CSS and HTML, optimizing image files, etc.
+However, it cannot perform tasks such as exporting the original version of this website from Git,
+since Webpack can only transform already existing files.</p><h2><a href="https://github.com/features/actions">GitHub Actions</a></h2><p>A build and test tool that runs code when a commit is pushed to a GitHub repo. Used to run 'build' with Gulp and commit the result to another branch.</p><h2><a href="https://pages.github.com/">GitHub Pages</a></h2><p>A free hosting service provided by GitHub. Updates automatically when the built website is pushed to the
+<a href="https://github.com/theo543/HTML-CSS-Js-Examples/tree/pages/docs">'pages'</a> branch by GitHub Actions.</p></main><div class="flex-side"></div></body></html>

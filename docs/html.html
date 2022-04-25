@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A website I made to improve my knowledge of web programming and modern web development tools."><link rel="icon" href="images/icon-html.svg"><link rel="stylesheet" href="style.css"><title>HTML - Web Languages</title><script src="scripts/shared.js" defer="defer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dom4/2.1.6/dom4.max.min.js" integrity="sha512-7+YfSs7MPZo0SmtHjG+W3EDBluxz2XFa0ia2K55Ss/ujtqx0Z91HtpS7stYdqVGcP2TRtwL1ArKE4hvX4hsN6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" defer="defer"></script><script src="scripts/themeToggle.js" defer="defer"></script><script src="scripts/showOriginal.js" defer="defer"></script><script src="scripts/htmlToggle.js" defer="defer"></script><script src="scripts/addMDNLinks.js" defer="defer"></script></head><body><div class="flex-side"><div class="page mini-page" id="show-original" data-iframe-target="original/html.html"><p>View the original version of this page!</p><p class="text-center"><a href="original/html.html">Load</a></p></div></div><main class="page"><br><nav class="links"><a href="index.html">Home</a><a href="html.html" id="current">HTML</a><a href="css.html">CSS</a><a href="js.html">JavaScript</a><a href="tools.html">Tools</a></nav><br><h1 class="text-center">HTML</h1><br><p>HTML (HyperText Markup Language) is a web language used to make web pages.
+HTML elements define the content of a web page.
+The tree of nested elements that make up a web page is called the <span class="emphasis">Document Object Model</span>.</p><p>An important property of elements is their <span class="emphasis">display</span> property. There are several ways an element could display on the page.
+This is often changed in CSS. Some possible values are:</p><ol><li><span class="emphasis">None</span> - Does not display at all. Used to hide elements from CSS.</li><li><span class="emphasis">Block</span> - Will create a new line and expand horizontally as much as possible.
+Most block display elements cannot be nested, even if changed to inline with CSS.
+Elements such as span and div are considered <span class="emphasis">grouping elements</span> which can be nested.
+Setting <span class="code-value">display</span> in CSS does not change this.
+(The HTML syntax is never altered by CSS.)</li><li><span class="emphasis">Inline</span> - Does not create a new line. Only takes as much space as needed and is part of the normal text flow.</li><li><span class="emphasis">Flex</span> - Makes the element a block-level flexible box (flexbox)
+container. A flexbox element will attempt to align
+and resize its contents across a set axis according to set parameters and proportions. The links at
+the top of this page are inside a flexbox
+container that aligns them horizontally with equal space between them.
+This property is set using CSS.</li><li><span class="emphasis">Table, table-cell, table-column, table-row, etc.</span> make the elements display as if they were in a table.</li></ol><p></p><p>HTML elements, aside from their standard behaviour and CSS properties, have <span class="emphasis">semantic</span> meaning.
+The nav element, for example, is used for the navigation section (links to other pages). Even though
+this element is identical to a div in the browser, it is useful for other programs
+which are attempting to extract data from the web page, such as screen readers and search engines.</p><p>Most elements could be implemented using divs, spans, CSS and sometimes JavaScript, but
+it is better to use elements with the proper semantic meaning. Sometimes these elements have behaviour
+which cannot be completely replicated with JavaScript, but even when they don't it is important
+for code readability - if you see a "nav" element you immediately know what it is for, unlike
+a div with some CSS styling - and accessibility - screen readers often have to rely on semantic tags
+and the general structure of a web page to extract information from it. It is very hard for a program
+to parse a website which uses nonstandard "faked" elements, such as a div with a click handler
+which changes color when clicked instead of a button. This would not be recognised as an interactive
+element and would not be accessible by keyboard users either. Using HTML attributes such as
+<span class="code-value">tabindex="0", role="button"</span>, some of these issues can be resolved,
+however this will not support enter/space key presses, is unnecessarily complicated and therefore error-prone.</p><table class="mdn-link-target-container" id="html-table" data-mdn-link-selector="tr td:first-child"><caption>This website uses elements such as:</caption><tr><th>Tag(s)</th><th>Description</th><th>Example</th></tr><tr><td>html</td><td>Page root. All other elements are contained in the html element.</td><td class="NA-box">N/A</td></tr><tr><td>body</td><td>Contains visible elements.</td><td class="NA-box">N/A</td></tr><tr><td>head</td><td class="ignore">Contains metadata elements.</td><td class="NA-box">N/A</td></tr><tr><td>title</td><td class="ignore">Sets the page title.</td><td class="code-cell">&lt;title&gt;HTML - Web Languages&lt;/title&gt;</td></tr><tr><td>link</td><td class="ignore">Links resources such as page icons or CSS files to the page.</td><td class="code-cell">&lt;link rel="stylesheet" href="style.css"&gt;</td></tr><tr><td>meta</td><td class="ignore">Contains misc. metadata.</td><td class="code-cell">&lt;meta charset="utf-8"&gt;</td></tr><tr><td>div</td><td>Bundles elements placed inside into a single element. Very common.
+Has no meaning in pure HTML; Is used with CSS or JavaScript.</td><td class="code-cell">&lt;div&gt;
+    &lt;p&gt;Text 1&lt;/p&gt;
+    &lt;p&gt;Text 2&lt;/p&gt;
+&lt;/div&gt;</td></tr><tr><td>nav</td><td>Represents the navigation section of a website.</td><td class="code-cell">&lt;nav&gt;
+    &lt;a href="index.html"&gt;Home Page&lt;a&gt;
+&lt;/nav&gt;</td></tr><tr><td>main</td><td>Represents the main section of a website.</td><td class="code-cell">&lt;main&gt;Text.....&lt;/main&gt;</td></tr><tr><td>caption</td><td>The caption of a table. Is displayed above the table, but the tag is inside it.</td><td class="code-cell">&lt;table&gt;
+    &lt;caption&gt;Empty Table&lt;/caption&gt;
+&lt;/table&gt;</td></tr><tr><td>a</td><td>Links to the address specified by the element&apos;s "href" attribute.</td><td class="code-cell">&lt;a href="index.html"&gt;Home Page&lt;/a&gt;</td></tr><tr><td>h1<br>h2<br>h3<br>h4<br>h5<br>h6</td><td>The elements h1, h2, ..., h6 define levels of page headings. h1 is the largest and h6 is just bold text.</td><td class="code-cell">&lt;h1&gt;Felines&lt;/h1&gt;
+&lt;h2&gt;Cats&lt;/h2&gt;
+&lt;h3&gt;Persian&lt;/h3&gt;
+&lt;h4&gt;Persian Kittens&lt;/h4&gt;
+&lt;h3&gt;Siamese&lt;/h3&gt;
+&lt;h2&gt;Big Cats&lt;/h2&gt;
+&lt;h3&gt;Lions&lt;/h3&gt;
+&lt;h1&gt;Canines&lt;/h1&gt;</td></tr><tr><td>p</td><td>Defines a block-level paragraph.</td><td class="code-cell">&lt;p&gt;Text goes here.&lt;/p&gt;</td></tr><tr><td>strong</td><td class="ignore">Makes text bold. Signifies importance.</td><td class="code-cell">This document is about<br>&lt;strong&gt;HTML&lt;/strong&gt;.</td></tr><tr><td>del</td><td class="ignore">Used for deleted text.</td><td class="code-cell">Last updated in &lt;del&gt;2010&lt;/del&gt; 2020</td></tr><tr><td>table<br>tr<br>td<br>th</td><td>The table element is the root element of an HTML table.
+Rows are defined using tr ("table row") and th ("table header").
+Cells are defined by the td ("table data") element.</td><td class="code-cell">&lt;table&gt;
+    &lt;th&gt;
+        &lt;td&gt;Cell 1 Header&lt;/td&gt;
+        &lt;td&gt;Cell 2 Header&lt;/td&gt;
+    &lt;/th&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Cell 1 Row 1&lt;/td&gt;
+        &lt;td&gt;Cell 2 Row 1&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</td></tr><tr><td>br</td><td>Inserts a page break. Page breaks and multiple spaces directly in HTML do nothing
+unless using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre">preformatted text element</a>
+or CSS <span class="code-value">white-space</span> property.</td><td class="code-cell">Text 1&lt;br&gt;Text 2</td></tr><tr><td>span</td><td>Does nothing. Useful for isolating text from paragraphs to style with CSS. Grouping element.</td><td class="code-cell">&lt;p&gt;
+    normal text
+    &lt;br&gt;
+    &lt;span class="red"&gt;red text&lt;/span&gt;
+    &lt;br&gt;
+    normal text
+&lt;/p&gt;</td></tr><tr><td>button</td><td>Makes a button.</td><td class="code-cell">&lt;button onclick="start();"&gt;
+    Start
+&lt;/button&gt;</td></tr><tr><td>script</td><td class="ignore">Used to add JavaScript to a page.</td><td class="code-cell">&lt;script&gt;
+    console.log("test");
+&lt;/script&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</td></tr><tr><td>ul<br>ol<br>li</td><td>Used to define lists. li is a block-level list item. ol and ul correspond to ordered (with numbers)
+and unordered lists.</td><td class="code-cell">&lt;ul&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+    &lt;li&gt;Another list item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;List item 1&lt;/li&gt;
+    &lt;li&gt;List item 2&lt;/li&gt;
+&lt;/ol&gt;</td></tr><tr><td>input<br>form<br>label</td><td>Defines ways to input information such as checkboxes, text inputs, submit buttons, etc. The form
+element can send all data from
+the input elements inside it to a server when submitted without JavaScript.</td><td class="code-cell">&lt;form action="purchase_processing.php"&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" name="purchase"&gt;
+        Agree to purchase?
+    &lt;/label&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</td></tr><tr><td>img</td><td>Inserts an image, as well as alternative text for screen readers or if a network error blocks the image.</td><td class="code-cell">&lt;img src="cat3.png" alt="A black cat."&gt;</td></tr><tr><td>iframe</td><td class="ignore">Embeds another document within the current page. Iframes from the same domain
+can be accessed by JavaScript. Many servers are configured to tell
+browsers not to embed their pages in foreign websites, since iframes embedding login/payment
+pages can be made invisible to trick the user into clicking an "Accept" button.</td><td class="code-cell">&lt;iframe src="index.html"&gt;&lt;/iframe&gt;</td></tr></table><p class="emphasis">Note: The radio buttons work by assigning CSS classes with JavaScript.</p></main><div class="flex-side"></div></body></html>

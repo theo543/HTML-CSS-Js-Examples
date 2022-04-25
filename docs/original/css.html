@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlroot">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico">
+    <link id="csstag" rel="stylesheet" href="style.css">
+    <title>CSS - Web Languages</title>
+</head>
+
+<body>
+    <div class="page">
+        <br>
+        <div class="links">
+            <a href="home.html">Home</a>
+            <a href="html.html">HTML</a>
+            <a href="css.html" id="current">CSS</a>
+            <a href="js.html">JavaScript</a>
+        </div>
+        <br>
+        <h1 class="title">
+            CSS
+        </h1>
+        <br>
+        <p>
+            CSS (Cascading Style Sheets) is a web language used to style web pages.
+            It is added to a web page by linking a CSS file using the "link" tag.
+            Every web page on this site contains the following tag: <span class="code">&lt;link rel="stylesheet"
+                href="style.css"&gt;</span>.
+            It tells the browser to load the <span class="code">style.css</span> file and apply it to this web page.
+        </p>
+        <p>
+            A <span class="emphasis">CSS Rule</span> is some CSS code that is only applied to certain HTML tags.
+            <br>
+            A <span class="emphasis">CSS Selector</span> determines which tags a rule is applied to.
+            <br>
+        </p>
+        <p>
+            If an element is targeted by several rules, the rules will be merged.
+            If the rules conflict, more specific rules will override less specific rules.
+            A rule that makes all text blue will be overriden by a rule that makes a
+            specific paragraph black.
+            A rule that makes text bold will merge with a rule that makes a specific paragraph red.
+        </p>
+        <p>
+            <span class="code">style.css</span> contains the following CSS rules:
+            <br>
+        </p>
+        <button onclick="ToggleAllCSS();">Click here to toggle all CSS on this page on/off!</button>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>
+                    Target
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Toggle
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Root elements
+                </td>
+                <td>
+                    Some browsers add a tiny gap at the start of the page. This rule removes it.
+                </td>
+                <td class="toggle" data-disabler="showgap">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    All text
+                </td>
+                <td>
+                    Sets the font to Arial.
+                </td>
+                <td class="toggle" data-disabler="removefont">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Root elements
+                </td>
+                <td>
+                    Sets the page's blue background.
+                </td>
+                <td class="toggle" data-disabler="nobackground">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Tables and all components of tables
+                </td>
+                <td>
+                    Adds a border to this table. Touching borders are set to merge.
+                </td>
+                <td class="toggle" data-disabler="nomaintableborder">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    First cell of each row of all tables
+                </td>
+                <td>
+                    Centers text.
+                </td>
+                <td class="toggle" data-disabler="noalignfirstcell">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "page" class
+                </td>
+                <td>
+                    Defines a "page" class. This class makes the white background this text is on expand vertically
+                    to
+                    fill the page,
+                    adds a shadow, centers it, sets a maximum width and adds padding.
+                </td>
+                <td class="toggle" data-disabler="nopage">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "title" class
+                </td>
+                <td>
+                    Defines a "title" class. This class centers the page title and sets margin (empty space around
+                    the
+                    element) to 0.
+                </td>
+                <td class="toggle" data-disabler="notitle">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "emphasis" class
+                </td>
+                <td>
+                    Defines an "emphasis" class. This class makes all text with the class italic, blue, bigger and
+                    changes it's font.
+                </td>
+                <td class="toggle" data-disabler="noemphasis">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "code" class
+                </td>
+                <td>
+                    Adds a radial gradient background, rounded corners,
+                    horizontal
+                    padding, makes text green, makes the element always display as a rectangle and slightly
+                    shrinks the text so gradients in adjactent lines can't touch.
+                </td>
+                <td class="toggle" data-disabler="nocode">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "notoggle" class.
+                </td>
+                <td>
+                    This class sets a gray background and centers text.
+                </td>
+                <td class="toggle" data-disabler="nonotoggle">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "toggle" class
+                </td>
+                <td>
+                    This class sets a background, centers text, makes it blue and sets the cursor when hovering over the
+                    element
+                    to pointer.
+                </td>
+                <td class="toggle" data-disabler="notoggleable">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "toggle" class that are being clicked.
+                </td>
+                <td>
+                    Changes background to red.
+                </td>
+                <td class="toggle" data-disabler="notoggleableonclick">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The element with ID "csstest"
+                </td>
+                <td>
+                    Hides the element. The only purpose of the element is testing the CSS toggle scripts.
+                </td>
+                <td class="toggle" data-disabler="donottest">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Element with class of "links"
+                </td>
+                <td>
+                    This class, in conjunction with the following rule, horizontally aligns the elements inside the
+                    container element. Also adds a bottom border.
+                </td>
+                <td class="toggle" data-disabler="disableflexbox">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements inside element with class of "links"
+                </td>
+                <td>
+                    Horizontally aligns the elements in conjunction with the previous rule.
+                </td>
+                <td class="toggle" data-disabler="disableflexboxalign">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The link element with ID of "current"
+                </td>
+                <td>
+                    Disables the link and makes it bold.
+                </td>
+                <td class="toggle" data-disabler="nocurrent">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Page root
+                </td>
+                <td>
+                    Makes the vertical scrollbar always show even if not needed so there is no alignment change between
+                    short pages and long pages.
+                </td>
+                <td class="toggle" data-disabler="noforcescroll">
+                    Toggle Rule
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Table cells with class "codecell"
+                </td>
+                <td>
+                    Makes text green, adds gradient similar to code class and shrinks text.
+                </td>
+                <td class="notoggle">
+                    Not used on this page
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    First cell of each row of tables with class "compressfirst"
+                </td>
+                <td>
+                    Makes the cell's width as small as possible without breaking up words.
+                </td>
+                <td class="notoggle">
+                    Not used on this page
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "highlighted" class
+                </td>
+                <td>
+                    Highlights element and adds a border. Overrides all other rules.
+                </td>
+                <td class="notoggle">
+                    Not used on this page
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elements with "hide" class
+                </td>
+                <td>
+                    Hides element. Overrides all other rules.
+                </td>
+                <td class="notoggle">
+                    Not used on this page
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Element with "resetter" id
+                </td>
+                <td>
+                    Adds rounded corners, black background, white text, sets cursor to pointer and adds margin and padding. Element will display relative 
+                    to browser window, unaffected by scrolling.
+                </td>
+                <td class="notoggle">
+                    Not used on this page
+                </td>
+            </tr>
+        </table>
+        <span id="csstest">CSS test</span>
+        <p class="emphasis">
+            Note: All toggleable properties are also set to only do anything if the page root does NOT have a
+            specific "disabler class".
+            These classes are added and removed using JavaScript.
+        </p>
+    </div>
+    <script src="csstoggleall.js"></script>
+    <script src="csstoggleselective.js"></script>
+</body>
+
+</html>

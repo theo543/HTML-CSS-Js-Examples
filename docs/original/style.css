@@ -1,0 +1,132 @@
+html:not(.showgap), html:not(.showgap) body {
+    margin: 0;
+}
+
+html:not(.noforcescroll) {
+    overflow-y: scroll;
+}
+
+html:not(.removefont) * {
+    font-family: arial;
+}
+
+html:not(.nobackground) body {
+    background: #29436e;
+}
+
+html:not(.noalignfirstcell) table td:nth-child(1) {
+    text-align: center;
+}
+
+html:not(.nomaintableborder) table, html:not(.nomaintableborder) table *:not(.removeborder) {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+html:not(.nopage) .page {
+    min-height: 100vh;
+    min-width: 400px;
+    max-width: 60%;
+    padding: 0 10px;
+    margin: auto;
+    background: #ebebeb;
+    box-shadow: 0px 0px 30px 50px #ebebeb;
+}
+
+html:not(.notitle) .title {
+    text-align: center;
+    margin: 0;
+}
+
+html:not(.noemphasis) .emphasis {
+    font-style: italic;
+    font-family: garamond;
+    font-size: 120%;
+    color: #1d2edb;
+}
+
+html:not(.nocode) .code {
+    display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
+    color: #33ff00;
+    background: black;
+    background: radial-gradient(#002902 30%, #3a5c04 70%, #797707 100%);
+    border-radius: 10px;
+    padding: 0 5px;
+    font-size: 95%;
+}
+
+td.codecell {
+    color: #33ff00;
+    background: black;
+    background: radial-gradient(#00071a 30%, #01302c);
+    white-space: nowrap;
+    font-size: 80%;
+    height: 40px;
+}
+
+html:not(.nonotoggle) .notoggle {
+    background: #3d3d3d;
+    color: black;
+    text-align: center;
+}
+
+html:not(.notoggleable) .toggle {
+    background: #49e28e;
+    color: blue;
+    cursor: pointer;
+    text-align: center;
+}
+
+html:not(.notoggleableonclick) .toggle:active {
+    background: red;
+}
+
+html:not(.donottest) #csstest {
+    display: none;
+}
+
+html:not(.disableflexbox) .links {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+html:not(.disableflexboxalign) .links a {
+    margin: auto;
+}
+
+html:not(.nocurrent) a#current {
+    pointer-events: none;
+    cursor: default;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table.compressfirst tr td:nth-child(1) {
+    width: 1px;
+    white-space: normal;
+}
+
+.highlighted {
+    background: rgb(0, 225, 255) !important;
+    color: #ff0000 !important;
+    border: 3px solid #0000ff7a !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+#resetter {
+    position: fixed;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
