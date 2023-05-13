@@ -2,27 +2,48 @@ name: Pages Build
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - "README.md"
+      - "README.txt"
+
   workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build:
-    name: Build GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: windows-latest
     steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 17.5.0
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Build and Commit
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '>=18.0'
+      - name: Build
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "<>"
-          git branch -f pages main
-          git checkout pages
           npm ci
-          git rm docs -f -r --ignore-unmatch
-          npx gulp-cli build
-          git add docs -f
-          git commit -m "GitHub Actions"
-          git push origin pages -f
+          npx gulp build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'docs'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
